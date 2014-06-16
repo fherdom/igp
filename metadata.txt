@@ -1,0 +1,39 @@
+# This file contains metadata for your plugin. Beginning
+# with version 1.8 this is the preferred way to supply information about a
+# plugin. The current method of embedding metadata in __init__.py will
+# be supported until version 2.0
+
+# This file should be included when you package your plugin.
+
+# Mandatory items:
+
+
+[general]
+name=IGP
+qgisMinimumVersion=2.0
+description=The plugin allows you to generate ...
+version=1.0
+author=Félix José Hernández
+email=contacto@felixjosehernandez.es
+about=The plugin allows you to generate ...
+
+# end of mandatory metadata
+
+# Optional items:
+
+# Uncomment the following line and add your changelog entries:
+changelog=add button in toolbar and new dialog
+
+# tags are comma separated with spaces allowed
+tags=search, ide, canaray islands, canary, spain
+
+homepage=http://felixjosehernandez.es/qgis/descargas.html
+tracker=https://github.com/fherdom/IGP/issues
+repository=https://github.com/fherdom/IGP
+icon=icon.png
+# experimental flag
+experimental=False
+
+# deprecated flag (applies to the whole plugin, not just a single version
+deprecated=False
+
