@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_igpdialog.ui'
 #
-# Created: Mon Jun 16 15:25:52 2014
+# Created: Mon Jun 16 22:58:08 2014
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -72,7 +72,7 @@ class Ui_IGPDialog(object):
         self.groupBox_7.setTitle(_fromUtf8(""))
         self.groupBox_7.setObjectName(_fromUtf8("groupBox_7"))
         self.layoutWidget_2 = QtGui.QWidget(self.groupBox_7)
-        self.layoutWidget_2.setGeometry(QtCore.QRect(0, 0, 235, 52))
+        self.layoutWidget_2.setGeometry(QtCore.QRect(0, 0, 252, 56))
         self.layoutWidget_2.setObjectName(_fromUtf8("layoutWidget_2"))
         self.gridLayout_3 = QtGui.QGridLayout(self.layoutWidget_2)
         self.gridLayout_3.setMargin(0)
@@ -91,7 +91,7 @@ class Ui_IGPDialog(object):
         self.radiod.setObjectName(_fromUtf8("radiod"))
         self.gridLayout_3.addWidget(self.radiod, 1, 1, 1, 1)
         self.layoutWidget = QtGui.QWidget(self.groupBox_7)
-        self.layoutWidget.setGeometry(QtCore.QRect(0, 55, 301, 128))
+        self.layoutWidget.setGeometry(QtCore.QRect(0, 55, 301, 136))
         self.layoutWidget.setObjectName(_fromUtf8("layoutWidget"))
         self.gridLayout_2 = QtGui.QGridLayout(self.layoutWidget)
         self.gridLayout_2.setMargin(0)
@@ -112,28 +112,33 @@ class Ui_IGPDialog(object):
         self.tabWidget.addTab(self.tab002, _fromUtf8(""))
         self.tab003 = QtGui.QWidget()
         self.tab003.setObjectName(_fromUtf8("tab003"))
-        self.verticalLayoutWidget = QtGui.QWidget(self.tab003)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(25, 20, 416, 66))
-        self.verticalLayoutWidget.setObjectName(_fromUtf8("verticalLayoutWidget"))
-        self.verticalLayout_3 = QtGui.QVBoxLayout(self.verticalLayoutWidget)
-        self.verticalLayout_3.setMargin(0)
-        self.verticalLayout_3.setObjectName(_fromUtf8("verticalLayout_3"))
-        self.horizontalLayout = QtGui.QHBoxLayout()
-        self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
-        self.label = QtGui.QLabel(self.verticalLayoutWidget)
+        self.gridLayoutWidget = QtGui.QWidget(self.tab003)
+        self.gridLayoutWidget.setGeometry(QtCore.QRect(10, 10, 421, 131))
+        self.gridLayoutWidget.setObjectName(_fromUtf8("gridLayoutWidget"))
+        self.gridLayout = QtGui.QGridLayout(self.gridLayoutWidget)
+        self.gridLayout.setMargin(0)
+        self.gridLayout.setObjectName(_fromUtf8("gridLayout"))
+        self.label = QtGui.QLabel(self.gridLayoutWidget)
+        self.label.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.label.setObjectName(_fromUtf8("label"))
-        self.horizontalLayout.addWidget(self.label)
-        self.lineEdit = QtGui.QLineEdit(self.verticalLayoutWidget)
+        self.gridLayout.addWidget(self.label, 0, 0, 1, 1)
+        self.lineEdit = QtGui.QLineEdit(self.gridLayoutWidget)
         self.lineEdit.setObjectName(_fromUtf8("lineEdit"))
-        self.horizontalLayout.addWidget(self.lineEdit)
-        self.verticalLayout_3.addLayout(self.horizontalLayout)
-        self.pushButton = QtGui.QPushButton(self.verticalLayoutWidget)
+        self.gridLayout.addWidget(self.lineEdit, 0, 1, 1, 1)
+        self.label_2 = QtGui.QLabel(self.gridLayoutWidget)
+        self.label_2.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
+        self.label_2.setObjectName(_fromUtf8("label_2"))
+        self.gridLayout.addWidget(self.label_2, 1, 0, 1, 1)
+        self.lineEdit_2 = QtGui.QLineEdit(self.gridLayoutWidget)
+        self.lineEdit_2.setObjectName(_fromUtf8("lineEdit_2"))
+        self.gridLayout.addWidget(self.lineEdit_2, 1, 1, 1, 1)
+        self.pushButton = QtGui.QPushButton(self.gridLayoutWidget)
         self.pushButton.setObjectName(_fromUtf8("pushButton"))
-        self.verticalLayout_3.addWidget(self.pushButton)
+        self.gridLayout.addWidget(self.pushButton, 2, 1, 1, 1)
         self.tabWidget.addTab(self.tab003, _fromUtf8(""))
 
         self.retranslateUi(IGPDialog)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(IGPDialog)
 
     def retranslateUi(self, IGPDialog):
@@ -149,7 +154,8 @@ class Ui_IGPDialog(object):
         self.btnClipboard.setText(QtGui.QApplication.translate("IGPDialog", "Copiar al portapapeles", None, QtGui.QApplication.UnicodeUTF8))
         self.btnGo.setText(QtGui.QApplication.translate("IGPDialog", "Ir", None, QtGui.QApplication.UnicodeUTF8))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab002), QtGui.QApplication.translate("IGPDialog", "Coordenadas", None, QtGui.QApplication.UnicodeUTF8))
-        self.label.setText(QtGui.QApplication.translate("IGPDialog", "TextLabel", None, QtGui.QApplication.UnicodeUTF8))
-        self.pushButton.setText(QtGui.QApplication.translate("IGPDialog", "PushButton", None, QtGui.QApplication.UnicodeUTF8))
+        self.label.setText(QtGui.QApplication.translate("IGPDialog", "Viento", None, QtGui.QApplication.UnicodeUTF8))
+        self.label_2.setText(QtGui.QApplication.translate("IGPDialog", "Temperatura", None, QtGui.QApplication.UnicodeUTF8))
+        self.pushButton.setText(QtGui.QApplication.translate("IGPDialog", "Calcular IGP", None, QtGui.QApplication.UnicodeUTF8))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab003), QtGui.QApplication.translate("IGPDialog", "IGP", None, QtGui.QApplication.UnicodeUTF8))
 

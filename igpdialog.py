@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
 /***************************************************************************
- IDECanariasDialog
+ IGPDialog
                                  A QGIS plugin
- Perform querys in local toponimia
+ 
                              -------------------
         begin                : 2014-05-14
         copyright            : (C) 2014 by Felix Jose Hernandez
@@ -90,7 +90,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         
         baseDirectory = os.path.dirname(__file__)
         fillPath = lambda x: os.path.join(baseDirectory, x)
-        staticPath, templatePath, databasePath, filenamelog = map(fillPath, ['static', 'templates', '.database', 'idecanarias.log'])
+        staticPath, templatePath, databasePath, filenamelog = map(fillPath, ['static', 'templates', '.database', 'igp.log'])
         try:
             databaseName, databaseUser, databasePassword, databaseHost = open(databasePath).read().splitlines()
             self.conn_string = "host='%s' dbname='%s' user='%s' password='%s'" % (databaseHost, databaseName, databaseUser, databasePassword)
@@ -113,7 +113,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
     def alert(self, msg):
         """
         """
-        QtGui.QMessageBox.warning(self, u'Búsquedas IDECANARIAS', msg)
+        QtGui.QMessageBox.warning(self, u'IGP', msg)
         
     def __setRadiodms(self, checked):
         """
@@ -340,7 +340,7 @@ xsi:schemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.
                 self.canvas.refresh()
                 
             text = ""
-            text, ok = QtGui.QInputDialog.getText(self, u'IDECanarias', u'Introduzca una descripción:')
+            text, ok = QtGui.QInputDialog.getText(self, u'IGP', u'Introduzca una descripción:')
             
             # add a feature
             fields = self.layer.pendingFields()
@@ -689,6 +689,6 @@ xsi:schemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.
 if __name__ == '__main__':
     import sys
     app = QtGui.QApplication(sys.argv)
-    dlg = IDECanariasDialog()
+    dlg = IGPDialog()
     dlg.show()
     sys.exit(app.exec_())        

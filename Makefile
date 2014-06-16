@@ -1,11 +1,11 @@
 #/***************************************************************************
-# IDECanarias
+# IGP
 #
-# Perform querys in local toponimia
+# 
 #                             -------------------
 #        begin                : 2014-05-14
 #        copyright            : (C) 2014 by Felix Jose Hernandez
-#        email                : fhernandeze@grafcan.es
+#        email                : contacto@felixjosehernandez.es
 # ***************************************************************************/
 #
 #/***************************************************************************
@@ -25,19 +25,19 @@ QGISDIR=.qgis2
 # Makefile for a PyQGIS plugin
 
 # translation
-SOURCES = idecanarias.py ui_idecanarias.py __init__.py idecanariasdialog.py
-#TRANSLATIONS = i18n/idecanarias_en.ts
+SOURCES = igp.py ui_igpdialog.py __init__.py igpdialog.py
+#TRANSLATIONS = i18n/igp_en.ts
 TRANSLATIONS =
 
 # global
 
-PLUGINNAME = idecanarias
+PLUGINNAME = igp
 
-PY_FILES = idecanarias.py idecanariasdialog.py __init__.py
+PY_FILES = igp.py igpdialog.py __init__.py
 
 EXTRAS = icon.png metadata.txt
 
-UI_FILES = ui_idecanarias.py
+UI_FILES = ui_igpdialog.py
 
 RESOURCE_FILES = resources_rc.py
 

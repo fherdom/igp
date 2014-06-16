@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 """
 /***************************************************************************
- IDECanarias
+ IGP
                                  A QGIS plugin
- Perform querys in local toponimia
                              -------------------
-        begin                : 2014-05-14
+        begin                : 2014-06-14
         copyright            : (C) 2014 by Felix Jose Hernandez
-        email                : fhernandeze@grafcan.es
+        email                : contacto@felixjosehernandez.es
  ***************************************************************************/
 
 /***************************************************************************
@@ -22,6 +21,6 @@
 """
 
 def classFactory(iface):
-    # load IDECanarias class from file IDECanarias
-    from idecanarias import IDECanarias
-    return IDECanarias(iface)
+    #
+    from igp import IGP
+    return IGP(iface)
