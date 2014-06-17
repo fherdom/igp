@@ -40,6 +40,7 @@ from ui_igpdialog import Ui_IGPDialog
 
 from utils import *
 
+
 class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
 
     def __init__(self, iface):
@@ -87,7 +88,11 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         self.connect(self.ui.txtCoordinates, SIGNAL("returnPressed(void)"),     self.onClick_btnGo)
         self.connect(self.ui.btnClipboard, SIGNAL("clicked()"),                 self.onClick_btnClipboard)
         #self.connect(self.ui.btnLoad, SIGNAL("clicked()"),                      self.onClick_btnLoad)
-        
+
+        # TODO: 140614
+        self.connect(self.ui.btnReport, SIGNAL("clicked()"), self.onclickbtnreport)
+
+
         baseDirectory = os.path.dirname(__file__)
         fillPath = lambda x: os.path.join(baseDirectory, x)
         staticPath, templatePath, databasePath, filenamelog = map(fillPath, ['static', 'templates', '.database', 'igp.log'])
@@ -101,6 +106,10 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         self.DEBUG = True
         self.filenamelog = filenamelog
         self.Log("init app")
+
+        # TODO: 140617, remove tabs
+        self.ui.tabWidget.removeTab(2)
+        self.ui.tabWidget.removeTab(1)
         
     def Log(self, msg):
         """
@@ -154,7 +163,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         rowscount = len(rows)
         
         if rowscount == 0:
-            QMessageBox.warning(self, "Aviso", 'Debe seleccionar algún elemento')
+            #QMessageBox.warning(self, "Aviso", 'Debe seleccionar algún elemento')
             return False
         
         if rowscount == 1:
@@ -685,6 +694,56 @@ xsi:schemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.
         
         self.ui.lblResult.setText(self.tr(u'%d lugar(es) encontrados (Haz doble click para ver su localización)' % len(self.lid)))
         self.ui.tblResult.resizeColumnsToContents()
+
+    def onclickbtnreport(self):
+        """
+        :return: pdf
+        """
+
+        """
+        text_file_path = open('/tmp/hX6582.gml').read()
+        doc = QtGui.QTextDocument(text_file_path)
+        printer = QtGui.QPrinter(QtGui.QPrinter.HighResolution)
+        printer.setOutputFormat(QtGui.QPrinter.PdfFormat)
+        printer.setOutputFileName('/tmp/sample.pdf')
+        doc.print_(printer)
+        """
+
+        # Option web
+        """
+        from PyQt4.QtWebKit import QWebView
+        web = QWebView()
+        #web.load(QUrl("http://www.google.com"))
+        web.load(QUrl("file:////tmp/report001.html"))
+        printer = QtGui.QPrinter()
+        printer.setPageSize(QtGui.QPrinter.A4)
+        printer.setOutputFormat(QtGui.QPrinter.PdfFormat)
+        printer.setOutputFileName("/tmp/file.pdf")
+        #web.print_(printer)
+        def convertIt():
+            web.print_(printer)
+            print "Pdf generated"
+        QtCore.QObject.connect(web, SIGNAL("loadFinished(bool)"), convertIt)
+        """
+
+        # Option low level
+        image = QtGui.QImage("/tmp/image001.png")
+        printer = QtGui.QPrinter()
+        printer.setResolution(300)
+        printer.setOutputFormat(QtGui.QPrinter.PdfFormat)
+        printer.setOutputFileName("/tmp/report001.pdf")
+
+        painter = QtGui.QPainter()
+        painter.begin(printer)
+        painter.drawImage(QtCore.QRect(0, 0, self.width(), self.height()), image)
+
+        painter.setPen(QtGui.QColor(168, 43, 3))
+        painter.setFont(QtGui.QFont('Decorative', 10))
+        painter.drawText(0, 0, u"Índice de gravedad forestat")
+
+        painter.end()
+
+
 
 if __name__ == '__main__':
     import sys

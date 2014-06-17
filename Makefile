@@ -25,7 +25,7 @@ QGISDIR=.qgis2
 # Makefile for a PyQGIS plugin
 
 # translation
-SOURCES = igp.py ui_igpdialog.py __init__.py igpdialog.py
+SOURCES = igp.py ui_igpdialog.py __init__.py igpdialog.py utils.py
 #TRANSLATIONS = i18n/igp_en.ts
 TRANSLATIONS =
 
@@ -33,7 +33,7 @@ TRANSLATIONS =
 
 PLUGINNAME = igp
 
-PY_FILES = igp.py igpdialog.py __init__.py
+PY_FILES = igp.py igpdialog.py __init__.py utils.py
 
 EXTRAS = icon.png metadata.txt
 

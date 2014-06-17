@@ -6,20 +6,23 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>487</width>
-    <height>295</height>
+    <width>481</width>
+    <height>512</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>IGP - Índice de gravedad potencial</string>
   </property>
   <widget class="QTabWidget" name="tabWidget">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>5</x>
+     <x>0</x>
      <y>5</y>
      <width>476</width>
-     <height>286</height>
+     <height>501</height>
     </rect>
    </property>
    <property name="sizePolicy">
@@ -41,76 +44,376 @@
     </size>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>0</number>
    </property>
-   <widget class="QWidget" name="tab001">
-    <property name="minimumSize">
-     <size>
-      <width>472</width>
-      <height>0</height>
-     </size>
-    </property>
+   <widget class="QWidget" name="tab003">
     <attribute name="title">
-     <string>Lugar</string>
+     <string>IGP</string>
     </attribute>
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <property name="sizeConstraint">
-      <enum>QLayout::SetMaximumSize</enum>
+    <widget class="QWidget" name="gridLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>5</x>
+       <y>5</y>
+       <width>461</width>
+       <height>456</height>
+      </rect>
      </property>
-     <item>
-      <widget class="QLineEdit" name="txtSearch"/>
-     </item>
-     <item>
-      <widget class="QCheckBox" name="chkBBOX">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="text">
-        <string>Limitar la búsqueda a la extensión actual</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QTableWidget" name="tblResult">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="editTriggers">
-        <set>QAbstractItemView::NoEditTriggers</set>
-       </property>
-       <property name="selectionBehavior">
-        <enum>QAbstractItemView::SelectRows</enum>
-       </property>
-       <property name="showGrid">
-        <bool>true</bool>
-       </property>
-       <property name="columnCount">
-        <number>3</number>
-       </property>
-       <column/>
-       <column/>
-       <column/>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="lblResult">
-       <property name="text">
-        <string>Encontrado (s)</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
+     <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0">
+      <item row="1" column="1" colspan="2">
+       <widget class="QLineEdit" name="txtCoord"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lblCoord">
+        <property name="text">
+         <string>Coordenadas</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QPushButton" name="btnPasteCoord">
+        <property name="text">
+         <string>Pegar</string>
+        </property>
+        <property name="autoDefault">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="lblCoord_2">
+        <property name="text">
+         <string>Resultado</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1" colspan="2">
+       <widget class="QLineEdit" name="txtResult">
+        <property name="font">
+         <font>
+          <family>Ubuntu</family>
+          <pointsize>10</pointsize>
+          <weight>10</weight>
+          <italic>false</italic>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 85 10pt &quot;Ubuntu&quot;;
+background-color: rgb(255, 85, 0);</string>
+        </property>
+        <property name="text">
+         <string>29 - ALTA</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="3">
+       <widget class="QPushButton" name="btnReport">
+        <property name="text">
+         <string>Informe PDF</string>
+        </property>
+        <property name="autoDefault">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="3">
+       <widget class="QPushButton" name="btnIGP">
+        <property name="text">
+         <string>Calcular IGP</string>
+        </property>
+        <property name="autoDefault">
+         <bool>true</bool>
+        </property>
+        <property name="default">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="4">
+       <widget class="QTableWidget" name="tableWidget">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Ignored">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="autoScroll">
+         <bool>true</bool>
+        </property>
+        <property name="autoScrollMargin">
+         <number>16</number>
+        </property>
+        <property name="alternatingRowColors">
+         <bool>true</bool>
+        </property>
+        <property name="horizontalScrollMode">
+         <enum>QAbstractItemView::ScrollPerPixel</enum>
+        </property>
+        <property name="rowCount">
+         <number>11</number>
+        </property>
+        <property name="columnCount">
+         <number>3</number>
+        </property>
+        <row>
+         <property name="text">
+          <string>PENDIENTE</string>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>ACCESIBILIDAD</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>COMBUSTIBILIDAD</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>CONTINUIDAD</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>VEL. VIENTO</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>TEMPERATURA</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>E.D.E.</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>I.I.E.R.</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>EVACUACIÓN POB.</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>PATRIMONIO HIST.</string>
+         </property>
+        </row>
+        <row>
+         <property name="text">
+          <string>VALOR ECOLÓGICO</string>
+         </property>
+        </row>
+        <column>
+         <property name="text">
+          <string>VALOR</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>SIGNIFICADO</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>PUNTUACIÓN</string>
+         </property>
+        </column>
+        <item row="0" column="0">
+         <property name="text">
+          <string>19</string>
+         </property>
+        </item>
+        <item row="0" column="1">
+         <property name="text">
+          <string>Pte. suave</string>
+         </property>
+        </item>
+        <item row="0" column="2">
+         <property name="text">
+          <string>1</string>
+         </property>
+        </item>
+        <item row="1" column="0">
+         <property name="text">
+          <string>MEDIA</string>
+         </property>
+        </item>
+        <item row="1" column="1">
+         <property name="text">
+          <string>Por viales y/o ...</string>
+         </property>
+        </item>
+        <item row="1" column="2">
+         <property name="text">
+          <string>3</string>
+         </property>
+        </item>
+        <item row="2" column="0">
+         <property name="text">
+          <string>4</string>
+         </property>
+        </item>
+        <item row="2" column="1">
+         <property name="text">
+          <string>Alta</string>
+         </property>
+        </item>
+        <item row="2" column="2">
+         <property name="text">
+          <string>5</string>
+         </property>
+        </item>
+        <item row="3" column="0">
+         <property name="text">
+          <string>40</string>
+         </property>
+        </item>
+        <item row="3" column="1">
+         <property name="text">
+          <string>Nivel 2</string>
+         </property>
+        </item>
+        <item row="3" column="2">
+         <property name="text">
+          <string>3</string>
+         </property>
+        </item>
+        <item row="4" column="0">
+         <property name="text">
+          <string>15</string>
+         </property>
+        </item>
+        <item row="4" column="1">
+         <property name="text">
+          <string>Baja</string>
+         </property>
+        </item>
+        <item row="4" column="2">
+         <property name="text">
+          <string>1</string>
+         </property>
+        </item>
+        <item row="5" column="0">
+         <property name="text">
+          <string>22</string>
+         </property>
+        </item>
+        <item row="5" column="1">
+         <property name="text">
+          <string>Baja</string>
+         </property>
+        </item>
+        <item row="5" column="2">
+         <property name="text">
+          <string>1</string>
+         </property>
+        </item>
+        <item row="6" column="0">
+         <property name="text">
+          <string>NO</string>
+         </property>
+        </item>
+        <item row="6" column="1">
+         <property name="text">
+          <string>Ausencia</string>
+         </property>
+        </item>
+        <item row="6" column="2">
+         <property name="text">
+          <string/>
+         </property>
+        </item>
+        <item row="7" column="0">
+         <property name="text">
+          <string>SI</string>
+         </property>
+        </item>
+        <item row="7" column="1">
+         <property name="text">
+          <string>Presencia i.i.e.r.</string>
+         </property>
+        </item>
+        <item row="7" column="2">
+         <property name="text">
+          <string>5</string>
+         </property>
+        </item>
+        <item row="8" column="0">
+         <property name="text">
+          <string>SI</string>
+         </property>
+        </item>
+        <item row="8" column="1">
+         <property name="text">
+          <string>Necesaria evac.</string>
+         </property>
+        </item>
+        <item row="8" column="2">
+         <property name="text">
+          <string>5</string>
+         </property>
+        </item>
+        <item row="9" column="0">
+         <property name="text">
+          <string>SI</string>
+         </property>
+        </item>
+        <item row="9" column="1">
+         <property name="text">
+          <string>Presencia patr.</string>
+         </property>
+        </item>
+        <item row="9" column="2">
+         <property name="text">
+          <string>5</string>
+         </property>
+        </item>
+        <item row="10" column="0">
+         <property name="text">
+          <string>NO</string>
+         </property>
+        </item>
+        <item row="10" column="1">
+         <property name="text">
+          <string>No hay afección</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
    <widget class="QWidget" name="tab002">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <attribute name="title">
      <string>Coordenadas</string>
     </attribute>
@@ -206,58 +509,98 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="tab003">
+   <widget class="QWidget" name="tab001">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>472</width>
+      <height>0</height>
+     </size>
+    </property>
     <attribute name="title">
-     <string>IGP</string>
+     <string>Lugar</string>
     </attribute>
-    <widget class="QWidget" name="gridLayoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>10</y>
-       <width>421</width>
-       <height>131</height>
-      </rect>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetMaximumSize</enum>
      </property>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Viento</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QLineEdit" name="lineEdit"/>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>Temperatura</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="lineEdit_2"/>
-      </item>
-      <item row="2" column="1">
-       <widget class="QPushButton" name="pushButton">
-        <property name="text">
-         <string>Calcular IGP</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
+     <item>
+      <widget class="QLineEdit" name="txtSearch"/>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="chkBBOX">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Limitar la búsqueda a la extensión actual</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QTableWidget" name="tblResult">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+       <property name="selectionBehavior">
+        <enum>QAbstractItemView::SelectRows</enum>
+       </property>
+       <property name="showGrid">
+        <bool>true</bool>
+       </property>
+       <property name="columnCount">
+        <number>3</number>
+       </property>
+       <column/>
+       <column/>
+       <column/>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lblResult">
+       <property name="text">
+        <string>Encontrado (s)</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
  </widget>
- <resources/>
+ <tabstops>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>txtCoord</tabstop>
+  <tabstop>btnPasteCoord</tabstop>
+  <tabstop>txtResult</tabstop>
+  <tabstop>btnReport</tabstop>
+  <tabstop>radiod</tabstop>
+  <tabstop>radioutm</tabstop>
+  <tabstop>radiodm</tabstop>
+  <tabstop>txtCoordinates</tabstop>
+  <tabstop>btnGet</tabstop>
+  <tabstop>btnClipboard</tabstop>
+  <tabstop>btnGo</tabstop>
+  <tabstop>txtSearch</tabstop>
+  <tabstop>chkBBOX</tabstop>
+  <tabstop>tblResult</tabstop>
+  <tabstop>radiodms</tabstop>
+ </tabstops>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

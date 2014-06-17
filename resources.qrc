@@ -1,5 +1,6 @@
 <RCC>
-    <qresource prefix="/plugins/igp" >
-        <file>icon.png</file>
-    </qresource>
+  <qresource prefix="/plugins/igp">
+    <file>icon.png</file>
+  </qresource>
+  <qresource prefix="moderado"/>
 </RCC>
