@@ -36,7 +36,6 @@ from qgis.core import *
 import qgis.utils
 
 from ui_igpdialog import Ui_IGPDialog
-# create the dialog for zoom to point
 
 from utils import *
 
@@ -46,10 +45,12 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
     def __init__(self, iface):
         """
         """
+        QtGui.QDialog.__init__(self)
+
         self.iface = iface
-        self.canvas = self.iface.mapCanvas()
-        QtGui.QDialog.__init__(self) 
-        
+        if self.iface:
+            self.canvas = self.iface.mapCanvas()
+
         # Set up the user interface from Designer. 
         self.ui = Ui_IGPDialog()
         self.ui.setupUi(self)
@@ -68,7 +69,6 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         self.chkRemote = False
         self.chkBBOX = False
         
-        #self.tblResultHeader = [QString.fromUtf8('Nombre'), QString.fromUtf8('Clasificación'), QString.fromUtf8('Localización')]
         self.tblResultHeader = [u'Nombre', u'Clasificación', u'Localización']
 
         self.ui.tblResult.setHorizontalHeaderLabels(self.tblResultHeader)
@@ -91,7 +91,6 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
 
         # TODO: 140614
         self.connect(self.ui.btnReport, SIGNAL("clicked()"), self.onclickbtnreport)
-
 
         baseDirectory = os.path.dirname(__file__)
         fillPath = lambda x: os.path.join(baseDirectory, x)
@@ -684,12 +683,7 @@ xsi:schemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.
             self.lid.append(e)
             row = self.ui.tblResult.rowCount()
             self.ui.tblResult.insertRow(row)
-            item001 = QtGui.QTableWidgetItem(nombre)
-            item002 = QtGui.QTableWidgetItem(clasificacion)
-            item003 = QtGui.QTableWidgetItem(localizacion)
-            self.ui.tblResult.setItem(row, 0, item001)
-            self.ui.tblResult.setItem(row, 1, item002)
-            self.ui.tblResult.setItem(row, 2, item003)
+            item001 = QtGuult.setItem(row, 2, item003)
             node = node.nextSibling()
         
         self.ui.lblResult.setText(self.tr(u'%d lugar(es) encontrados (Haz doble click para ver su localización)' % len(self.lid)))
@@ -715,7 +709,12 @@ xsi:schemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.
         web = QWebView()
         #web.load(QUrl("http://www.google.com"))
         web.load(QUrl("file:////tmp/report001.html"))
-        printer = QtGui.QPrinter()
+        printer = QtGui.QPrinter()i.QTableWidgetItem(nombre)
+            item002 = QtGui.QTableWidgetItem(clasificacion)
+            item003 = QtGui.QTableWidgetItem(localizacion)
+            self.ui.tblResult.setItem(row, 0, item001)
+            self.ui.tblResult.setItem(row, 1, item002)
+            self.ui.tblRes
         printer.setPageSize(QtGui.QPrinter.A4)
         printer.setOutputFormat(QtGui.QPrinter.PdfFormat)
         printer.setOutputFileName("/tmp/file.pdf")
@@ -723,7 +722,20 @@ xsi:schemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.
         def convertIt():
             web.print_(printer)
             print "Pdf generated"
-        QtCore.QObject.connect(web, SIGNAL("loadFinished(bool)"), convertIt)
+        QtCore.QObject.connect(web, SIGNAL("loadFinishe
+        painter.drawText(0, 0, u"Índice de gravedad forestat")
+
+        painter.end()
+
+
+
+if __name__ == '__main__':
+    import sys
+
+    app = QtGui.QApplication(sys.argv)
+    dlg = IGPDialog(None)
+    dlg.show()
+    sys.exit(app.exec_())d(bool)"), convertIt)
         """
 
         # Option low level
@@ -747,7 +759,8 @@ xsi:schemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.
 
 if __name__ == '__main__':
     import sys
+
     app = QtGui.QApplication(sys.argv)
-    dlg = IGPDialog()
+    dlg = IGPDialog(None)
     dlg.show()
-    sys.exit(app.exec_())        
+    sys.exit(app.exec_())

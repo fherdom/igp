@@ -55,7 +55,6 @@ class IGP:
         #self.dock = IDECanariasDock(self.iface)
         #self.iface.addDockWidget(QtCore.Qt.BottomDockWidgetArea, self.dock)
 
-
     def initGui(self):
         # Create action that will start plugin configuration
         self.action = QtGui.QAction(
@@ -88,3 +87,11 @@ class IGP:
             # do something useful (delete the line containing pass and
             # substitute with your code)
             pass
+
+
+if __name__ == '__main__':
+    import sys
+    app = QtGui.QApplication(sys.argv)
+    dlg = IGP()
+    dlg.run()
+    sys.exit(app.exec_())
