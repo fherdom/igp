@@ -21,6 +21,7 @@
 """
 
 import os, sys, base64, re
+import csv
 import psycopg2
 import pprint
 import tempfile
@@ -37,7 +38,8 @@ import qgis.utils
 
 from ui_igpdialog import Ui_IGPDialog
 
-from utils import *
+from utils import pointFromWGS84
+from utils import MATRIX
 
 
 class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
@@ -109,7 +111,32 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         # TODO: 140617, remove tabs
         self.ui.tabWidget.removeTab(2)
         self.ui.tabWidget.removeTab(1)
-        
+
+        # TODO: 140718, load matrix
+        self.matrix = MATRIX
+        #print "ssd"
+        #print self.matrix['temperatura']
+        print self.checkvalue('temperatura', 24)
+        print self.checkvalue('ede', 0)
+
+        print self.checkvalue('continuidad', 2)
+
+    def checkvalue(self, id, value):
+        """
+
+        :param id:
+        :param value:
+        :return:
+        """
+        for e in self.matrix[id]:
+            if e[2]:
+                if e[1] < value <= e[2]:
+                    return e[0], e[3]
+            else:
+                if e[1] == value:
+                    return e[0], e[3]
+        return None, None
+
     def Log(self, msg):
         """
         """
@@ -756,10 +783,8 @@ if __name__ == '__main__':
         painter.end()
 
 
-
 if __name__ == '__main__':
     import sys
-
     app = QtGui.QApplication(sys.argv)
     dlg = IGPDialog(None)
     dlg.show()
