@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_igpdialog.ui'
 #
-# Created: Wed Jun 18 13:38:36 2014
+# Created: Thu Jun 19 00:05:28 2014
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -58,10 +58,9 @@ class Ui_IGPDialog(object):
         font.setPointSize(10)
         font.setBold(False)
         font.setItalic(False)
-        font.setWeight(10)
+        font.setWeight(50)
         self.txtResult.setFont(font)
-        self.txtResult.setStyleSheet(_fromUtf8("font: 85 10pt \"Ubuntu\";\n"
-"background-color: rgb(255, 85, 0);"))
+        self.txtResult.setStyleSheet(_fromUtf8("background-color: rgb(255, 0, 0);"))
         self.txtResult.setAlignment(QtCore.Qt.AlignCenter)
         self.txtResult.setObjectName(_fromUtf8("txtResult"))
         self.gridLayout.addWidget(self.txtResult, 3, 1, 1, 2)

@@ -99,14 +99,13 @@
          <font>
           <family>Ubuntu</family>
           <pointsize>10</pointsize>
-          <weight>10</weight>
+          <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">font: 85 10pt &quot;Ubuntu&quot;;
-background-color: rgb(255, 85, 0);</string>
+         <string notr="true">background-color: rgb(255, 0, 0);</string>
         </property>
         <property name="text">
          <string>29 - ALTA</string>

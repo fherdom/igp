@@ -40,6 +40,9 @@ from ui_igpdialog import Ui_IGPDialog
 
 from utils import pointFromWGS84
 from utils import MATRIX
+from utils import LAYERSID
+from utils import SCORE
+from utils import TEST_MATRIX
 
 
 class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
@@ -93,6 +96,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
 
         # TODO: 140614
         self.connect(self.ui.btnReport, SIGNAL("clicked()"), self.onclickbtnreport)
+        self.connect(self.ui.btnIGP, SIGNAL("clicked()"), self.onclickbtnigp)
 
         baseDirectory = os.path.dirname(__file__)
         fillPath = lambda x: os.path.join(baseDirectory, x)
@@ -114,21 +118,59 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
 
         # TODO: 140718, load matrix
         self.matrix = MATRIX
-        #print "ssd"
-        #print self.matrix['temperatura']
-        print self.checkvalue('temperatura', 24)
-        print self.checkvalue('ede', 0)
 
-        print self.checkvalue('continuidad', 2)
 
-    def checkvalue(self, id, value):
+    def onclickbtnigp(self):
         """
+        :return:
+        """
+        x = 1
+        y = 1
+        igp = 0
+        score = 0
+        for layerid in LAYERSID:
+            if self.isloadlayer(layerid):
+                value = self.getinfovalue(x, y, layerid)
+                score, description = self.checkvalue(layerid, value)
+                igp += score
+            else:
+                style = "background-color: rgb(0, 0, 0);\ncolor: rgb(255, 255, 255);"
+                text = "Falta layerid"
+                self.ui.txtResult.setStyleSheet(style)
+                self.ui.txtResult.setText(text)
+                return None, None
 
+        for sc in SCORE:
+            if sc[1] <= igp <= sc[2]:
+                style = sc[3]
+                text = "%d - %s" % (igp, sc[0])
+                self.ui.txtResult.setStyleSheet(style)
+                self.ui.txtResult.setText(text)
+                return igp, sc[0]
+
+    def isloadlayer(self, layerid):
+        """
+        :param layerid:
+        :return:
+        """
+        return True
+
+    def getinfovalue(self, x, y, layerid):
+        """
+        :param x:
+        :param y:
+        :param layerid:
+        :return:
+        """
+        return TEST_MATRIX[layerid]
+
+    def checkvalue(self, layerid, value):
+        """
         :param id:
         :param value:
         :return:
         """
-        for e in self.matrix[id]:
+        for e in MATRIX[layerid]:
             if e[2]:
                 if e[1] < value <= e[2]:
                     return e[0], e[3]

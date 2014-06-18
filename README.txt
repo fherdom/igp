@@ -20,3 +20,6 @@ https://www.mail-archive.com/pyqt@riverbankcomputing.com/msg18918.html
 
 Painting
 http://zetcode.com/gui/pyqt4/drawing/
+
+Accessing Qgis, layer, info
+http://www.qgisworkshop.org/html/workshop/python_in_qgis_tutorial2.html

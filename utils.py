@@ -21,6 +21,19 @@ email                : info@itopen.it
 from qgis.core import *
 from qgis.gui import *
 
+LAYERSID = [u'pendiente',
+            u'accesibilidad',
+            u'combustibilidad',
+            u'continuidad',
+            u'viento',
+            u'temperatura',
+            u'ede',
+            u'iier',
+            u'evacuacion',
+            u'patrimonio',
+            u'ecologico'
+            ]
+
 MATRIX = {
     u'pendiente': [
         [1, 0, 20, u'Pte. Fuerte (superior al 30%) y/o terreno escarpado.'],
@@ -69,6 +82,26 @@ MATRIX = {
     ]
 }
 
+SCORE = [
+    [u'Baja', 6, 12, 'background-color: rgb(85, 255, 127);'],
+    [u'Moderada', 13, 26, 'background-color: rgb(255, 170, 0);'],
+    [u'Alta', 27, 42, 'background-color: rgb(255, 85, 127);'],
+    [u'Severa', 43, 55, 'background-color: rgb(255, 0, 0);']
+]
+
+TEST_MATRIX = {
+    u'pendiente': 15,
+    u'accesibilidad': u'media',
+    u'combustibilidad': u'media',
+    u'continuidad': 2,
+    u'viento': 15,
+    u'temperatura': 24,
+    u'ede': 1,
+    u'iier': 1,
+    u'evacuacion': 1,
+    u'patrimonio': 1,
+    u'ecologico': 1
+}
 
 class ClickTool(QgsMapTool):
     def __init__(self,iface, callback):
