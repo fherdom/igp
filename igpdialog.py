@@ -795,16 +795,6 @@ xsi:schemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.
         painter.drawText(0, 0, u"Índice de gravedad forestat")
 
         painter.end()
-
-
-
-if __name__ == '__main__':
-    import sys
-
-    app = QtGui.QApplication(sys.argv)
-    dlg = IGPDialog(None)
-    dlg.show()
-    sys.exit(app.exec_())d(bool)"), convertIt)
         """
 
         # Option low level

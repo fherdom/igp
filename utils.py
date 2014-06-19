@@ -36,9 +36,9 @@ LAYERSID = [u'pendiente',
 
 MATRIX = {
     u'pendiente': [
-        [1, 0, 20, u'Pte. Fuerte (superior al 30%) y/o terreno escarpado.'],
+        [1, 0, 20, u'Pte. Suave (menos del 20%) y/o terreno aledaño poco accidentado.'],
         [3, 20, 30, u'Pte. Media (20-30 %) y/o terreno aledaño ondulado-accidentado.'],
-        [5, 30, 100, u'Pte. Fuerte (superior al 30%) y/o terreno escarpado.']
+        [5, 30, 9999, u'Pte. Fuerte (superior al 30%) y/o terreno escarpado.']
     ],
     u'accesibilidad': [
         [1, u'alta', None, u'Accesibilidad Alta por viales y/o buen tránsito de vehículos fuera de ellos.'],
@@ -63,7 +63,7 @@ MATRIX = {
     u'temperatura': [
         [1, 0, 25, u'Temperatura Baja (menor igual a 25 ºC)'],
         [3, 25, 39, u'Temperatura Media  (26-39 ºC)'],
-        [5, 39, 999, u'Temperatura Alta (más de 40ºC)']
+        [5, 39, 9999, u'Temperatura Alta (más de 40ºC)']
     ],
     u'ede': [
         [5, 1, None, u'Presencia de E.D.E. en el área de afección del incendio y/o futura progresión del mismo (Área recreativa, Campings, Hospitales, colegios etc.).']

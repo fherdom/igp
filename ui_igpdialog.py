@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_igpdialog.ui'
 #
-# Created: Thu Jun 19 00:05:28 2014
+# Created: Thu Jun 19 08:40:23 2014
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -17,6 +17,7 @@ except AttributeError:
 class Ui_IGPDialog(object):
     def setupUi(self, IGPDialog):
         IGPDialog.setObjectName(_fromUtf8("IGPDialog"))
+        IGPDialog.setWindowModality(QtCore.Qt.WindowModal)
         IGPDialog.resize(481, 512)
         self.tabWidget = QtGui.QTabWidget(IGPDialog)
         self.tabWidget.setEnabled(True)
