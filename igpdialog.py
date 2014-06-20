@@ -120,18 +120,22 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         # TODO: 140718, load matrix
         self.matrix = MATRIX
 
+        self.layerigp = None
+        self.layeridigp = None
+        self.providerigp = None
+
 
     def onclickbtnigp(self):
         """
         :return:
         """
-        x = 1
-        y = 1
+
+        pto = QgsPoint(float(self.ui.txtCoord.text().split(',')[0].strip()),
+                       float(self.ui.txtCoord.text().split(',')[1].strip()))
         igp = 0
-        score = 0
         for layerid in LAYERSID:
             if self.isloadlayer(layerid):
-                value = self.getinfovalue(x, y, layerid)
+                value = self.getinfovalue(pto, layerid)
                 score, description = self.checkvalue(layerid, value)
                 TEST_MATRIX[layerid] = [value, description, score]
                 igp += score
@@ -171,6 +175,80 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
                     self.ui.tableWidget.item(i, 2).setText(unicode(TEST_MATRIX[layerid][2]))
                     i += 1
 
+                # TODO: add point to layer
+                if not QgsMapLayerRegistry.instance().mapLayer(self.layeridigp):
+
+                    self.layerigp = QgsVectorLayer("Point", u'Resultados IGP', "memory")
+                    self.providerigp = self.layerigp.dataProvider()
+                    crs = QgsCoordinateReferenceSystem()
+                    crs.createFromSrid(32628)
+                    self.layerigp.setCrs(crs)
+
+                    #
+                    self.providerigp.addAttributes([
+                        QgsField(u'pendiente', QtCore.QVariant.Int),
+                        QgsField(u'accesibilidad', QtCore.QVariant.Int),
+                        QgsField(u'combustibilidad', QtCore.QVariant.Int),
+                        QgsField(u'continuidad', QtCore.QVariant.Int),
+                        QgsField(u'viento', QtCore.QVariant.Int),
+                        QgsField(u'temperatura', QtCore.QVariant.Int),
+                        QgsField(u'ede', QtCore.QVariant.Int),
+                        QgsField(u'iier', QtCore.QVariant.Int),
+                        QgsField(u'evacuacion', QtCore.QVariant.Int),
+                        QgsField(u'patrimonio', QtCore.QVariant.Int),
+                        QgsField(u'ecologico', QtCore.QVariant.Int),
+                        QgsField(u'igp', QtCore.QVariant.Int),
+                        QgsField(u'igp_des', QtCore.QVariant.String),
+                        QgsField(u'x', QtCore.QVariant.Double),
+                        QgsField(u'y', QtCore.QVariant.Double),
+                    ])
+
+                    #
+                    self.layerigp.updateFields()
+
+                    #
+                    label = self.layerigp.label()
+                    label.setLabelField(QgsLabel.Text, 0)
+                    self.layerigp.enableLabels(True)
+
+                    #
+                    QgsMapLayerRegistry.instance().addMapLayer(self.layerigp)
+
+                    #
+                    self.layeridigp = QgsMapLayerRegistry.instance().mapLayers().keys()[-1]
+                    self.canvas.refresh()
+
+                fields = self.layerigp.pendingFields()
+                fet = QgsFeature(fields)
+                fet.setGeometry(QgsGeometry.fromPoint(pto))
+                i = 0
+                for layerid in _LAYERSID:
+                    fet[i] = TEST_MATRIX[layerid][0]
+                    i += 1
+                fet[i] = igp
+                fet[i+1] = sc[0]
+                fet[i+2] = pto[0]
+                fet[i+3] = pto[1]
+                self.providerigp.addFeatures([fet])
+
+                #
+                self.layerigp.updateExtents()
+
+                #
+                scale = 1
+                extent = self.canvas.extent()
+                width = extent.width() * scale
+                height = extent.height() * scale
+
+                # Recenter
+                rect = QgsRectangle(pto[0] - width/2.0,
+                                    pto[1] - height/2.0,
+                                    pto[0] + width/2.0,
+                                    pto[1] + height/2.0)
+
+                # Set the extent to our new rectangle
+                self.canvas.setExtent(rect)
+
                 return igp, sc[0]
 
     def isloadlayer(self, layerid):
@@ -182,7 +260,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         self.Log("%s %s" % (aux, layerid))
         return True if len(aux) > 0 else False
 
-    def getinfovalue(self, x, y, layerid):
+    def getinfovalue(self, pto, layerid):
         """
         :param x:
         :param y:
@@ -191,12 +269,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         """
         aux = QgsMapLayerRegistry().instance().mapLayersByName(layerid)
         rlayer = aux[0]
-
-        self.Log("%s" % self.ui.txtCoord.text().split(','))
-
-        pt001 = QgsPoint(float(self.ui.txtCoord.text().split(',')[0].strip()), 
-            float(self.ui.txtCoord.text().split(',')[1].strip()))
-        results = rlayer.dataProvider().identify(pt001, QgsRaster.IdentifyFormatValue).results()
+        results = rlayer.dataProvider().identify(pto, QgsRaster.IdentifyFormatValue).results()
         self.Log("%s" % results)
         return results[1]
         #return TEST_MATRIX[layerid]
