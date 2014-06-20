@@ -40,7 +40,7 @@ from ui_igpdialog import Ui_IGPDialog
 
 from utils import pointFromWGS84
 from utils import MATRIX
-from utils import LAYERSID
+from utils import LAYERSID, _LAYERSID
 from utils import SCORE
 from utils import TEST_MATRIX
 
@@ -97,6 +97,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         # TODO: 140614
         self.connect(self.ui.btnReport, SIGNAL("clicked()"), self.onclickbtnreport)
         self.connect(self.ui.btnIGP, SIGNAL("clicked()"), self.onclickbtnigp)
+        self.connect(self.ui.btnPasteCoord, SIGNAL("clicked()"), self.onclick_btnpastecoord)
 
         baseDirectory = os.path.dirname(__file__)
         fillPath = lambda x: os.path.join(baseDirectory, x)
@@ -132,6 +133,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
             if self.isloadlayer(layerid):
                 value = self.getinfovalue(x, y, layerid)
                 score, description = self.checkvalue(layerid, value)
+                TEST_MATRIX[layerid] = [value, description, score]
                 igp += score
             else:
                 style = "background-color: rgb(0, 0, 0);\ncolor: rgb(255, 255, 255);"
@@ -140,12 +142,35 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
                 self.ui.txtResult.setText(text)
                 return None, None
 
+        # TODO: viento
+        layerid = u'viento'
+        value = int(self.ui.tableWidget.item(4, 0).text())
+        score, description = self.checkvalue(layerid, value)
+        igp += score
+        TEST_MATRIX[layerid] = [value, description, score]
+
+        # TODO: temperatura
+        layerid = u'temperatura'
+        value = int(self.ui.tableWidget.item(5, 0).text())
+        score, description = self.checkvalue(layerid, value)
+        igp += score
+        TEST_MATRIX[layerid] = [value, description, score]
+
         for sc in SCORE:
             if sc[1] <= igp <= sc[2]:
                 style = sc[3]
                 text = "%d - %s" % (igp, sc[0])
                 self.ui.txtResult.setStyleSheet(style)
                 self.ui.txtResult.setText(text)
+
+                # TODO: show TEST_MATRIX on table
+                i = 0
+                for layerid in _LAYERSID:
+                    self.ui.tableWidget.item(i, 0).setText(unicode(TEST_MATRIX[layerid][0]))
+                    self.ui.tableWidget.item(i, 1).setText(unicode(TEST_MATRIX[layerid][1]))
+                    self.ui.tableWidget.item(i, 2).setText(unicode(TEST_MATRIX[layerid][2]))
+                    i += 1
+
                 return igp, sc[0]
 
     def isloadlayer(self, layerid):
@@ -153,7 +178,9 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         :param layerid:
         :return:
         """
-        return True
+        aux = QgsMapLayerRegistry().instance().mapLayersByName(layerid)
+        self.Log("%s %s" % (aux, layerid))
+        return True if len(aux) > 0 else False
 
     def getinfovalue(self, x, y, layerid):
         """
@@ -162,7 +189,17 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         :param layerid:
         :return:
         """
-        return TEST_MATRIX[layerid]
+        aux = QgsMapLayerRegistry().instance().mapLayersByName(layerid)
+        rlayer = aux[0]
+
+        self.Log("%s" % self.ui.txtCoord.text().split(','))
+
+        pt001 = QgsPoint(float(self.ui.txtCoord.text().split(',')[0].strip()), 
+            float(self.ui.txtCoord.text().split(',')[1].strip()))
+        results = rlayer.dataProvider().identify(pt001, QgsRaster.IdentifyFormatValue).results()
+        self.Log("%s" % results)
+        return results[1]
+        #return TEST_MATRIX[layerid]
 
     def checkvalue(self, layerid, value):
         """
@@ -177,7 +214,14 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
             else:
                 if e[1] == value:
                     return e[0], e[3]
-        return None, None
+        return 0, "No encontrado"
+
+    def onclick_btnpastecoord(self):
+        """
+        """
+        clipboard = QtGui.QApplication.clipboard()
+        self.ui.txtCoord.setText(clipboard.text())
+        #clipboard.setText(self.ui.txtCoordinates.text()) 
 
     def Log(self, msg):
         """
@@ -187,6 +231,14 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
             f.write("%s: %s\n" % (datetime.now(), msg.encode('utf-8')))
             f.close()
         
+    
+
+
+
+
+
+
+
     def alert(self, msg):
         """
         """

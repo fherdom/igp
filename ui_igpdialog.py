@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_igpdialog.ui'
 #
-# Created: Thu Jun 19 08:40:23 2014
+# Created: Fri Jun 20 12:17:47 2014
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -337,6 +337,7 @@ class Ui_IGPDialog(object):
 
     def retranslateUi(self, IGPDialog):
         IGPDialog.setWindowTitle(QtGui.QApplication.translate("IGPDialog", "IGP - Índice de gravedad potencial", None, QtGui.QApplication.UnicodeUTF8))
+        self.txtCoord.setText(QtGui.QApplication.translate("IGPDialog", "458233.02, 3110465.86", None, QtGui.QApplication.UnicodeUTF8))
         self.lblCoord.setText(QtGui.QApplication.translate("IGPDialog", "Coordenadas", None, QtGui.QApplication.UnicodeUTF8))
         self.btnPasteCoord.setText(QtGui.QApplication.translate("IGPDialog", "Pegar", None, QtGui.QApplication.UnicodeUTF8))
         self.lblCoord_2.setText(QtGui.QApplication.translate("IGPDialog", "Resultado", None, QtGui.QApplication.UnicodeUTF8))
@@ -404,7 +405,7 @@ class Ui_IGPDialog(object):
         item = self.tableWidget.item(4, 2)
         item.setText(QtGui.QApplication.translate("IGPDialog", "1", None, QtGui.QApplication.UnicodeUTF8))
         item = self.tableWidget.item(5, 0)
-        item.setText(QtGui.QApplication.translate("IGPDialog", "22", None, QtGui.QApplication.UnicodeUTF8))
+        item.setText(QtGui.QApplication.translate("IGPDialog", "40", None, QtGui.QApplication.UnicodeUTF8))
         item = self.tableWidget.item(5, 1)
         item.setText(QtGui.QApplication.translate("IGPDialog", "Baja", None, QtGui.QApplication.UnicodeUTF8))
         item = self.tableWidget.item(5, 2)

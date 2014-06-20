@@ -25,6 +25,17 @@ LAYERSID = [u'pendiente',
             u'accesibilidad',
             u'combustibilidad',
             u'continuidad',
+            u'ede',
+            u'iier',
+            u'evacuacion',
+            u'patrimonio',
+            u'ecologico'
+            ]
+
+_LAYERSID = [u'pendiente',
+            u'accesibilidad',
+            u'combustibilidad',
+            u'continuidad',
             u'viento',
             u'temperatura',
             u'ede',
@@ -41,14 +52,14 @@ MATRIX = {
         [5, 30, 9999, u'Pte. Fuerte (superior al 30%) y/o terreno escarpado.']
     ],
     u'accesibilidad': [
-        [1, u'alta', None, u'Accesibilidad Alta por viales y/o buen tránsito de vehículos fuera de ellos.'],
-        [3, u'media', None, u'Accesibilidad Media por viales y/o regular tránsito de vehículos fuera de ellos.'],
-        [5, u"baja", None, u"Accesibilidad Baja por viales y/o nulo tránsito de vehículos fuera de ellos."]
+        [1, 1, None, u'Accesibilidad Alta por viales y/o buen tránsito de vehículos fuera de ellos.'],
+        [3, 2, None, u'Accesibilidad Media por viales y/o regular tránsito de vehículos fuera de ellos.'],
+        [5, 3, None, u"Accesibilidad Baja por viales y/o nulo tránsito de vehículos fuera de ellos."]
     ],
     u'combustibilidad': [
-        [1, u'baja', None, u'Combustibilidad Baja (Mod. 8,9,10,11)'],
-        [3, u'media', None, u'Combustibilidad Media (Mod. 5,7 y 2)'],
-        [5, u'alta', None, u'Combustibilidad Alta (Mod. 1,3,4,6,12,13)']
+        [1, 1, None, u'Combustibilidad Baja (Mod. 8,9,10,11)'],
+        [3, 2, None, u'Combustibilidad Media (Mod. 5,7 y 2)'],
+        [5, 3, None, u'Combustibilidad Alta (Mod. 1,3,4,6,12,13)']
     ],
     u'continuidad': [
         [1, 1, None, u'Continuidad Nivel 1. (Fcc menor del 33%, y/o 10 metros de distancia de F.S del frente de llama)'],
