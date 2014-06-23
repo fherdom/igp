@@ -25,6 +25,11 @@ http://bharatikunal.wordpress.com/2010/01/31/converting-html-to-pdf-with-python-
 http://www.riverbankcomputing.com/pipermail/pyqt/2010-September/027709.html
 https://www.mail-archive.com/pyqt@riverbankcomputing.com/msg18918.html
 
+Composer / Composition
+http://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/composer.html#output-using-map-composer
+http://gis.stackexchange.com/questions/69626/how-to-use-map-composer-in-a-stand-alone-script
+http://osgeo-org.1560.x6.nabble.com/Printing-multi-page-PDFs-from-QgsComposition-object-td5044041.html
+
 Puse una pregunta
 http://www.qgistutorials.com/es/docs/getting_started_with_pyqgis.html
 QgsComposition es la clave
@@ -37,6 +42,8 @@ Accessing Qgis, layer, info
 http://www.qgisworkshop.org/html/workshop/python_in_qgis_tutorial2.html
 
 Cook-book
+!!!
+http://qgis.readthedocs.org/en/latest/docs/pyqgis_developer_cookbook/03_vector.html
 http://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/
 http://www.qgistutorials.com/es/docs/getting_started_with_pyqgis.html
 
