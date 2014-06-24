@@ -297,6 +297,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         painter.end()
         """
 
+        """
         # Option low level
         image = QtGui.QImage("/tmp/image001.png")
         printer = QtGui.QPrinter()
@@ -313,6 +314,37 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         painter.drawText(0, 0, u"Índice de gravedad forestat")
 
         painter.end()
+        """
+
+        mapRenderer = self.canvas.mapRenderer()
+        c = QgsComposition(mapRenderer)
+        c.setPlotStyle(QgsComposition.Print)
+
+        x, y = 0, 0
+        w, h = c.paperWidth(), c.paperHeight()
+        composerMap = QgsComposerMap(c, x, y, w, h)
+        c.addItem(composerMap)
+
+        composerLabel = QgsComposerLabel(c)
+        composerLabel.setText("Hello world")
+        composerLabel.adjustSizeToText()
+        c.addItem(composerLabel)
+
+        savePDFFileName = QtGui.QFileDialog.getSaveFileName(None, u'save as PDF', '.', 'PDF files (*.pdf)')
+
+        printer = QtGui.QPrinter()
+        printer.setOutputFormat(QtGui.QPrinter.PdfFormat)
+        printer.setOutputFileName(savePDFFileName)
+        printer.setPaperSize(QtCore.QSizeF(c.paperWidth(), c.paperHeight()), QtGui.QPrinter.Millimeter)
+        printer.setFullPage(True)
+        printer.setColorMode(QtGui.QPrinter.Color)
+        printer.setResolution(c.printResolution())
+
+        pdfPainter = QtGui.QPainter(printer)
+        paperRectMM = printer.pageRect(QtGui.QPrinter.Millimeter)
+        paperRectPixel = printer.pageRect(QtGui.QPrinter.DevicePixel)
+        c.render(pdfPainter, paperRectPixel, paperRectMM)
+        pdfPainter.end()
 
 
 if __name__ == '__main__':

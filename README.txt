@@ -30,6 +30,9 @@ http://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/composer.html#out
 http://gis.stackexchange.com/questions/69626/how-to-use-map-composer-in-a-stand-alone-script
 http://osgeo-org.1560.x6.nabble.com/Printing-multi-page-PDFs-from-QgsComposition-object-td5044041.html
 
+!!!
+http://gis.stackexchange.com/questions/77848/programmatically-load-composer-from-template-and-generate-atlas-using-pyqgis
+
 Puse una pregunta
 http://www.qgistutorials.com/es/docs/getting_started_with_pyqgis.html
 QgsComposition es la clave
@@ -46,6 +49,9 @@ Cook-book
 http://qgis.readthedocs.org/en/latest/docs/pyqgis_developer_cookbook/03_vector.html
 http://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/
 http://www.qgistutorials.com/es/docs/getting_started_with_pyqgis.html
+
+Stand-Alone
+https://gist.github.com/spara/1251012
 
 Vector - Raster
  2012  gdal_rasterize -a pendiente -tr 1000.0 1000.0 -l icd_muns /home/felix/dev/qgis/igp/doc/municipios/icd_muns.shp /home/felix/dev/qgis/igp/doc/capas/pendiente.tif
