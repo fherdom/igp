@@ -33,6 +33,10 @@ http://osgeo-org.1560.x6.nabble.com/Printing-multi-page-PDFs-from-QgsComposition
 !!!
 http://gis.stackexchange.com/questions/77848/programmatically-load-composer-from-template-and-generate-atlas-using-pyqgis
 
+!!! Examples python
+https://github.com/qgis/QGIS/blob/master/tests/src/python/test_qgscomposition.py
+
+
 Puse una pregunta
 http://www.qgistutorials.com/es/docs/getting_started_with_pyqgis.html
 QgsComposition es la clave

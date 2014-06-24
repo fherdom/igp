@@ -132,6 +132,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
 
         pto = QgsPoint(float(self.ui.txtCoord.text().split(',')[0].strip()),
                        float(self.ui.txtCoord.text().split(',')[1].strip()))
+
         igp = 0
         for layerid in LAYERSID:
             if self.isloadlayer(layerid):

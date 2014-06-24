@@ -260,6 +260,68 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
 
     def onclickbtnreport(self):
         """
+
+        :return:
+        """
+        from PyQt4 import QtXml
+
+        # center
+        pto = QgsPoint(float(self.ui.txtCoord.text().split(',')[0].strip()),
+                       float(self.ui.txtCoord.text().split(',')[1].strip()))
+
+        scale = 1
+        extent = self.canvas.extent()
+        width = extent.width() * scale
+        height = extent.height() * scale
+
+        # Recenter
+        rect = QgsRectangle(pto[0] - width/2.0,
+                                    pto[1] - height/2.0,
+                                    pto[0] + width/2.0,
+                                    pto[1] + height/2.0)
+
+        # Set the extent to our new rectangle
+        self.canvas.setExtent(rect)
+
+        # Add all layers in map canvas to render
+        myMapRenderer = self.canvas.mapRenderer()
+
+        savePDFFileName = QtGui.QFileDialog.getSaveFileName(None, u'save as PDF', '.', 'PDF files (*.pdf)')
+
+        # Load template from file
+        myComposition = QgsComposition(myMapRenderer)
+        myFile = os.path.join(os.path.dirname(__file__), 'template004.qpt')
+        myTemplateFile = file(myFile, 'rt')
+        myTemplateContent = myTemplateFile.read()
+        myTemplateFile.close()
+        myDocument = QtXml.QDomDocument()
+        myDocument.setContent(myTemplateContent)
+        myComposition.loadFromTemplate(myDocument)
+
+
+        myMap = myComposition.getComposerItemById('mapa')
+        myMap.setNewExtent(rect)
+
+        printer = QtGui.QPrinter()
+        printer.setOutputFormat(QtGui.QPrinter.PdfFormat)
+        printer.setOutputFileName(savePDFFileName)
+        printer.setPaperSize(QtCore.QSizeF(myComposition.paperWidth(),
+                                           myComposition.paperHeight()),
+                             QtGui.QPrinter.Millimeter)
+        printer.setFullPage(True)
+        printer.setColorMode(QtGui.QPrinter.Color)
+        printer.setResolution(myComposition.printResolution())
+
+        pdfPainter = QtGui.QPainter(printer)
+        paperRectMM = printer.pageRect(QtGui.QPrinter.Millimeter)
+        paperRectPixel = printer.pageRect(QtGui.QPrinter.DevicePixel)
+        myComposition.render(pdfPainter, paperRectPixel, paperRectMM)
+        pdfPainter.end()
+
+
+
+    def onclickbtnreport001(self):
+        """
         :return: pdf
         """
 
@@ -287,7 +349,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         printer.setPageSize(QtGui.QPrinter.A4)
         printer.setOutputFormat(QtGui.QPrinter.PdfFormat)
         printer.setOutputFileName("/tmp/file.pdf")
-        #web.print_(printer)
+            #web.print_(printer)
         def convertIt():
             web.print_(printer)
             print "Pdf generated"
@@ -316,10 +378,30 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         painter.end()
         """
 
+        # center
+        pto = QgsPoint(float(self.ui.txtCoord.text().split(',')[0].strip()),
+                       float(self.ui.txtCoord.text().split(',')[1].strip()))
+
+        scale = 1
+        extent = self.canvas.extent()
+        width = extent.width() * scale
+        height = extent.height() * scale
+
+        # Recenter
+        rect = QgsRectangle(pto[0] - width/2.0,
+                                    pto[1] - height/2.0,
+                                    pto[0] + width/2.0,
+                                    pto[1] + height/2.0)
+
+        # Set the extent to our new rectangle
+        self.canvas.setExtent(rect)
+
+        # prepare print
         mapRenderer = self.canvas.mapRenderer()
         c = QgsComposition(mapRenderer)
         c.setPlotStyle(QgsComposition.Print)
 
+        # map
         x, y = 0, 0
         w, h = c.paperWidth(), c.paperHeight()
         composerMap = QgsComposerMap(c, x, y, w, h)
