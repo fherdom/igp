@@ -54,6 +54,13 @@ http://qgis.readthedocs.org/en/latest/docs/pyqgis_developer_cookbook/03_vector.h
 http://docs.qgis.org/testing/en/docs/pyqgis_developer_cookbook/
 http://www.qgistutorials.com/es/docs/getting_started_with_pyqgis.html
 
+!!! print
+http://inasafe.org/en/_modules/safe_qgis/report/map.html
+
+
+# Identify
+http://3nids.wordpress.com/2013/02/14/identify-feature-on-map/
+
 Stand-Alone
 https://gist.github.com/spara/1251012
 

@@ -108,3 +108,5 @@ TEST_MATRIX = {
     u'patrimonio': 1,
     u'ecologico': 1
 }
+
+LAYER_MUNICIPIOS = u'icd_muns'
