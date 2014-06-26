@@ -18,30 +18,30 @@ email                :
  ***************************************************************************/
 """
 
-LAYERSID = [u'pendiente',
+LAYERSID = [u'PTE_5isl_MASK',
             u'accesibilidad',
             u'combustibilidad',
             u'FCC_5ISMASK',
             u'ede',
-            u'iier',
+            u'IIER_5isl_MSK',
             u'evacuacion',
             u'patrimonio',
             u'ecologico']
 
-FULL_LAYERSID = [u'pendiente',
+FULL_LAYERSID = [u'PTE_5isl_MASK',
              u'accesibilidad',
              u'combustibilidad',
              u'FCC_5ISMASK',
              u'viento',
              u'temperatura',
              u'ede',
-             u'iier',
+             u'IIER_5isl_MSK',
              u'evacuacion',
              u'patrimonio',
              u'ecologico']
 
 MATRIX = {
-    u'pendiente': [
+    u'PTE_5isl_MASK': [
         [1, 0, 20, u'Pte. Suave (menos del 20%) y/o terreno aledaño poco accidentado.'],
         [3, 20, 30, u'Pte. Media (20-30 %) y/o terreno aledaño ondulado-accidentado.'],
         [5, 30, 9999, u'Pte. Fuerte (superior al 30%) y/o terreno escarpado.']
@@ -74,8 +74,8 @@ MATRIX = {
     u'ede': [
         [5, 1, None, u'Presencia de E.D.E. en el área de afección del incendio y/o futura progresión del mismo (Área recreativa, Campings, Hospitales, colegios etc.).']
     ],
-    u'iier': [
-        [5, 1, None, u'Presencia de I.I.E.R. en el área de afección del incendio y/o futura progresión del mismo (Bases aéreas, gasolineras, Centrales de producción de electricidad, vías de comunicación de primer orden etc.).']
+    u'IIER_5isl_MSK': [
+        [5, 5, None, u'Presencia de I.I.E.R. en el área de afección del incendio y/o futura progresión del mismo (Bases aéreas, gasolineras, Centrales de producción de electricidad, vías de comunicación de primer orden etc.).']
     ],
     u'evacuacion': [
         [5, 1, None, u'Evacuación de la población de sus viviendas o municipios en el área de afección del incendio y/o futura progresión del mismo.']
@@ -95,6 +95,13 @@ SCORE = [
     [u'Severa', 43, 55, 'background-color: rgb(255, 0, 0);']
 ]
 
+VALUES_SYM = {
+    u'Baja': ('#55FF7F', 'Riesgo Bajo'),
+    u'Moderada': ('#FFAA7F', 'Riesgo Moderado'),
+    u'Alta': ('#FF557F', 'Riesgo Alto'),
+    u'Severa': ('#FF0000', 'Riesgo Severo'),
+    '': ('#000', 'Desconocido')}
+
 TEST_MATRIX = {
     u'pendiente': 15,
     u'accesibilidad': u'media',
@@ -109,4 +116,4 @@ TEST_MATRIX = {
     u'ecologico': 1
 }
 
-LAYER_MUNICIPIOS = u'icd_muns'
+LAYER_MUNICIPIOS = u'Municip_5isl'

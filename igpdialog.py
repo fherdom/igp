@@ -24,6 +24,7 @@ import os
 
 from datetime import datetime
 
+from PyQt4 import QtXml
 from PyQt4 import QtCore
 from PyQt4 import QtGui
 from PyQt4.QtCore import SIGNAL
@@ -38,7 +39,7 @@ from settings import FULL_LAYERSID
 from settings import SCORE
 from settings import TEST_MATRIX
 from settings import LAYER_MUNICIPIOS
-
+from settings import VALUES_SYM
 
 
 class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
@@ -96,7 +97,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
                 igp += score
             else:
                 style = "background-color: rgb(0, 0, 0);\ncolor: rgb(255, 255, 255);"
-                text = "Falta layerid"
+                text = "Falta capa: %s" % layerid
                 self.ui.txtResult.setStyleSheet(style)
                 self.ui.txtResult.setText(text)
                 return None, None
@@ -164,10 +165,23 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
                     #
                     self.layerigp.updateFields()
 
-                    #
+                    # label
                     label = self.layerigp.label()
-                    label.setLabelField(QgsLabel.Text, 0)
+                    label.setLabelField(QgsLabel.Text, 12)
                     self.layerigp.enableLabels(True)
+
+                    # symbol
+                    # create a category for each item
+                    categories = []
+                    for value, (color, label) in VALUES_SYM.items():
+                        symbol = QgsSymbolV2.defaultSymbol(self.layerigp.geometryType())
+                        symbol.setColor(QtGui.QColor(color))
+                        category = QgsRendererCategoryV2(value, symbol, label)
+                        categories.append(category)
+
+                    expression = u'igp_des'
+                    renderer = QgsCategorizedSymbolRendererV2(expression, categories)
+                    self.layerigp.setRendererV2(renderer)
 
                     #
                     QgsMapLayerRegistry.instance().addMapLayer(self.layerigp)
@@ -187,14 +201,15 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
                 fet[i+1] = sc[0]
                 fet[i+2] = pto[0]
                 fet[i+3] = pto[1]
-                fet[i+4] = u"Isla"
-                fet[i+5] = u"Municipio"
-                now = QtCore.QDateTime.currentDateTime()
+                #now = QtCore.QDateTime.currentDateTime()
                 fet[i+4] = str(datetime.now())
+                fet[i+5] = u""
+                fet[i+6] = u""
                 self.providerigp.addFeatures([fet])
 
                 #
                 self.layerigp.updateExtents()
+                #self.canvas.refresh()
 
                 #
                 scale = 1
@@ -210,7 +225,9 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
 
                 # Set the extent to our new rectangle
                 self.canvas.setExtent(rect)
+                self.canvas.refresh()
 
+                # Store results
                 self.igp = igp
                 self.igp_des = sc[0]
 
@@ -244,19 +261,22 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         :param pto:
         :return:
         """
-        aux = QgsMapLayerRegistry().instance().mapLayersByName(LAYER_MUNICIPIOS)
-        vlayer = aux[0]
-        searchRadius = 5
-        rect = QgsRectangle()
-        rect.setXMinimum(pto.x() - searchRadius)
-        rect.setXMaximum(pto.x() + searchRadius)
-        rect.setYMinimum(pto.y() - searchRadius)
-        rect.setYMaximum(pto.y() + searchRadius)
-        rq = QgsFeatureRequest().setFilterRect(rect)
         try:
+            aux = QgsMapLayerRegistry().instance().mapLayersByName(LAYER_MUNICIPIOS)
+            vlayer = aux[0]
+
+            # 5 meters
+            searchRadius = 5
+            rect = QgsRectangle()
+            rect.setXMinimum(pto.x() - searchRadius)
+            rect.setXMaximum(pto.x() + searchRadius)
+            rect.setYMinimum(pto.y() - searchRadius)
+            rect.setYMaximum(pto.y() + searchRadius)
+            rq = QgsFeatureRequest().setFilterRect(rect)
+
             feature = vlayer.getFeatures(rq).next()
             self.log("%s" % feature)
-            return feature[5], feature[0]
+            return feature[6], feature[1]
         except:
             return None, None
 
@@ -296,8 +316,6 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
 
         :return:
         """
-        from PyQt4 import QtXml
-
         # center
         pto = QgsPoint(float(self.ui.txtCoord.text().split(',')[0].strip()),
                        float(self.ui.txtCoord.text().split(',')[1].strip()))
@@ -309,21 +327,20 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
 
         # Recenter
         rect = QgsRectangle(pto[0] - width/2.0,
-                                    pto[1] - height/2.0,
-                                    pto[0] + width/2.0,
-                                    pto[1] + height/2.0)
+                            pto[1] - height/2.0,
+                            pto[0] + width/2.0,
+                            pto[1] + height/2.0)
 
         # Set the extent to our new rectangle
         self.canvas.setExtent(rect)
 
-
-        # TODO: add Marker !!!! to layer!!!
+        # TODO: add Marker !!!! to layer!!! -- better create symbology in create layer
 
         # Add all layers in map canvas to render
         myMapRenderer = self.canvas.mapRenderer()
 
-        #savePDFFileName = QtGui.QFileDialog.getSaveFileName(None, u'save as PDF', '.', 'PDF files (*.pdf)')
-        savePDFFileName = '/tmp/out.pdf'
+        savePDFFileName = QtGui.QFileDialog.getSaveFileName(None, u'Guardar como PDF', '.', 'PDF files (*.pdf)')
+        #savePDFFileName = '/tmp/out.pdf'
 
         # Load template from file
         myComposition = QgsComposition(myMapRenderer)
@@ -336,13 +353,19 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         myComposition.loadFromTemplate(myDocument)
 
         myMap = myComposition.getComposerItemById('mapa')
-        #myMap.setNewExtent(rect)
+        myMap.setNewExtent(rect)
 
         mIsla, mMunicipio = self.getinfoislavalue(pto)
         mX = pto.x()
         mY = pto.y()
         myHeader = myComposition.getComposerItemById('header')
-        htmlHeader= u"""<table border=1>
+        htmlHeader= u"""
+        <style type="text/css">
+            table.myTable { border-collapse:collapse; }
+            table.myTable td,
+            table.myTable th { border:1px solid black;padding:5px; }
+        </style>
+        <table class="myTable">
         <tr>
             <td>ISLA</td>
             <td>MUNICIPIO</td>
@@ -365,11 +388,17 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         rows = ""
         for layerid in FULL_LAYERSID:
             rows += "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>" % (layerid,
-                                                                    self.ui.tableWidget.item(i, 0).text(),
-                                                                    self.ui.tableWidget.item(i, 1).text(),
-                                                                    self.ui.tableWidget.item(i, 2).text())
+                                                                               self.ui.tableWidget.item(i, 0).text(),
+                                                                               self.ui.tableWidget.item(i, 1).text(),
+                                                                               self.ui.tableWidget.item(i, 2).text())
             i += 1
-        htmlTable = u"""<table border=1>
+        htmlTable = u"""
+        <style type="text/css">
+            table.myTable { border-collapse:collapse; }
+            table.myTable td,
+            table.myTable th { border:1px solid black;padding:5px; }
+        </style>
+        <table class="myTable">
         <tr>
             <td>FACTORES</td>
             <td>VALOR</td>
@@ -383,19 +412,11 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         htmlFooter = u"<center><h1>IGP = %s INCENDIO DE GRAVEDAD %s</h1></center>" % (self.igp, self.igp_des.upper())
         myFooter.setText(htmlFooter)
 
-        """
-        composerLabel = QgsComposerLabel(myComposition)
-        composerLabel.setText("<h1>Hello world</h1>")
-        composerLabel.setHtmlState(1)
-        composerLabel.adjustSizeToText()
-        composerLabel.setItemPosition(20, 150, 100, 100)
-        myComposition.addItem(composerLabel)
-        #self.log("%s" % mytable.getHeaderLabels())
-        """
-
-        #myCoords = myComposition.getComposerItemById('coords')
-        #myCoords.setText(rect.toString())
-
+        # logos
+        mlogo_gobcan = myComposition.getComposerItemById('logo_gobcan')
+        mlogo_gobcan.setPictureFile(os.path.join(os.path.dirname(__file__), 'gobcanarias.jpg'))
+        mlogo_112 = myComposition.getComposerItemById('logo_112')
+        mlogo_112.setPictureFile(os.path.join(os.path.dirname(__file__), '112.jpg'))
 
         printer = QtGui.QPrinter()
         printer.setOutputFormat(QtGui.QPrinter.PdfFormat)
@@ -412,8 +433,6 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         paperRectPixel = printer.pageRect(QtGui.QPrinter.DevicePixel)
         myComposition.render(pdfPainter, paperRectPixel, paperRectMM)
         pdfPainter.end()
-
-
 
     def onclickbtnreport001(self):
         """
