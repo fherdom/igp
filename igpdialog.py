@@ -203,8 +203,11 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
                 fet[i+3] = pto[1]
                 #now = QtCore.QDateTime.currentDateTime()
                 fet[i+4] = str(datetime.now())
-                fet[i+5] = u""
-                fet[i+6] = u""
+
+                # isla, municipio
+                mIsla, mMunicipio = self.getinfoislavalue(pto)
+                fet[i+5] = mIsla
+                fet[i+6] = mMunicipio
                 self.providerigp.addFeatures([fet])
 
                 #
@@ -432,114 +435,6 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         paperRectMM = printer.pageRect(QtGui.QPrinter.Millimeter)
         paperRectPixel = printer.pageRect(QtGui.QPrinter.DevicePixel)
         myComposition.render(pdfPainter, paperRectPixel, paperRectMM)
-        pdfPainter.end()
-
-    def onclickbtnreport001(self):
-        """
-        :return: pdf
-        """
-
-        """
-        text_file_path = open('/tmp/hX6582.gml').read()
-        doc = QtGui.QTextDocument(text_file_path)
-        printer = QtGui.QPrinter(QtGui.QPrinter.HighResolution)
-        printer.setOutputFormat(QtGui.QPrinter.PdfFormat)
-        printer.setOutputFileName('/tmp/sample.pdf')
-        doc.print_(printer)
-        """
-
-        # Option web
-        """
-        from PyQt4.QtWebKit import QWebView
-        web = QWebView()
-        #web.load(QUrl("http://www.google.com"))
-        web.load(QUrl("file:////tmp/report001.html"))
-        printer = QtGui.QPrinter()i.QTableWidgetItem(nombre)
-            item002 = QtGui.QTableWidgetItem(clasificacion)
-            item003 = QtGui.QTableWidgetItem(localizacion)
-            self.ui.tblResult.setItem(row, 0, item001)
-            self.ui.tblResult.setItem(row, 1, item002)
-            self.ui.tblRes
-        printer.setPageSize(QtGui.QPrinter.A4)
-        printer.setOutputFormat(QtGui.QPrinter.PdfFormat)
-        printer.setOutputFileName("/tmp/file.pdf")
-            #web.print_(printer)
-        def convertIt():
-            web.print_(printer)
-            print "Pdf generated"
-        QtCore.QObject.connect(web, SIGNAL("loadFinishe
-        painter.drawText(0, 0, u"Índice de gravedad forestat")
-
-        painter.end()
-        """
-
-        """
-        # Option low level
-        image = QtGui.QImage("/tmp/image001.png")
-        printer = QtGui.QPrinter()
-        printer.setResolution(300)
-        printer.setOutputFormat(QtGui.QPrinter.PdfFormat)
-        printer.setOutputFileName("/tmp/report001.pdf")
-
-        painter = QtGui.QPainter()
-        painter.begin(printer)
-        painter.drawImage(QtCore.QRect(0, 0, self.width(), self.height()), image)
-
-        painter.setPen(QtGui.QColor(168, 43, 3))
-        painter.setFont(QtGui.QFont('Decorative', 10))
-        painter.drawText(0, 0, u"Índice de gravedad forestat")
-
-        painter.end()
-        """
-
-        # center
-        pto = QgsPoint(float(self.ui.txtCoord.text().split(',')[0].strip()),
-                       float(self.ui.txtCoord.text().split(',')[1].strip()))
-
-        scale = 1
-        extent = self.canvas.extent()
-        width = extent.width() * scale
-        height = extent.height() * scale
-
-        # Recenter
-        rect = QgsRectangle(pto[0] - width/2.0,
-                                    pto[1] - height/2.0,
-                                    pto[0] + width/2.0,
-                                    pto[1] + height/2.0)
-
-        # Set the extent to our new rectangle
-        self.canvas.setExtent(rect)
-
-        # prepare print
-        mapRenderer = self.canvas.mapRenderer()
-        c = QgsComposition(mapRenderer)
-        c.setPlotStyle(QgsComposition.Print)
-
-        # map
-        x, y = 0, 0
-        w, h = c.paperWidth(), c.paperHeight()
-        composerMap = QgsComposerMap(c, x, y, w, h)
-        c.addItem(composerMap)
-
-        composerLabel = QgsComposerLabel(c)
-        composerLabel.setText("Hello world")
-        composerLabel.adjustSizeToText()
-        c.addItem(composerLabel)
-
-        savePDFFileName = QtGui.QFileDialog.getSaveFileName(None, u'save as PDF', '.', 'PDF files (*.pdf)')
-
-        printer = QtGui.QPrinter()
-        printer.setOutputFormat(QtGui.QPrinter.PdfFormat)
-        printer.setOutputFileName(savePDFFileName)
-        printer.setPaperSize(QtCore.QSizeF(c.paperWidth(), c.paperHeight()), QtGui.QPrinter.Millimeter)
-        printer.setFullPage(True)
-        printer.setColorMode(QtGui.QPrinter.Color)
-        printer.setResolution(c.printResolution())
-
-        pdfPainter = QtGui.QPainter(printer)
-        paperRectMM = printer.pageRect(QtGui.QPrinter.Millimeter)
-        paperRectPixel = printer.pageRect(QtGui.QPrinter.DevicePixel)
-        c.render(pdfPainter, paperRectPixel, paperRectMM)
         pdfPainter.end()
 
 
