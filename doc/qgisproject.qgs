@@ -5,10 +5,10 @@
     <mapcanvas>
         <units>meters</units>
         <extent>
-            <xmin>299173.77561481075827032</xmin>
-            <ymin>3128120.657899284735322</ymin>
-            <xmax>438938.86438518925569952</xmax>
-            <ymax>3180081.8821007153019309</ymax>
+            <xmin>205781.42683149524964392</xmin>
+            <ymin>3060710.1888596466742456</ymin>
+            <xmax>645902.0614824069198221</xmax>
+            <ymax>3224336.22146886261180043</ymax>
         </extent>
         <projections>0</projections>
         <destinationsrs>
@@ -25,55 +25,45 @@
         </destinationsrs>
         <layer_coordinate_transform_info/>
     </mapcanvas>
-    <legend updateDrawingOrder="true" activeLayer="Resultados_IGP20140626120453282">
-        <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="Resultados IGP" showFeatureCount="0">
-            <filegroup open="true" hidden="false">
-                <legendlayerfile isInOverview="0" layerid="Resultados_IGP20140626120453282" visible="1"/>
-            </filegroup>
-        </legendlayer>
+    <legend updateDrawingOrder="true" activeLayer="Municip_5isl20140627084336238">
         <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="Municip_5isl" showFeatureCount="0">
             <filegroup open="true" hidden="false">
-                <legendlayerfile isInOverview="0" layerid="Municip_5isl20140626083511206" visible="1"/>
+                <legendlayerfile isInOverview="0" layerid="Municip_5isl20140627084336238" visible="1"/>
             </filegroup>
         </legendlayer>
-        <legendlayer drawingOrder="-1" open="false" checked="Qt::Unchecked" name="PTE_5isl_MASK" showFeatureCount="0">
+        <legendlayer drawingOrder="-1" open="false" checked="Qt::Checked" name="FCC_5ISMASK" showFeatureCount="0">
             <filegroup open="false" hidden="false">
-                <legendlayerfile isInOverview="0" layerid="PTE_5isl_MASK20140626113315748" visible="0"/>
+                <legendlayerfile isInOverview="0" layerid="FCC_5ISMASK20140627084347246" visible="1"/>
             </filegroup>
         </legendlayer>
-        <legendlayer drawingOrder="-1" open="false" checked="Qt::Unchecked" name="FCC_5ISMASK" showFeatureCount="0">
+        <legendlayer drawingOrder="-1" open="false" checked="Qt::Checked" name="PTE_5isl_MASK" showFeatureCount="0">
             <filegroup open="false" hidden="false">
-                <legendlayerfile isInOverview="0" layerid="FCC_5ISMASK20140624103846594" visible="0"/>
-            </filegroup>
-        </legendlayer>
-        <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="GRAFCAN_8041512" showFeatureCount="0">
-            <filegroup open="true" hidden="false">
-                <legendlayerfile isInOverview="0" layerid="GRAFCAN_804151220140626114129985" visible="1"/>
+                <legendlayerfile isInOverview="0" layerid="PTE_5isl_MASK20140627084309992" visible="1"/>
             </filegroup>
         </legendlayer>
         <legendlayer drawingOrder="-1" open="false" checked="Qt::Checked" name="IIER_5isl_MSK" showFeatureCount="0">
             <filegroup open="false" hidden="false">
-                <legendlayerfile isInOverview="0" layerid="IIER_5isl_MSK20140626113336859" visible="1"/>
+                <legendlayerfile isInOverview="0" layerid="IIER_5isl_MSK20140627084402310" visible="1"/>
             </filegroup>
         </legendlayer>
-        <legendlayer drawingOrder="-1" open="false" checked="Qt::Unchecked" name="patrimonio" showFeatureCount="0">
+        <legendlayer drawingOrder="-1" open="false" checked="Qt::Checked" name="EDE_5isl_MASK" showFeatureCount="0">
             <filegroup open="false" hidden="false">
-                <legendlayerfile isInOverview="0" layerid="patrimonio20140624103834604" visible="0"/>
+                <legendlayerfile isInOverview="0" layerid="EDE_5isl_MASK20140627084417285" visible="1"/>
+            </filegroup>
+        </legendlayer>
+        <legendlayer drawingOrder="-1" open="false" checked="Qt::Checked" name="Patri_5isl_MK" showFeatureCount="0">
+            <filegroup open="false" hidden="false">
+                <legendlayerfile isInOverview="0" layerid="Patri_5isl_MK20140627084428868" visible="1"/>
+            </filegroup>
+        </legendlayer>
+        <legendlayer drawingOrder="-1" open="false" checked="Qt::Checked" name="Ecolo_5isl_MK" showFeatureCount="0">
+            <filegroup open="false" hidden="false">
+                <legendlayerfile isInOverview="0" layerid="Ecolo_5isl_MK20140627084447475" visible="1"/>
             </filegroup>
         </legendlayer>
         <legendlayer drawingOrder="-1" open="false" checked="Qt::Unchecked" name="evacuacion" showFeatureCount="0">
             <filegroup open="false" hidden="false">
                 <legendlayerfile isInOverview="0" layerid="evacuacion20140624103834411" visible="0"/>
-            </filegroup>
-        </legendlayer>
-        <legendlayer drawingOrder="-1" open="false" checked="Qt::Unchecked" name="ede" showFeatureCount="0">
-            <filegroup open="false" hidden="false">
-                <legendlayerfile isInOverview="0" layerid="ede20140624103834334" visible="0"/>
-            </filegroup>
-        </legendlayer>
-        <legendlayer drawingOrder="-1" open="false" checked="Qt::Unchecked" name="ecologico" showFeatureCount="0">
-            <filegroup open="false" hidden="false">
-                <legendlayerfile isInOverview="0" layerid="ecologico20140624103834269" visible="0"/>
             </filegroup>
         </legendlayer>
         <legendlayer drawingOrder="-1" open="false" checked="Qt::Unchecked" name="combustibilidad" showFeatureCount="0">
@@ -87,7 +77,7 @@
             </filegroup>
         </legendlayer>
     </legend>
-    <Composer title="IGP001" visible="1">
+    <Composer title="IGP001" visible="0">
         <Composition snapGridTolerance="2" gridVisible="1" printResolution="300" paperWidth="210" snapGridOffsetX="0" guidesVisible="1" snapGridResolution="10" snapGridOffsetY="0" alignmentSnap="1" snapping="0" numPages="1" paperHeight="297" alignmentSnapTolerance="2" smartGuides="1" printAsRaster="0" generateWorldFile="0">
             <symbol alpha="1" type="fill" name="">
                 <layer pass="0" class="SimpleFill" locked="0">
@@ -102,7 +92,7 @@
                 </layer>
             </symbol>
             <ComposerScaleBar penColor="#000000" style="Single Box" numMapUnitsPerScaleBarUnit="1000" alignment="0" brushColor="#000000" numSegments="2" segmentMillimeters="16.1665" fontColor="#000000" font="Ubuntu,12,-1,5,50,0,0,0,0,0" numUnitsPerSegment="2500" units="1" labelBarSpace="3" outlineWidth="1" numSegmentsLeft="2" height="0" mapId="0" boxContentSpace="1" unitLabel="km">
-                <ComposerItem width="63.3454" x="122.776" transparency="0" y="96.8629" height="9" positionMode="0" frame="false" outlineWidth="0.3" zValue="15" itemRotation="0" lastValidViewScaleFactor="4.83532" uuid="{2c1ae9b1-c534-4d8c-9158-3e6229d0a269}" id="" background="true" blendMode="0" positionLock="false">
+                <ComposerItem width="63.3454" x="122.776" transparency="0" y="96.8629" height="9" positionMode="0" frame="false" outlineWidth="0.3" zValue="9" itemRotation="0" lastValidViewScaleFactor="4.83532" uuid="{2c1ae9b1-c534-4d8c-9158-3e6229d0a269}" id="" background="true" blendMode="0" positionLock="false">
                     <FrameColor alpha="255" red="0" blue="0" green="0"/>
                     <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
                 </ComposerItem>
@@ -110,7 +100,7 @@
             <ComposerLabel valign="32" labelText="[% $now %]" htmlState="0" halign="2" margin="1">
                 <LabelFont description="Ubuntu,10,-1,5,50,0,0,0,0,0"/>
                 <FontColor red="0" blue="0" green="0"/>
-                <ComposerItem width="48.5898" x="152.531" transparency="0" y="33.8794" height="6.9" positionMode="0" frame="false" outlineWidth="0.3" zValue="11" itemRotation="0" lastValidViewScaleFactor="2.70632" uuid="{41e98492-f944-4a12-a537-25151d187387}" id="" background="true" blendMode="0" positionLock="false">
+                <ComposerItem width="48.5898" x="152.531" transparency="0" y="33.8794" height="6.9" positionMode="0" frame="false" outlineWidth="0.3" zValue="8" itemRotation="0" lastValidViewScaleFactor="2.70632" uuid="{41e98492-f944-4a12-a537-25151d187387}" id="" background="true" blendMode="0" positionLock="false">
                     <FrameColor alpha="255" red="0" blue="0" green="0"/>
                     <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
                 </ComposerItem>
@@ -118,7 +108,7 @@
             <ComposerLabel valign="32" labelText="FOOTER" htmlState="2" halign="1" margin="1">
                 <LabelFont description="Ubuntu,10,-1,5,50,0,0,0,0,0"/>
                 <FontColor red="0" blue="0" green="0"/>
-                <ComposerItem width="189.804" x="11.1673" transparency="0" y="277.392" height="15.1741" positionMode="0" frame="false" outlineWidth="0.3" zValue="9" itemRotation="0" lastValidViewScaleFactor="1.69475" uuid="{14615a85-dc32-42ad-9722-83b0b934078d}" id="footer" background="true" blendMode="0" positionLock="false">
+                <ComposerItem width="189.804" x="11.1673" transparency="0" y="277.392" height="15.1741" positionMode="0" frame="false" outlineWidth="0.3" zValue="7" itemRotation="0" lastValidViewScaleFactor="1.69475" uuid="{14615a85-dc32-42ad-9722-83b0b934078d}" id="footer" background="true" blendMode="0" positionLock="false">
                     <FrameColor alpha="255" red="0" blue="0" green="0"/>
                     <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
                 </ComposerItem>
@@ -126,7 +116,7 @@
             <ComposerLabel valign="32" labelText="TABLE" htmlState="2" halign="1" margin="1">
                 <LabelFont description="Ubuntu,10,-1,5,50,0,0,0,0,0"/>
                 <FontColor red="0" blue="0" green="0"/>
-                <ComposerItem width="189.804" x="11.1673" transparency="0" y="133.373" height="144.019" positionMode="0" frame="false" outlineWidth="0.3" zValue="8" itemRotation="0" lastValidViewScaleFactor="1.40062" uuid="{9b4fceac-a94c-4912-9590-532aba1f8a46}" id="table" background="true" blendMode="0" positionLock="false">
+                <ComposerItem width="189.804" x="11.1673" transparency="0" y="133.373" height="144.019" positionMode="0" frame="false" outlineWidth="0.3" zValue="6" itemRotation="0" lastValidViewScaleFactor="1.40062" uuid="{9b4fceac-a94c-4912-9590-532aba1f8a46}" id="table" background="true" blendMode="0" positionLock="false">
                     <FrameColor alpha="255" red="0" blue="0" green="0"/>
                     <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
                 </ComposerItem>
@@ -134,19 +124,19 @@
             <ComposerLabel valign="32" labelText="HEADER" htmlState="2" halign="1" margin="1">
                 <LabelFont description="Ubuntu,10,-1,5,50,0,0,0,0,0"/>
                 <FontColor red="0" blue="0" green="0"/>
-                <ComposerItem width="192.047" x="11.1673" transparency="0" y="111.242" height="22.1312" positionMode="0" frame="false" outlineWidth="0.3" zValue="7" itemRotation="0" lastValidViewScaleFactor="1.40062" uuid="{ab9a0b36-4dbd-413a-9129-0164a0cea957}" id="header" background="true" blendMode="0" positionLock="false">
+                <ComposerItem width="192.047" x="11.1673" transparency="0" y="111.242" height="22.1312" positionMode="0" frame="false" outlineWidth="0.3" zValue="5" itemRotation="0" lastValidViewScaleFactor="1.40062" uuid="{ab9a0b36-4dbd-413a-9129-0164a0cea957}" id="header" background="true" blendMode="0" positionLock="false">
                     <FrameColor alpha="255" red="0" blue="0" green="0"/>
                     <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
                 </ComposerItem>
             </ComposerLabel>
             <ComposerPicture pictureRotation="0" pictureWidth="30" file="../112.jpg" pictureHeight="17.9464" mapId="-1">
-                <ComposerItem width="30" x="171.121" transparency="0" y="7.32935" height="30" positionMode="0" frame="false" outlineWidth="0.3" zValue="5" itemRotation="0" lastValidViewScaleFactor="11.5032" uuid="{8a9439ba-b42a-481b-bff4-6239eb87a47b}" id="logo_112" background="true" blendMode="0" positionLock="false">
+                <ComposerItem width="30" x="171.121" transparency="0" y="7.32935" height="30" positionMode="0" frame="false" outlineWidth="0.3" zValue="4" itemRotation="0" lastValidViewScaleFactor="11.5032" uuid="{8a9439ba-b42a-481b-bff4-6239eb87a47b}" id="logo_112" background="true" blendMode="0" positionLock="false">
                     <FrameColor alpha="255" red="0" blue="0" green="0"/>
                     <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
                 </ComposerItem>
             </ComposerPicture>
             <ComposerPicture pictureRotation="0" pictureWidth="30" file="../gobcanarias.jpg" pictureHeight="21.548" mapId="-1">
-                <ComposerItem width="30" x="11.1673" transparency="0" y="7.32935" height="30" positionMode="0" frame="false" outlineWidth="0.3" zValue="4" itemRotation="0" lastValidViewScaleFactor="1.40062" uuid="{94c994e3-a403-4772-9e72-4efc44c63bdb}" id="logo_gobcan" background="true" blendMode="0" positionLock="false">
+                <ComposerItem width="30" x="11.1673" transparency="0" y="7.32935" height="30" positionMode="0" frame="false" outlineWidth="0.3" zValue="3" itemRotation="0" lastValidViewScaleFactor="1.40062" uuid="{94c994e3-a403-4772-9e72-4efc44c63bdb}" id="logo_gobcan" background="true" blendMode="0" positionLock="false">
                     <FrameColor alpha="255" red="0" blue="0" green="0"/>
                     <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
                 </ComposerItem>
@@ -154,7 +144,7 @@
             <ComposerLabel valign="32" labelText="Cálculo del índice de gravedad potencial de incendio forestal" htmlState="0" halign="4" margin="1">
                 <LabelFont description="Ubuntu,16,-1,5,75,1,0,0,0,0"/>
                 <FontColor red="0" blue="0" green="0"/>
-                <ComposerItem width="134.243" x="36.8783" transparency="0" y="12.3641" height="16.6435" positionMode="0" frame="false" outlineWidth="0" zValue="3" itemRotation="0" lastValidViewScaleFactor="2.33574" uuid="{d747a33f-df19-4043-991c-37a01d224da7}" id="" background="true" blendMode="0" positionLock="false">
+                <ComposerItem width="134.243" x="36.8783" transparency="0" y="12.3641" height="16.6435" positionMode="0" frame="false" outlineWidth="0" zValue="2" itemRotation="0" lastValidViewScaleFactor="2.33574" uuid="{d747a33f-df19-4043-991c-37a01d224da7}" id="" background="true" blendMode="0" positionLock="false">
                     <FrameColor alpha="255" red="0" blue="0" green="0"/>
                     <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
                 </ComposerItem>
@@ -174,7 +164,7 @@
                         </layer>
                     </symbol>
                 </overviewFrame>
-                <Extent ymin="3104843.7056395118124783" xmin="443545.65867683780379593" ymax="3113217.37913825269788504" xmax="472920.38132316223345697"/>
+                <Extent ymin="3104843.7056395118124783" xmin="443545.65867683780379593" ymax="3113217.37429916532710195" xmax="472920.38132316223345697"/>
                 <LayerSet/>
                 <Grid gridStyle="0" crossLength="3" gridFramePenThickness="0.5" intervalX="0" offsetX="0" intervalY="0" offsetY="0" gridFrameStyle="0" gridFrameWidth="2" gridBlendMode="0" show="0">
                     <framePenColor alpha="255" red="0" blue="0" green="0"/>
@@ -201,17 +191,97 @@
                     </Annotation>
                 </Grid>
                 <AtlasMap fixedScale="1" atlasDriven="0" margin="0.10000000000000001"/>
-                <ComposerItem width="189.954" x="11.1673" transparency="0" y="42.7139" height="54.149" positionMode="0" frame="false" outlineWidth="0" zValue="1" itemRotation="0" lastValidViewScaleFactor="4.83532" uuid="{ab19b7e7-95fc-40b0-b722-db287e3572c7}" id="mapa" background="true" blendMode="0" positionLock="false">
+                <ComposerItem width="189.954" x="11.1673" transparency="0" y="42.7139" height="54.149" positionMode="0" frame="false" outlineWidth="0" zValue="1" itemRotation="0" lastValidViewScaleFactor="6.66414" uuid="{ab19b7e7-95fc-40b0-b722-db287e3572c7}" id="mapa" background="true" blendMode="0" positionLock="false">
                     <FrameColor alpha="255" red="0" blue="0" green="0"/>
                     <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
                 </ComposerItem>
             </ComposerMap>
         </Composition>
     </Composer>
-    <projectlayers layercount="12">
+    <projectlayers layercount="10">
         <maplayer minimumScale="0" maximumScale="1e+08" type="raster" hasScaleBasedVisibilityFlag="0">
-            <id>FCC_5ISMASK20140624103846594</id>
-            <datasource>./capas/FCC_arb_IGP/FCC_5ISMASK.TIF</datasource>
+            <id>EDE_5isl_MASK20140627084417285</id>
+            <datasource>./capas/igp/EDE_5isl_MASK.tif</datasource>
+            <title></title>
+            <abstract></abstract>
+            <keywordList>
+                <value></value>
+            </keywordList>
+            <layername>EDE_5isl_MASK</layername>
+            <srs>
+                <spatialrefsys>
+                    <proj4>+proj=utm +zone=28 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</proj4>
+                    <srsid>3112</srsid>
+                    <srid>32628</srid>
+                    <authid>EPSG:32628</authid>
+                    <description>WGS 84 / UTM zone 28N</description>
+                    <projectionacronym>utm</projectionacronym>
+                    <ellipsoidacronym>WGS84</ellipsoidacronym>
+                    <geographicflag>false</geographicflag>
+                </spatialrefsys>
+            </srs>
+            <customproperties>
+                <property key="identify/format" value="Value"/>
+            </customproperties>
+            <provider>gdal</provider>
+            <pipe>
+                <rasterrenderer gradient="BlackToWhite" opacity="1" alphaBand="-1" type="singlebandgray" grayBand="1">
+                    <rasterTransparency/>
+                    <contrastEnhancement>
+                        <minValue>254.004</minValue>
+                        <maxValue>254.004</maxValue>
+                        <algorithm>StretchToMinimumMaximum</algorithm>
+                    </contrastEnhancement>
+                </rasterrenderer>
+                <brightnesscontrast brightness="0" contrast="0"/>
+                <huesaturation colorizeGreen="128" colorizeOn="0" colorizeRed="255" colorizeBlue="128" grayscaleMode="0" saturation="0" colorizeStrength="100"/>
+                <rasterresampler maxOversampling="2"/>
+            </pipe>
+            <blendMode>0</blendMode>
+        </maplayer>
+        <maplayer minimumScale="0" maximumScale="1e+08" type="raster" hasScaleBasedVisibilityFlag="0">
+            <id>Ecolo_5isl_MK20140627084447475</id>
+            <datasource>./capas/igp/Ecolo_5isl_MK.tif</datasource>
+            <title></title>
+            <abstract></abstract>
+            <keywordList>
+                <value></value>
+            </keywordList>
+            <layername>Ecolo_5isl_MK</layername>
+            <srs>
+                <spatialrefsys>
+                    <proj4>+proj=utm +zone=28 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</proj4>
+                    <srsid>3112</srsid>
+                    <srid>32628</srid>
+                    <authid>EPSG:32628</authid>
+                    <description>WGS 84 / UTM zone 28N</description>
+                    <projectionacronym>utm</projectionacronym>
+                    <ellipsoidacronym>WGS84</ellipsoidacronym>
+                    <geographicflag>false</geographicflag>
+                </spatialrefsys>
+            </srs>
+            <customproperties>
+                <property key="identify/format" value="Value"/>
+            </customproperties>
+            <provider>gdal</provider>
+            <pipe>
+                <rasterrenderer gradient="BlackToWhite" opacity="1" alphaBand="-1" type="singlebandgray" grayBand="1">
+                    <rasterTransparency/>
+                    <contrastEnhancement>
+                        <minValue>4.98047</minValue>
+                        <maxValue>254.004</maxValue>
+                        <algorithm>StretchToMinimumMaximum</algorithm>
+                    </contrastEnhancement>
+                </rasterrenderer>
+                <brightnesscontrast brightness="0" contrast="0"/>
+                <huesaturation colorizeGreen="128" colorizeOn="0" colorizeRed="255" colorizeBlue="128" grayscaleMode="0" saturation="0" colorizeStrength="100"/>
+                <rasterresampler maxOversampling="2"/>
+            </pipe>
+            <blendMode>0</blendMode>
+        </maplayer>
+        <maplayer minimumScale="0" maximumScale="1e+08" type="raster" hasScaleBasedVisibilityFlag="0">
+            <id>FCC_5ISMASK20140627084347246</id>
+            <datasource>./capas/igp/FCC_5ISMASK.TIF</datasource>
             <title></title>
             <abstract></abstract>
             <keywordList>
@@ -249,92 +319,9 @@
             </pipe>
             <blendMode>0</blendMode>
         </maplayer>
-        <maplayer minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
-            <id>GRAFCAN_804151220140626114129985</id>
-            <datasource>/tmp/u14102.gml</datasource>
-            <title></title>
-            <abstract></abstract>
-            <keywordList>
-                <value></value>
-            </keywordList>
-            <layername>GRAFCAN_8041512</layername>
-            <srs>
-                <spatialrefsys>
-                    <proj4>+proj=utm +zone=28 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</proj4>
-                    <srsid>3112</srsid>
-                    <srid>32628</srid>
-                    <authid>EPSG:32628</authid>
-                    <description>WGS 84 / UTM zone 28N</description>
-                    <projectionacronym>utm</projectionacronym>
-                    <ellipsoidacronym>WGS84</ellipsoidacronym>
-                    <geographicflag>false</geographicflag>
-                </spatialrefsys>
-            </srs>
-            <provider encoding="UTF-8">ogr</provider>
-            <previewExpression></previewExpression>
-            <vectorjoins/>
-            <renderer-v2 symbollevels="0" type="singleSymbol">
-                <symbols>
-                    <symbol alpha="1" type="marker" name="0">
-                        <layer pass="0" class="SimpleMarker" locked="0">
-                            <prop k="angle" v="0"/>
-                            <prop k="color" v="6,57,185,255"/>
-                            <prop k="color_border" v="0,0,0,255"/>
-                            <prop k="horizontal_anchor_point" v="1"/>
-                            <prop k="name" v="circle"/>
-                            <prop k="offset" v="0,0"/>
-                            <prop k="offset_unit" v="MM"/>
-                            <prop k="outline_style" v="solid"/>
-                            <prop k="outline_width" v="0"/>
-                            <prop k="outline_width_unit" v="MM"/>
-                            <prop k="scale_method" v="area"/>
-                            <prop k="size" v="2"/>
-                            <prop k="size_unit" v="MM"/>
-                            <prop k="vertical_anchor_point" v="1"/>
-                        </layer>
-                    </symbol>
-                </symbols>
-                <rotation/>
-                <sizescale scalemethod="area"/>
-            </renderer-v2>
-            <customproperties/>
-            <blendMode>0</blendMode>
-            <featureBlendMode>0</featureBlendMode>
-            <layerTransparency>0</layerTransparency>
-            <displayfield>gml_id</displayfield>
-            <label>0</label>
-            <labelattributes>
-                <label fieldname="" text="Etiqueta"/>
-                <family fieldname="" name="Ubuntu"/>
-                <size fieldname="" units="pt" value="12"/>
-                <bold fieldname="" on="0"/>
-                <italic fieldname="" on="0"/>
-                <underline fieldname="" on="0"/>
-                <strikeout fieldname="" on="0"/>
-                <color fieldname="" red="0" blue="0" green="0"/>
-                <x fieldname=""/>
-                <y fieldname=""/>
-                <offset x="0" y="0" units="pt" yfieldname="" xfieldname=""/>
-                <angle fieldname="" value="0" auto="0"/>
-                <alignment fieldname="" value="center"/>
-                <buffercolor fieldname="" red="255" blue="255" green="255"/>
-                <buffersize fieldname="" units="pt" value="1"/>
-                <bufferenabled fieldname="" on=""/>
-                <multilineenabled fieldname="" on=""/>
-                <selectedonly on=""/>
-            </labelattributes>
-            <editform></editform>
-            <editforminit></editforminit>
-            <featformsuppress>0</featformsuppress>
-            <annotationform></annotationform>
-            <editorlayout>generatedlayout</editorlayout>
-            <excludeAttributesWMS/>
-            <excludeAttributesWFS/>
-            <attributeactions/>
-        </maplayer>
-        <maplayer minimumScale="-4.65661e-10" maximumScale="1e+08" type="raster" hasScaleBasedVisibilityFlag="0">
-            <id>IIER_5isl_MSK20140626113336859</id>
-            <datasource>./capas/IIER_y_Municipios/IIER_5isl_MSK.tif</datasource>
+        <maplayer minimumScale="0" maximumScale="1e+08" type="raster" hasScaleBasedVisibilityFlag="0">
+            <id>IIER_5isl_MSK20140627084402310</id>
+            <datasource>./capas/igp/IIER_5isl_MSK.tif</datasource>
             <title></title>
             <abstract></abstract>
             <keywordList>
@@ -358,11 +345,11 @@
             </customproperties>
             <provider>gdal</provider>
             <pipe>
-                <rasterrenderer gradient="BlackToWhite" opacity="1" alphaBand="0" type="singlebandgray" grayBand="1">
+                <rasterrenderer gradient="BlackToWhite" opacity="1" alphaBand="-1" type="singlebandgray" grayBand="1">
                     <rasterTransparency/>
                     <contrastEnhancement>
                         <minValue>0</minValue>
-                        <maxValue>5</maxValue>
+                        <maxValue>4.98047</maxValue>
                         <algorithm>StretchToMinimumMaximum</algorithm>
                     </contrastEnhancement>
                 </rasterrenderer>
@@ -372,9 +359,9 @@
             </pipe>
             <blendMode>0</blendMode>
         </maplayer>
-        <maplayer minimumScale="-4.65661e-10" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
-            <id>Municip_5isl20140626083511206</id>
-            <datasource>./capas/IIER_y_Municipios/Municip_5isl.shp</datasource>
+        <maplayer minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Polygon" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
+            <id>Municip_5isl20140627084336238</id>
+            <datasource>./capas/igp/Municip_5isl.shp</datasource>
             <title></title>
             <abstract></abstract>
             <keywordList>
@@ -393,15 +380,15 @@
                     <geographicflag>false</geographicflag>
                 </spatialrefsys>
             </srs>
-            <provider encoding="ISO-8859-1">ogr</provider>
-            <previewExpression>COALESCE( "ID", '&lt;NULL>' )</previewExpression>
+            <provider encoding="System">ogr</provider>
+            <previewExpression></previewExpression>
             <vectorjoins/>
             <renderer-v2 symbollevels="0" type="singleSymbol">
                 <symbols>
                     <symbol alpha="1" type="fill" name="0">
                         <layer pass="0" class="SimpleFill" locked="0">
                             <prop k="border_width_unit" v="MM"/>
-                            <prop k="color" v="20,157,198,255"/>
+                            <prop k="color" v="197,71,111,255"/>
                             <prop k="color_border" v="0,0,0,255"/>
                             <prop k="offset" v="0,0"/>
                             <prop k="offset_unit" v="MM"/>
@@ -414,124 +401,7 @@
                 <rotation/>
                 <sizescale scalemethod="area"/>
             </renderer-v2>
-            <customproperties>
-                <property key="labeling" value="pal"/>
-                <property key="labeling/addDirectionSymbol" value="false"/>
-                <property key="labeling/angleOffset" value="0"/>
-                <property key="labeling/blendMode" value="0"/>
-                <property key="labeling/bufferBlendMode" value="0"/>
-                <property key="labeling/bufferColorA" value="255"/>
-                <property key="labeling/bufferColorB" value="255"/>
-                <property key="labeling/bufferColorG" value="255"/>
-                <property key="labeling/bufferColorR" value="255"/>
-                <property key="labeling/bufferDraw" value="false"/>
-                <property key="labeling/bufferJoinStyle" value="64"/>
-                <property key="labeling/bufferNoFill" value="false"/>
-                <property key="labeling/bufferSize" value="1"/>
-                <property key="labeling/bufferSizeInMapUnits" value="false"/>
-                <property key="labeling/bufferTransp" value="0"/>
-                <property key="labeling/centroidWhole" value="false"/>
-                <property key="labeling/decimals" value="3"/>
-                <property key="labeling/displayAll" value="false"/>
-                <property key="labeling/dist" value="0"/>
-                <property key="labeling/distInMapUnits" value="false"/>
-                <property key="labeling/enabled" value="false"/>
-                <property key="labeling/fieldName" value=""/>
-                <property key="labeling/fontBold" value="true"/>
-                <property key="labeling/fontCapitals" value="0"/>
-                <property key="labeling/fontFamily" value="Ubuntu"/>
-                <property key="labeling/fontItalic" value="true"/>
-                <property key="labeling/fontLetterSpacing" value="0"/>
-                <property key="labeling/fontLimitPixelSize" value="false"/>
-                <property key="labeling/fontMaxPixelSize" value="10000"/>
-                <property key="labeling/fontMinPixelSize" value="3"/>
-                <property key="labeling/fontSize" value="10"/>
-                <property key="labeling/fontSizeInMapUnits" value="false"/>
-                <property key="labeling/fontStrikeout" value="false"/>
-                <property key="labeling/fontUnderline" value="false"/>
-                <property key="labeling/fontWeight" value="75"/>
-                <property key="labeling/fontWordSpacing" value="0"/>
-                <property key="labeling/formatNumbers" value="false"/>
-                <property key="labeling/isExpression" value="false"/>
-                <property key="labeling/labelOffsetInMapUnits" value="true"/>
-                <property key="labeling/labelPerPart" value="false"/>
-                <property key="labeling/leftDirectionSymbol" value="&lt;"/>
-                <property key="labeling/limitNumLabels" value="false"/>
-                <property key="labeling/maxCurvedCharAngleIn" value="20"/>
-                <property key="labeling/maxCurvedCharAngleOut" value="-20"/>
-                <property key="labeling/maxNumLabels" value="2000"/>
-                <property key="labeling/mergeLines" value="false"/>
-                <property key="labeling/minFeatureSize" value="0"/>
-                <property key="labeling/multilineAlign" value="0"/>
-                <property key="labeling/multilineHeight" value="1"/>
-                <property key="labeling/namedStyle" value="Bold Italic"/>
-                <property key="labeling/obstacle" value="true"/>
-                <property key="labeling/placeDirectionSymbol" value="0"/>
-                <property key="labeling/placement" value="0"/>
-                <property key="labeling/placementFlags" value="0"/>
-                <property key="labeling/plussign" value="false"/>
-                <property key="labeling/preserveRotation" value="true"/>
-                <property key="labeling/previewBkgrdColor" value="#ffffff"/>
-                <property key="labeling/priority" value="5"/>
-                <property key="labeling/quadOffset" value="4"/>
-                <property key="labeling/reverseDirectionSymbol" value="false"/>
-                <property key="labeling/rightDirectionSymbol" value=">"/>
-                <property key="labeling/scaleMax" value="10000000"/>
-                <property key="labeling/scaleMin" value="1"/>
-                <property key="labeling/scaleVisibility" value="false"/>
-                <property key="labeling/shadowBlendMode" value="6"/>
-                <property key="labeling/shadowColorB" value="0"/>
-                <property key="labeling/shadowColorG" value="0"/>
-                <property key="labeling/shadowColorR" value="0"/>
-                <property key="labeling/shadowDraw" value="false"/>
-                <property key="labeling/shadowOffsetAngle" value="135"/>
-                <property key="labeling/shadowOffsetDist" value="1"/>
-                <property key="labeling/shadowOffsetGlobal" value="true"/>
-                <property key="labeling/shadowOffsetUnits" value="1"/>
-                <property key="labeling/shadowRadius" value="1.5"/>
-                <property key="labeling/shadowRadiusAlphaOnly" value="false"/>
-                <property key="labeling/shadowRadiusUnits" value="1"/>
-                <property key="labeling/shadowScale" value="100"/>
-                <property key="labeling/shadowTransparency" value="30"/>
-                <property key="labeling/shadowUnder" value="0"/>
-                <property key="labeling/shapeBlendMode" value="0"/>
-                <property key="labeling/shapeBorderColorA" value="255"/>
-                <property key="labeling/shapeBorderColorB" value="128"/>
-                <property key="labeling/shapeBorderColorG" value="128"/>
-                <property key="labeling/shapeBorderColorR" value="128"/>
-                <property key="labeling/shapeBorderWidth" value="0"/>
-                <property key="labeling/shapeBorderWidthUnits" value="1"/>
-                <property key="labeling/shapeDraw" value="false"/>
-                <property key="labeling/shapeFillColorA" value="255"/>
-                <property key="labeling/shapeFillColorB" value="255"/>
-                <property key="labeling/shapeFillColorG" value="255"/>
-                <property key="labeling/shapeFillColorR" value="255"/>
-                <property key="labeling/shapeJoinStyle" value="64"/>
-                <property key="labeling/shapeOffsetUnits" value="1"/>
-                <property key="labeling/shapeOffsetX" value="0"/>
-                <property key="labeling/shapeOffsetY" value="0"/>
-                <property key="labeling/shapeRadiiUnits" value="1"/>
-                <property key="labeling/shapeRadiiX" value="0"/>
-                <property key="labeling/shapeRadiiY" value="0"/>
-                <property key="labeling/shapeRotation" value="0"/>
-                <property key="labeling/shapeRotationType" value="0"/>
-                <property key="labeling/shapeSVGFile" value=""/>
-                <property key="labeling/shapeSizeType" value="0"/>
-                <property key="labeling/shapeSizeUnits" value="1"/>
-                <property key="labeling/shapeSizeX" value="0"/>
-                <property key="labeling/shapeSizeY" value="0"/>
-                <property key="labeling/shapeTransparency" value="0"/>
-                <property key="labeling/shapeType" value="0"/>
-                <property key="labeling/textColorA" value="255"/>
-                <property key="labeling/textColorB" value="0"/>
-                <property key="labeling/textColorG" value="0"/>
-                <property key="labeling/textColorR" value="0"/>
-                <property key="labeling/textTransp" value="0"/>
-                <property key="labeling/upsidedownLabels" value="0"/>
-                <property key="labeling/wrapChar" value=""/>
-                <property key="labeling/xOffset" value="0"/>
-                <property key="labeling/yOffset" value="0"/>
-            </customproperties>
+            <customproperties/>
             <blendMode>0</blendMode>
             <featureBlendMode>0</featureBlendMode>
             <layerTransparency>0</layerTransparency>
@@ -557,15 +427,6 @@
                 <multilineenabled fieldname="" on=""/>
                 <selectedonly on=""/>
             </labelattributes>
-            <edittypes>
-                <edittype labelontop="0" editable="1" type="0" name="CODIGOINE"/>
-                <edittype labelontop="0" editable="1" type="0" name="ID"/>
-                <edittype labelontop="0" editable="1" type="0" name="Isla"/>
-                <edittype labelontop="0" editable="1" type="0" name="JURISDICCI"/>
-                <edittype labelontop="0" editable="1" type="0" name="NOMBRE"/>
-                <edittype labelontop="0" editable="1" type="0" name="NOM_Provin"/>
-                <edittype labelontop="0" editable="1" type="0" name="PROVINCIA"/>
-            </edittypes>
             <editform></editform>
             <editforminit></editforminit>
             <featformsuppress>0</featformsuppress>
@@ -576,8 +437,8 @@
             <attributeactions/>
         </maplayer>
         <maplayer minimumScale="0" maximumScale="1e+08" type="raster" hasScaleBasedVisibilityFlag="0">
-            <id>PTE_5isl_MASK20140626113315748</id>
-            <datasource>./capas/ptes_IGP/PTE_5isl_MASK.tif</datasource>
+            <id>PTE_5isl_MASK20140627084309992</id>
+            <datasource>./capas/igp/PTE_5isl_MASK.tif</datasource>
             <title></title>
             <abstract></abstract>
             <keywordList>
@@ -615,15 +476,15 @@
             </pipe>
             <blendMode>0</blendMode>
         </maplayer>
-        <maplayer minimumScale="0" maximumScale="1e+08" simplifyDrawingHints="1" minLabelScale="0" maxLabelScale="1e+08" simplifyDrawingTol="1" geometry="Point" simplifyMaxScale="1" type="vector" hasScaleBasedVisibilityFlag="0" simplifyLocal="1" scaleBasedLabelVisibilityFlag="0">
-            <id>Resultados_IGP20140626120453282</id>
-            <datasource>Point</datasource>
+        <maplayer minimumScale="0" maximumScale="1e+08" type="raster" hasScaleBasedVisibilityFlag="0">
+            <id>Patri_5isl_MK20140627084428868</id>
+            <datasource>./capas/igp/Patri_5isl_MK.tif</datasource>
             <title></title>
             <abstract></abstract>
             <keywordList>
                 <value></value>
             </keywordList>
-            <layername>Resultados IGP</layername>
+            <layername>Patri_5isl_MK</layername>
             <srs>
                 <spatialrefsys>
                     <proj4>+proj=utm +zone=28 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</proj4>
@@ -636,146 +497,24 @@
                     <geographicflag>false</geographicflag>
                 </spatialrefsys>
             </srs>
-            <provider encoding="UTF-8">memory</provider>
-            <previewExpression>COALESCE("pendiente", '&lt;NULL>')||', '||COALESCE("accesibilidad", '&lt;NULL>')||', '||COALESCE("combustibilidad", '&lt;NULL>')||', '||COALESCE("continuidad", '&lt;NULL>')||', '||COALESCE("viento", '&lt;NULL>')||', '||COALESCE("temperatura", '&lt;NULL>')||', '||COALESCE("ede", '&lt;NULL>')||', '||COALESCE("iier", '&lt;NULL>')||', '||COALESCE("evacuacion", '&lt;NULL>')||', '||COALESCE("patrimonio", '&lt;NULL>')||', '||COALESCE("ecologico", '&lt;NULL>')||', '||COALESCE("igp", '&lt;NULL>')||', '||COALESCE("igp_des", '&lt;NULL>')||', '||COALESCE("x", '&lt;NULL>')||', '||COALESCE("y", '&lt;NULL>')||', '||COALESCE("fecha", '&lt;NULL>')||', '||COALESCE("isla", '&lt;NULL>')||', '||COALESCE("municipio", '&lt;NULL>')</previewExpression>
-            <vectorjoins/>
-            <renderer-v2 attr="igp_des" symbollevels="0" type="categorizedSymbol">
-                <categories>
-                    <category symbol="0" value="Baja" label="Riesgo Bajo"/>
-                    <category symbol="1" value="" label="Desconocido"/>
-                    <category symbol="2" value="Severa" label="Riesgo Severo"/>
-                    <category symbol="3" value="Alta" label="Riesgo Alto"/>
-                    <category symbol="4" value="Moderada" label="Riesgo Moderado"/>
-                </categories>
-                <symbols>
-                    <symbol alpha="1" type="marker" name="0">
-                        <layer pass="0" class="SimpleMarker" locked="0">
-                            <prop k="angle" v="0"/>
-                            <prop k="color" v="85,255,127,255"/>
-                            <prop k="color_border" v="0,0,0,255"/>
-                            <prop k="horizontal_anchor_point" v="1"/>
-                            <prop k="name" v="circle"/>
-                            <prop k="offset" v="0,0"/>
-                            <prop k="offset_unit" v="MM"/>
-                            <prop k="outline_style" v="solid"/>
-                            <prop k="outline_width" v="0"/>
-                            <prop k="outline_width_unit" v="MM"/>
-                            <prop k="scale_method" v="area"/>
-                            <prop k="size" v="2"/>
-                            <prop k="size_unit" v="MM"/>
-                            <prop k="vertical_anchor_point" v="1"/>
-                        </layer>
-                    </symbol>
-                    <symbol alpha="1" type="marker" name="1">
-                        <layer pass="0" class="SimpleMarker" locked="0">
-                            <prop k="angle" v="0"/>
-                            <prop k="color" v="0,0,0,255"/>
-                            <prop k="color_border" v="0,0,0,255"/>
-                            <prop k="horizontal_anchor_point" v="1"/>
-                            <prop k="name" v="circle"/>
-                            <prop k="offset" v="0,0"/>
-                            <prop k="offset_unit" v="MM"/>
-                            <prop k="outline_style" v="solid"/>
-                            <prop k="outline_width" v="0"/>
-                            <prop k="outline_width_unit" v="MM"/>
-                            <prop k="scale_method" v="area"/>
-                            <prop k="size" v="2"/>
-                            <prop k="size_unit" v="MM"/>
-                            <prop k="vertical_anchor_point" v="1"/>
-                        </layer>
-                    </symbol>
-                    <symbol alpha="1" type="marker" name="2">
-                        <layer pass="0" class="SimpleMarker" locked="0">
-                            <prop k="angle" v="0"/>
-                            <prop k="color" v="255,0,0,255"/>
-                            <prop k="color_border" v="0,0,0,255"/>
-                            <prop k="horizontal_anchor_point" v="1"/>
-                            <prop k="name" v="circle"/>
-                            <prop k="offset" v="0,0"/>
-                            <prop k="offset_unit" v="MM"/>
-                            <prop k="outline_style" v="solid"/>
-                            <prop k="outline_width" v="0"/>
-                            <prop k="outline_width_unit" v="MM"/>
-                            <prop k="scale_method" v="area"/>
-                            <prop k="size" v="2"/>
-                            <prop k="size_unit" v="MM"/>
-                            <prop k="vertical_anchor_point" v="1"/>
-                        </layer>
-                    </symbol>
-                    <symbol alpha="1" type="marker" name="3">
-                        <layer pass="0" class="SimpleMarker" locked="0">
-                            <prop k="angle" v="0"/>
-                            <prop k="color" v="255,85,127,255"/>
-                            <prop k="color_border" v="0,0,0,255"/>
-                            <prop k="horizontal_anchor_point" v="1"/>
-                            <prop k="name" v="circle"/>
-                            <prop k="offset" v="0,0"/>
-                            <prop k="offset_unit" v="MM"/>
-                            <prop k="outline_style" v="solid"/>
-                            <prop k="outline_width" v="0"/>
-                            <prop k="outline_width_unit" v="MM"/>
-                            <prop k="scale_method" v="area"/>
-                            <prop k="size" v="2"/>
-                            <prop k="size_unit" v="MM"/>
-                            <prop k="vertical_anchor_point" v="1"/>
-                        </layer>
-                    </symbol>
-                    <symbol alpha="1" type="marker" name="4">
-                        <layer pass="0" class="SimpleMarker" locked="0">
-                            <prop k="angle" v="0"/>
-                            <prop k="color" v="255,170,127,255"/>
-                            <prop k="color_border" v="0,0,0,255"/>
-                            <prop k="horizontal_anchor_point" v="1"/>
-                            <prop k="name" v="circle"/>
-                            <prop k="offset" v="0,0"/>
-                            <prop k="offset_unit" v="MM"/>
-                            <prop k="outline_style" v="solid"/>
-                            <prop k="outline_width" v="0"/>
-                            <prop k="outline_width_unit" v="MM"/>
-                            <prop k="scale_method" v="area"/>
-                            <prop k="size" v="2"/>
-                            <prop k="size_unit" v="MM"/>
-                            <prop k="vertical_anchor_point" v="1"/>
-                        </layer>
-                    </symbol>
-                </symbols>
-                <rotation/>
-                <sizescale scalemethod="area"/>
-            </renderer-v2>
-            <customproperties/>
+            <customproperties>
+                <property key="identify/format" value="Value"/>
+            </customproperties>
+            <provider>gdal</provider>
+            <pipe>
+                <rasterrenderer gradient="BlackToWhite" opacity="1" alphaBand="-1" type="singlebandgray" grayBand="1">
+                    <rasterTransparency/>
+                    <contrastEnhancement>
+                        <minValue>254.004</minValue>
+                        <maxValue>254.004</maxValue>
+                        <algorithm>StretchToMinimumMaximum</algorithm>
+                    </contrastEnhancement>
+                </rasterrenderer>
+                <brightnesscontrast brightness="0" contrast="0"/>
+                <huesaturation colorizeGreen="128" colorizeOn="0" colorizeRed="255" colorizeBlue="128" grayscaleMode="0" saturation="0" colorizeStrength="100"/>
+                <rasterresampler maxOversampling="2"/>
+            </pipe>
             <blendMode>0</blendMode>
-            <featureBlendMode>0</featureBlendMode>
-            <layerTransparency>0</layerTransparency>
-            <displayfield></displayfield>
-            <label>1</label>
-            <labelattributes>
-                <label fieldname="" text="Etiqueta"/>
-                <family fieldname="" name="Ubuntu"/>
-                <size fieldname="" units="pt" value="12"/>
-                <bold fieldname="" on="0"/>
-                <italic fieldname="" on="0"/>
-                <underline fieldname="" on="0"/>
-                <strikeout fieldname="" on="0"/>
-                <color fieldname="" red="0" blue="0" green="0"/>
-                <x fieldname=""/>
-                <y fieldname=""/>
-                <offset x="0" y="0" units="pt" yfieldname="" xfieldname=""/>
-                <angle fieldname="" value="0" auto="0"/>
-                <alignment fieldname="" value="center"/>
-                <buffercolor fieldname="" red="255" blue="255" green="255"/>
-                <buffersize fieldname="" units="pt" value="1"/>
-                <bufferenabled fieldname="" on=""/>
-                <multilineenabled fieldname="" on=""/>
-                <selectedonly on=""/>
-            </labelattributes>
-            <editform></editform>
-            <editforminit></editforminit>
-            <featformsuppress>0</featformsuppress>
-            <annotationform></annotationform>
-            <editorlayout>generatedlayout</editorlayout>
-            <excludeAttributesWMS/>
-            <excludeAttributesWFS/>
-            <attributeactions/>
         </maplayer>
         <maplayer minimumScale="0" maximumScale="1e+08" type="raster" hasScaleBasedVisibilityFlag="0">
             <id>accesibilidad20140624103834130</id>
@@ -858,86 +597,6 @@
             <blendMode>0</blendMode>
         </maplayer>
         <maplayer minimumScale="0" maximumScale="1e+08" type="raster" hasScaleBasedVisibilityFlag="0">
-            <id>ecologico20140624103834269</id>
-            <datasource>./capas/ecologico.tif</datasource>
-            <title></title>
-            <abstract></abstract>
-            <keywordList>
-                <value></value>
-            </keywordList>
-            <layername>ecologico</layername>
-            <srs>
-                <spatialrefsys>
-                    <proj4>+proj=utm +zone=28 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</proj4>
-                    <srsid>3112</srsid>
-                    <srid>32628</srid>
-                    <authid>EPSG:32628</authid>
-                    <description>WGS 84 / UTM zone 28N</description>
-                    <projectionacronym>utm</projectionacronym>
-                    <ellipsoidacronym>WGS84</ellipsoidacronym>
-                    <geographicflag>false</geographicflag>
-                </spatialrefsys>
-            </srs>
-            <customproperties>
-                <property key="identify/format" value="Value"/>
-            </customproperties>
-            <provider>gdal</provider>
-            <pipe>
-                <rasterrenderer gradient="BlackToWhite" opacity="1" alphaBand="-1" type="singlebandgray" grayBand="1">
-                    <rasterTransparency/>
-                    <contrastEnhancement>
-                        <minValue>0</minValue>
-                        <maxValue>0.999</maxValue>
-                        <algorithm>StretchToMinimumMaximum</algorithm>
-                    </contrastEnhancement>
-                </rasterrenderer>
-                <brightnesscontrast brightness="0" contrast="0"/>
-                <huesaturation colorizeGreen="128" colorizeOn="0" colorizeRed="255" colorizeBlue="128" grayscaleMode="0" saturation="0" colorizeStrength="100"/>
-                <rasterresampler maxOversampling="2"/>
-            </pipe>
-            <blendMode>0</blendMode>
-        </maplayer>
-        <maplayer minimumScale="0" maximumScale="1e+08" type="raster" hasScaleBasedVisibilityFlag="0">
-            <id>ede20140624103834334</id>
-            <datasource>./capas/ede.tif</datasource>
-            <title></title>
-            <abstract></abstract>
-            <keywordList>
-                <value></value>
-            </keywordList>
-            <layername>ede</layername>
-            <srs>
-                <spatialrefsys>
-                    <proj4>+proj=utm +zone=28 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</proj4>
-                    <srsid>3112</srsid>
-                    <srid>32628</srid>
-                    <authid>EPSG:32628</authid>
-                    <description>WGS 84 / UTM zone 28N</description>
-                    <projectionacronym>utm</projectionacronym>
-                    <ellipsoidacronym>WGS84</ellipsoidacronym>
-                    <geographicflag>false</geographicflag>
-                </spatialrefsys>
-            </srs>
-            <customproperties>
-                <property key="identify/format" value="Value"/>
-            </customproperties>
-            <provider>gdal</provider>
-            <pipe>
-                <rasterrenderer gradient="BlackToWhite" opacity="1" alphaBand="-1" type="singlebandgray" grayBand="1">
-                    <rasterTransparency/>
-                    <contrastEnhancement>
-                        <minValue>0</minValue>
-                        <maxValue>0.999</maxValue>
-                        <algorithm>StretchToMinimumMaximum</algorithm>
-                    </contrastEnhancement>
-                </rasterrenderer>
-                <brightnesscontrast brightness="0" contrast="0"/>
-                <huesaturation colorizeGreen="128" colorizeOn="0" colorizeRed="255" colorizeBlue="128" grayscaleMode="0" saturation="0" colorizeStrength="100"/>
-                <rasterresampler maxOversampling="2"/>
-            </pipe>
-            <blendMode>0</blendMode>
-        </maplayer>
-        <maplayer minimumScale="0" maximumScale="1e+08" type="raster" hasScaleBasedVisibilityFlag="0">
             <id>evacuacion20140624103834411</id>
             <datasource>./capas/evacuacion.tif</datasource>
             <title></title>
@@ -946,46 +605,6 @@
                 <value></value>
             </keywordList>
             <layername>evacuacion</layername>
-            <srs>
-                <spatialrefsys>
-                    <proj4>+proj=utm +zone=28 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</proj4>
-                    <srsid>3112</srsid>
-                    <srid>32628</srid>
-                    <authid>EPSG:32628</authid>
-                    <description>WGS 84 / UTM zone 28N</description>
-                    <projectionacronym>utm</projectionacronym>
-                    <ellipsoidacronym>WGS84</ellipsoidacronym>
-                    <geographicflag>false</geographicflag>
-                </spatialrefsys>
-            </srs>
-            <customproperties>
-                <property key="identify/format" value="Value"/>
-            </customproperties>
-            <provider>gdal</provider>
-            <pipe>
-                <rasterrenderer gradient="BlackToWhite" opacity="1" alphaBand="-1" type="singlebandgray" grayBand="1">
-                    <rasterTransparency/>
-                    <contrastEnhancement>
-                        <minValue>0</minValue>
-                        <maxValue>0.999</maxValue>
-                        <algorithm>StretchToMinimumMaximum</algorithm>
-                    </contrastEnhancement>
-                </rasterrenderer>
-                <brightnesscontrast brightness="0" contrast="0"/>
-                <huesaturation colorizeGreen="128" colorizeOn="0" colorizeRed="255" colorizeBlue="128" grayscaleMode="0" saturation="0" colorizeStrength="100"/>
-                <rasterresampler maxOversampling="2"/>
-            </pipe>
-            <blendMode>0</blendMode>
-        </maplayer>
-        <maplayer minimumScale="0" maximumScale="1e+08" type="raster" hasScaleBasedVisibilityFlag="0">
-            <id>patrimonio20140624103834604</id>
-            <datasource>./capas/patrimonio.tif</datasource>
-            <title></title>
-            <abstract></abstract>
-            <keywordList>
-                <value></value>
-            </keywordList>
-            <layername>patrimonio</layername>
             <srs>
                 <spatialrefsys>
                     <proj4>+proj=utm +zone=28 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</proj4>

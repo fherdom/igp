@@ -33,14 +33,11 @@ from qgis.core import *
 
 from ui_igpdialog import Ui_IGPDialog
 
-from settings import MATRIX
-from settings import LAYERSID
-from settings import FULL_LAYERSID
+from settings import CONFIG
 from settings import SCORE
-from settings import TEST_MATRIX
 from settings import LAYER_MUNICIPIOS
+from settings import RESULTS
 from settings import VALUES_SYM
-
 
 class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
 
@@ -71,9 +68,6 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         self.filenamelog = filenamelog
         self.log("init app")
 
-        # TODO: 140618, load matrix
-        self.matrix = MATRIX
-
         # TODO: 140624, layer IGP
         self.layerigp = None
         self.layeridigp = None
@@ -82,6 +76,87 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         self.igp = 0
         self.igp_des = u""
 
+    def createIGPLayer(self):
+        """
+        """
+        self.layerigp = QgsVectorLayer("Point", u'Resultados IGP', "memory")
+        self.providerigp = self.layerigp.dataProvider()
+        crs = QgsCoordinateReferenceSystem()
+        crs.createFromSrid(32628)
+        self.layerigp.setCrs(crs)
+
+        #
+        attrs = []
+        for layerid in RESULTS:
+            attrs.append(QgsField(layerid, QtCore.QVariant.String))
+        self.providerigp.addAttributes(attrs)
+
+        #
+        self.layerigp.updateFields()
+
+        # label
+        label = self.layerigp.label()
+        label.setLabelField(QgsLabel.Text, self.layerigp.fieldNameIndex(u'IGP_DES'))
+        self.layerigp.enableLabels(True)
+
+        # symbol
+        # create a category for each item
+        categories = []
+        for value, (color, label) in VALUES_SYM.items():
+            symbol = QgsSymbolV2.defaultSymbol(self.layerigp.geometryType())
+            symbol.setColor(QtGui.QColor(color))
+            category = QgsRendererCategoryV2(value, symbol, label)
+            categories.append(category)
+
+        expression = u'IGP_DES'
+        renderer = QgsCategorizedSymbolRendererV2(expression, categories)
+        self.layerigp.setRendererV2(renderer)
+
+        #
+        QgsMapLayerRegistry.instance().addMapLayer(self.layerigp)
+
+        #
+        self.layeridigp = QgsMapLayerRegistry.instance().mapLayers().keys()[-1]
+        self.canvas.refresh()
+
+
+    def addIGPLayerValue(self, pto):
+        """
+        """
+        # TODO: add point to layer
+        if not self.layerigp:
+            self.createIGPLayer()
+
+        fields = self.layerigp.pendingFields()
+        fet = QgsFeature(fields)
+        fet.setGeometry(QgsGeometry.fromPoint(pto))
+        
+        # fill record
+        i = 0
+        for layerid in RESULTS:
+            fet[i] = RESULTS[layerid][0]
+            i += 1
+        self.providerigp.addFeatures([fet])
+
+        #
+        self.layerigp.updateExtents()
+
+        #
+        scale = 1
+        extent = self.canvas.extent()
+        width = extent.width() * scale
+        height = extent.height() * scale
+
+        # Recenter
+        rect = QgsRectangle(pto[0] - width/2.0,
+                            pto[1] - height/2.0,
+                            pto[0] + width/2.0,
+                            pto[1] + height/2.0)
+
+        # Set the extent to our new rectangle
+        self.canvas.setExtent(rect)
+        self.canvas.refresh()
+
     def onclickbtnigp(self):
         """
         :return:
@@ -89,33 +164,43 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         pto = QgsPoint(float(self.ui.txtCoord.text().split(',')[0].strip()),
                        float(self.ui.txtCoord.text().split(',')[1].strip()))
         igp = 0
-        for layerid in LAYERSID:
-            if self.isloadlayer(layerid):
-                value = self.getinfovalue(pto, layerid)
-                score, description = self.checkvalue(layerid, value)
-                TEST_MATRIX[layerid] = [value, description, score]
-                igp += score
-            else:
-                style = "background-color: rgb(0, 0, 0);\ncolor: rgb(255, 255, 255);"
-                text = "Falta capa: %s" % layerid
-                self.ui.txtResult.setStyleSheet(style)
-                self.ui.txtResult.setText(text)
-                return None, None
+        for layerid, data in CONFIG.items():
+            #print layerid
+            #print data[u'description'].encode('utf-8')
+            if data[u'req'] == 1:
+                if self.isloadlayer(data[u'filename']):
+                    value = self.getinfovalue(pto, data[u'filename'])
+                    score, description = self.checkvalue(layerid, value)
+                    RESULTS[layerid] = [value, description, score]
+                    
+                    # Show table
+                    self.ui.tableWidget.item(data[u'pos'], 0).setText(unicode(RESULTS[layerid][0]))
+                    self.ui.tableWidget.item(data[u'pos'], 1).setText(unicode(RESULTS[layerid][1]))
+                    self.ui.tableWidget.item(data[u'pos'], 2).setText(unicode(RESULTS[layerid][2]))
+
+                    igp += score
+                else:
+                    style = "background-color: rgb(0, 0, 0);\ncolor: rgb(255, 255, 255);"
+                    text = "Falta capa: %s" % layerid
+                    self.ui.txtResult.setStyleSheet(style)
+                    self.ui.txtResult.setText(text)
+                    return False
 
         # TODO: viento
-        layerid = u'viento'
+        layerid = u'VIE'
         value = int(self.ui.tableWidget.item(4, 0).text())
         score, description = self.checkvalue(layerid, value)
         igp += score
-        TEST_MATRIX[layerid] = [value, description, score]
+        RESULTS[layerid] = [value, description, score]
 
         # TODO: temperatura
-        layerid = u'temperatura'
+        layerid = u'TEM'
         value = int(self.ui.tableWidget.item(5, 0).text())
         score, description = self.checkvalue(layerid, value)
         igp += score
-        TEST_MATRIX[layerid] = [value, description, score]
+        RESULTS[layerid] = [value, description, score]
 
+        # TODO: Final score
         for sc in SCORE:
             if sc[1] <= igp <= sc[2]:
                 style = sc[3]
@@ -123,141 +208,46 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
                 self.ui.txtResult.setStyleSheet(style)
                 self.ui.txtResult.setText(text)
 
-                # TODO: show TEST_MATRIX on table
-                i = 0
-                for layerid in FULL_LAYERSID:
-                    self.ui.tableWidget.item(i, 0).setText(unicode(TEST_MATRIX[layerid][0]))
-                    self.ui.tableWidget.item(i, 1).setText(unicode(TEST_MATRIX[layerid][1]))
-                    self.ui.tableWidget.item(i, 2).setText(unicode(TEST_MATRIX[layerid][2]))
-                    i += 1
+                # 
+                RESULTS[u'X'] = [self.ui.txtCoord.text().split(',')[0].strip(), u'', 1]
+                RESULTS[u'Y'] = [self.ui.txtCoord.text().split(',')[1].strip(), u'', 1]
+                RESULTS[u'IGP'] = [igp, u'', 1]
+                RESULTS[u'IGP_DES'] = [sc[0], u'', 1]
+                i, m = self.getinfoislavalue(pto)
+                RESULTS[u'ISLA'] = [i, u'', 1]
+                RESULTS[u'MUNICIPIO'] = [m, u'', 1]
+                RESULTS[u'FECHA'] = [str(datetime.now()), u'', 1]
 
-                # TODO: add point to layer
-                if not QgsMapLayerRegistry.instance().mapLayer(self.layeridigp):
-
-                    self.layerigp = QgsVectorLayer("Point", u'Resultados IGP', "memory")
-                    self.providerigp = self.layerigp.dataProvider()
-                    crs = QgsCoordinateReferenceSystem()
-                    crs.createFromSrid(32628)
-                    self.layerigp.setCrs(crs)
-
-                    #
-                    self.providerigp.addAttributes([
-                        QgsField(u'pendiente', QtCore.QVariant.Int),
-                        QgsField(u'accesibilidad', QtCore.QVariant.Int),
-                        QgsField(u'combustibilidad', QtCore.QVariant.Int),
-                        QgsField(u'continuidad', QtCore.QVariant.Int),
-                        QgsField(u'viento', QtCore.QVariant.Int),
-                        QgsField(u'temperatura', QtCore.QVariant.Int),
-                        QgsField(u'ede', QtCore.QVariant.Int),
-                        QgsField(u'iier', QtCore.QVariant.Int),
-                        QgsField(u'evacuacion', QtCore.QVariant.Int),
-                        QgsField(u'patrimonio', QtCore.QVariant.Int),
-                        QgsField(u'ecologico', QtCore.QVariant.Int),
-                        QgsField(u'igp', QtCore.QVariant.Int),
-                        QgsField(u'igp_des', QtCore.QVariant.String),
-                        QgsField(u'x', QtCore.QVariant.Double),
-                        QgsField(u'y', QtCore.QVariant.Double),
-                        QgsField(u'fecha', QtCore.QVariant.String),
-                        QgsField(u'isla', QtCore.QVariant.String),
-                        QgsField(u'municipio', QtCore.QVariant.String),
-                    ])
-
-                    #
-                    self.layerigp.updateFields()
-
-                    # label
-                    label = self.layerigp.label()
-                    label.setLabelField(QgsLabel.Text, 12)
-                    self.layerigp.enableLabels(True)
-
-                    # symbol
-                    # create a category for each item
-                    categories = []
-                    for value, (color, label) in VALUES_SYM.items():
-                        symbol = QgsSymbolV2.defaultSymbol(self.layerigp.geometryType())
-                        symbol.setColor(QtGui.QColor(color))
-                        category = QgsRendererCategoryV2(value, symbol, label)
-                        categories.append(category)
-
-                    expression = u'igp_des'
-                    renderer = QgsCategorizedSymbolRendererV2(expression, categories)
-                    self.layerigp.setRendererV2(renderer)
-
-                    #
-                    QgsMapLayerRegistry.instance().addMapLayer(self.layerigp)
-
-                    #
-                    self.layeridigp = QgsMapLayerRegistry.instance().mapLayers().keys()[-1]
-                    self.canvas.refresh()
-
-                fields = self.layerigp.pendingFields()
-                fet = QgsFeature(fields)
-                fet.setGeometry(QgsGeometry.fromPoint(pto))
-                i = 0
-                for layerid in FULL_LAYERSID:
-                    fet[i] = TEST_MATRIX[layerid][0]
-                    i += 1
-                fet[i] = igp
-                fet[i+1] = sc[0]
-                fet[i+2] = pto[0]
-                fet[i+3] = pto[1]
-                #now = QtCore.QDateTime.currentDateTime()
-                fet[i+4] = str(datetime.now())
-
-                # isla, municipio
-                mIsla, mMunicipio = self.getinfoislavalue(pto)
-                fet[i+5] = mIsla
-                fet[i+6] = mMunicipio
-                self.providerigp.addFeatures([fet])
-
-                #
-                self.layerigp.updateExtents()
-                #self.canvas.refresh()
-
-                #
-                scale = 1
-                extent = self.canvas.extent()
-                width = extent.width() * scale
-                height = extent.height() * scale
-
-                # Recenter
-                rect = QgsRectangle(pto[0] - width/2.0,
-                                    pto[1] - height/2.0,
-                                    pto[0] + width/2.0,
-                                    pto[1] + height/2.0)
-
-                # Set the extent to our new rectangle
-                self.canvas.setExtent(rect)
-                self.canvas.refresh()
-
-                # Store results
                 self.igp = igp
                 self.igp_des = sc[0]
 
-                return igp, sc[0]
+                # 
+                self.log('%s' % RESULTS)
+                self.addIGPLayerValue(pto)
 
-    def isloadlayer(self, layerid):
+        return True
+
+    def isloadlayer(self, layername):
         """
         :param layerid:
         :return:
         """
-        aux = QgsMapLayerRegistry().instance().mapLayersByName(layerid)
-        self.log("%s %s" % (aux, layerid))
+        aux = QgsMapLayerRegistry().instance().mapLayersByName(layername)
+        self.log("%s %s" % (aux, layername))
         return True if len(aux) > 0 else False
 
-    def getinfovalue(self, pto, layerid):
+    def getinfovalue(self, pto, layername):
         """
         :param x:
         :param y:
         :param layerid:
         :return:
         """
-        aux = QgsMapLayerRegistry().instance().mapLayersByName(layerid)
+        aux = QgsMapLayerRegistry().instance().mapLayersByName(layername)
         rlayer = aux[0]
         results = rlayer.dataProvider().identify(pto, QgsRaster.IdentifyFormatValue).results()
         self.log("%s" % results)
         return results[1]
-        #return TEST_MATRIX[layerid]
 
     def getinfoislavalue(self, pto):
         """
@@ -283,14 +273,13 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         except:
             return None, None
 
-
     def checkvalue(self, layerid, value):
         """
         :param id:
         :param value:
         :return:
         """
-        for e in MATRIX[layerid]:
+        for e in CONFIG[layerid][u'values']:
             if e[2]:
                 if e[1] < value <= e[2]:
                     return e[0], e[3]
@@ -304,7 +293,6 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         """
         clipboard = QtGui.QApplication.clipboard()
         self.ui.txtCoord.setText(clipboard.text())
-        #clipboard.setText(self.ui.txtCoordinates.text()) 
 
     def log(self, msg):
         """
@@ -383,17 +371,18 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
             <td>%s</td>
             <td>%s</td>
         </tr>
-        </table>""" % (mIsla, mMunicipio, mX, mY, datetime.now())
+        </table>""" % (RESULTS[u'ISLA'][0], RESULTS[u'MUNICIPIO'][0], RESULTS[u'X'][0], RESULTS[u'Y'][0], RESULTS[u'FECHA'][0])
         myHeader.setText(htmlHeader)
 
         myTable = myComposition.getComposerItemById('table')
         i = 0
         rows = ""
-        for layerid in FULL_LAYERSID:
-            rows += "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>" % (layerid,
-                                                                               self.ui.tableWidget.item(i, 0).text(),
-                                                                               self.ui.tableWidget.item(i, 1).text(),
-                                                                               self.ui.tableWidget.item(i, 2).text())
+        for layerid in RESULTS:
+            if layerid in CONFIG:
+                rows += "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>" % (CONFIG[layerid][u'description'], 
+                    RESULTS[layerid][0], 
+                    RESULTS[layerid][1], 
+                    RESULTS[layerid][2])
             i += 1
         htmlTable = u"""
         <style type="text/css">
@@ -412,7 +401,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         myTable.setText(htmlTable)
 
         myFooter = myComposition.getComposerItemById('footer')
-        htmlFooter = u"<center><h1>IGP = %s INCENDIO DE GRAVEDAD %s</h1></center>" % (self.igp, self.igp_des.upper())
+        htmlFooter = u"<center><h1>IGP = %s INCENDIO DE GRAVEDAD %s</h1></center>" % (RESULTS['IGP'][0], RESULTS['IGP_DES'][0].upper())
         myFooter.setText(htmlFooter)
 
         # logos
@@ -421,6 +410,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         mlogo_112 = myComposition.getComposerItemById('logo_112')
         mlogo_112.setPictureFile(os.path.join(os.path.dirname(__file__), '112.jpg'))
 
+        # print PDF
         printer = QtGui.QPrinter()
         printer.setOutputFormat(QtGui.QPrinter.PdfFormat)
         printer.setOutputFileName(savePDFFileName)
@@ -436,7 +426,6 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         paperRectPixel = printer.pageRect(QtGui.QPrinter.DevicePixel)
         myComposition.render(pdfPainter, paperRectPixel, paperRectMM)
         pdfPainter.end()
-
 
 if __name__ == '__main__':
     import sys

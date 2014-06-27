@@ -57,6 +57,8 @@ http://www.qgistutorials.com/es/docs/getting_started_with_pyqgis.html
 !!! print
 http://inasafe.org/en/_modules/safe_qgis/report/map.html
 
+# Code
+ftp://ftp.polito.it/people/fiermonte/PLUGINS/OLD_0/mmqgis/mmqgis_library.py
 
 # Identify
 http://3nids.wordpress.com/2013/02/14/identify-feature-on-map/
@@ -100,3 +102,7 @@ print l.name()
 
 
 458233.02, 3110465.86
+
+
+# TODO: 140627
+- settings
