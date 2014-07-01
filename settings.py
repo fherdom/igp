@@ -32,7 +32,7 @@ CONFIG = {
     },
     u'ACC': {
         u'description': u'Accesibilidad',
-        u'filename': u'accesibilidad',
+        u'filename': u'Acces_5isl_MK',
         u'req': 1,
         u'pos': 1,
         u'values': [
@@ -98,11 +98,11 @@ CONFIG = {
     },
     u'EVA': {
         u'description': u'Evacuación',
-        u'filename': u'evacuacion',
+        u'filename': u'Pobl_5isl_MSK',
         u'req': 1,
         u'pos': 8,
         u'values': [
-            [5, 1, None, u'Evacuación de la población de sus viviendas o municipios en el área de afección del incendio y/o futura progresión del mismo.']]
+            [5, 5, None, u'Evacuación de la población de sus viviendas o municipios en el área de afección del incendio y/o futura progresión del mismo.']]
     },
     u'PAT': {
         u'description': u'Patrimonio',
