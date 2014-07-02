@@ -80,10 +80,6 @@ Vector - Raster
  2022  gdal_rasterize -a ecologico -tr 1000.0 1000.0 -l icd_muns /home/felix/dev/qgis/igp/doc/municipios/icd_muns.shp /home/felix/dev/qgis/igp/doc/capas/ecologico.tif
 
 
-
-
-
-
 rLayer = qgis.utils.iface.mapCanvas().layer(0)
 rLayer.name()
 u'180_OEM25_EH'
@@ -106,3 +102,25 @@ print l.name()
 
 # TODO: 140627
 - settings
+
+# TODO: 140701
+- create zip: 
+zip -r plugin.zip igp/*.py igp/*.qpt igp/*.qrc igp/*.ui igp/*.jpg igp/icon.png igp/metadata.txt igp/README.html 
+
+# TODO: 140702
+
++ el campo filename corresponde con el nombre asignado en el proyecto!!!
+
+- Miro lo de combustibilidad, seguramente habrá q actualizar el la parte de 'values' del CONFIG (de settings.py) con lo valores adecuados (culpa mía de no explicarles la configuración)
+
+- Miro lo del PDF, q sea coherente con la ventana de datos (se me habrá escapado algo)
+
+- Podemos ampliar el CONFIG para almacenar el texto en caso de no existir valores... lo miro.
+
+- Tienes razón, el dato con muchos decimales no queda bien... intentaré formatearlo (2 decimales?)
+
++ Lo del título del PDF se puede cambiar fácil, verás que en la carpeta del plugin hay un template006.qpt, si lo editas puedes poner el texto y creo q tb se puede editar con el 'diseñador de impresión del qgis'. Pero no te preocupes, lo cambio y subo.
+
++ Lo del nombre de la capas es importante, me gusta más los textos del anexo 15, pero tb soy de la rama de nombrar los ficheros sin tildes ni espacios ni caracteres raros, por ejemplo, Población lo guardaría como poblacion y al cargar aparecería este nombre, pero en el PDF o en la ventana aparecerá Población... no se si me expliqué...
+
++ Tienes razón, tengo que decirte que capa es la que falta, no su ID interno

@@ -181,7 +181,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
                     igp += score
                 else:
                     style = "background-color: rgb(0, 0, 0);\ncolor: rgb(255, 255, 255);"
-                    text = "Falta capa: %s" % layerid
+                    text = "Falta capa: %s" % data[u'filename']
                     self.ui.txtResult.setStyleSheet(style)
                     self.ui.txtResult.setText(text)
                     return False

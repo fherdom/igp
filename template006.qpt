@@ -62,7 +62,7 @@
     <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
    </ComposerItem>
   </ComposerPicture>
-  <ComposerLabel valign="32" labelText="Cálculo del índice de gravedad potencial de incendio forestal" htmlState="0" halign="4" margin="1">
+  <ComposerLabel valign="32" labelText="Cálculo del Índice de Gravedad Potencial de incendio forestal" htmlState="0" halign="4" margin="1">
    <LabelFont description="Ubuntu,16,-1,5,75,1,0,0,0,0"/>
    <FontColor red="0" blue="0" green="0"/>
    <ComposerItem width="134.243" x="36.8783" transparency="0" y="12.3641" height="16.6435" positionMode="0" frame="false" outlineWidth="0" zValue="2" itemRotation="0" lastValidViewScaleFactor="2.33574" uuid="{d747a33f-df19-4043-991c-37a01d224da7}" id="" background="true" blendMode="0" positionLock="false">

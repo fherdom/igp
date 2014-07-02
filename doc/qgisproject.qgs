@@ -25,7 +25,7 @@
         </destinationsrs>
         <layer_coordinate_transform_info/>
     </mapcanvas>
-    <legend updateDrawingOrder="true" activeLayer="Pobl_5isl_MSK20140630085045050">
+    <legend updateDrawingOrder="true" activeLayer="Municip_5isl20140627084336238">
         <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="Municip_5isl" showFeatureCount="0">
             <filegroup open="true" hidden="false">
                 <legendlayerfile isInOverview="0" layerid="Municip_5isl20140627084336238" visible="1"/>
@@ -36,7 +36,7 @@
                 <legendlayerfile isInOverview="0" layerid="FCC_5ISMASK20140627084347246" visible="1"/>
             </filegroup>
         </legendlayer>
-        <legendlayer drawingOrder="-1" open="false" checked="Qt::Checked" name="PTE_5isl_MASK" showFeatureCount="0">
+        <legendlayer drawingOrder="-1" open="false" checked="Qt::Checked" name="Pendiente" showFeatureCount="0">
             <filegroup open="false" hidden="false">
                 <legendlayerfile isInOverview="0" layerid="PTE_5isl_MASK20140627084309992" visible="1"/>
             </filegroup>
@@ -61,19 +61,19 @@
                 <legendlayerfile isInOverview="0" layerid="Ecolo_5isl_MK20140627084447475" visible="1"/>
             </filegroup>
         </legendlayer>
-        <legendlayer drawingOrder="-1" open="false" checked="Qt::Checked" name="Pobl_5isl_MSK" showFeatureCount="0">
+        <legendlayer drawingOrder="-1" open="false" checked="Qt::Checked" name="Población" showFeatureCount="0">
             <filegroup open="false" hidden="false">
                 <legendlayerfile isInOverview="0" layerid="Pobl_5isl_MSK20140630085045050" visible="1"/>
+            </filegroup>
+        </legendlayer>
+        <legendlayer drawingOrder="-1" open="false" checked="Qt::Checked" name="COMBU_5isl_MK" showFeatureCount="0">
+            <filegroup open="false" hidden="false">
+                <legendlayerfile isInOverview="0" layerid="COMBU_5isl_MK20140702135234401" visible="1"/>
             </filegroup>
         </legendlayer>
         <legendlayer drawingOrder="-1" open="false" checked="Qt::Checked" name="Acces_5isl_MK" showFeatureCount="0">
             <filegroup open="false" hidden="false">
                 <legendlayerfile isInOverview="0" layerid="Acces_5isl_MK20140701112145797" visible="1"/>
-            </filegroup>
-        </legendlayer>
-        <legendlayer drawingOrder="-1" open="false" checked="Qt::Unchecked" name="combustibilidad" showFeatureCount="0">
-            <filegroup open="false" hidden="false">
-                <legendlayerfile isInOverview="0" layerid="combustibilidad20140624103834173" visible="0"/>
             </filegroup>
         </legendlayer>
     </legend>
@@ -129,13 +129,13 @@
                     <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
                 </ComposerItem>
             </ComposerLabel>
-            <ComposerPicture pictureRotation="0" pictureWidth="nan" file="../112.jpg" pictureHeight="nan" mapId="-1">
+            <ComposerPicture pictureRotation="0" pictureWidth="30" file="../112.jpg" pictureHeight="17.9464" mapId="-1">
                 <ComposerItem width="30" x="171.121" transparency="0" y="7.32935" height="30" positionMode="0" frame="false" outlineWidth="0.3" zValue="4" itemRotation="0" lastValidViewScaleFactor="11.5032" uuid="{8a9439ba-b42a-481b-bff4-6239eb87a47b}" id="logo_112" background="true" blendMode="0" positionLock="false">
                     <FrameColor alpha="255" red="0" blue="0" green="0"/>
                     <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
                 </ComposerItem>
             </ComposerPicture>
-            <ComposerPicture pictureRotation="0" pictureWidth="nan" file="../gobcanarias.jpg" pictureHeight="nan" mapId="-1">
+            <ComposerPicture pictureRotation="0" pictureWidth="30" file="../gobcanarias.jpg" pictureHeight="21.548" mapId="-1">
                 <ComposerItem width="30" x="11.1673" transparency="0" y="7.32935" height="30" positionMode="0" frame="false" outlineWidth="0.3" zValue="3" itemRotation="0" lastValidViewScaleFactor="1.40062" uuid="{94c994e3-a403-4772-9e72-4efc44c63bdb}" id="logo_gobcan" background="true" blendMode="0" positionLock="false">
                     <FrameColor alpha="255" red="0" blue="0" green="0"/>
                     <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
@@ -230,6 +230,46 @@
                     <contrastEnhancement>
                         <minValue>0</minValue>
                         <maxValue>4.98047</maxValue>
+                        <algorithm>StretchToMinimumMaximum</algorithm>
+                    </contrastEnhancement>
+                </rasterrenderer>
+                <brightnesscontrast brightness="0" contrast="0"/>
+                <huesaturation colorizeGreen="128" colorizeOn="0" colorizeRed="255" colorizeBlue="128" grayscaleMode="0" saturation="0" colorizeStrength="100"/>
+                <rasterresampler maxOversampling="2"/>
+            </pipe>
+            <blendMode>0</blendMode>
+        </maplayer>
+        <maplayer minimumScale="0" maximumScale="1e+08" type="raster" hasScaleBasedVisibilityFlag="0">
+            <id>COMBU_5isl_MK20140702135234401</id>
+            <datasource>./capas/igp/COMBU_5isl_MK.tif</datasource>
+            <title></title>
+            <abstract></abstract>
+            <keywordList>
+                <value></value>
+            </keywordList>
+            <layername>COMBU_5isl_MK</layername>
+            <srs>
+                <spatialrefsys>
+                    <proj4>+proj=utm +zone=28 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</proj4>
+                    <srsid>3112</srsid>
+                    <srid>32628</srid>
+                    <authid>EPSG:32628</authid>
+                    <description>WGS 84 / UTM zone 28N</description>
+                    <projectionacronym>utm</projectionacronym>
+                    <ellipsoidacronym>WGS84</ellipsoidacronym>
+                    <geographicflag>false</geographicflag>
+                </spatialrefsys>
+            </srs>
+            <customproperties>
+                <property key="identify/format" value="Value"/>
+            </customproperties>
+            <provider>gdal</provider>
+            <pipe>
+                <rasterrenderer gradient="BlackToWhite" opacity="1" alphaBand="-1" type="singlebandgray" grayBand="1">
+                    <rasterTransparency/>
+                    <contrastEnhancement>
+                        <minValue>0.996094</minValue>
+                        <maxValue>254.004</maxValue>
                         <algorithm>StretchToMinimumMaximum</algorithm>
                     </contrastEnhancement>
                 </rasterrenderer>
@@ -484,7 +524,7 @@
             <keywordList>
                 <value></value>
             </keywordList>
-            <layername>PTE_5isl_MASK</layername>
+            <layername>Pendiente</layername>
             <srs>
                 <spatialrefsys>
                     <proj4>+proj=utm +zone=28 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</proj4>
@@ -564,7 +604,7 @@
             <keywordList>
                 <value></value>
             </keywordList>
-            <layername>Pobl_5isl_MSK</layername>
+            <layername>Población</layername>
             <srs>
                 <spatialrefsys>
                     <proj4>+proj=utm +zone=28 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</proj4>
@@ -587,46 +627,6 @@
                     <contrastEnhancement>
                         <minValue>254.004</minValue>
                         <maxValue>254.004</maxValue>
-                        <algorithm>StretchToMinimumMaximum</algorithm>
-                    </contrastEnhancement>
-                </rasterrenderer>
-                <brightnesscontrast brightness="0" contrast="0"/>
-                <huesaturation colorizeGreen="128" colorizeOn="0" colorizeRed="255" colorizeBlue="128" grayscaleMode="0" saturation="0" colorizeStrength="100"/>
-                <rasterresampler maxOversampling="2"/>
-            </pipe>
-            <blendMode>0</blendMode>
-        </maplayer>
-        <maplayer minimumScale="0" maximumScale="1e+08" type="raster" hasScaleBasedVisibilityFlag="0">
-            <id>combustibilidad20140624103834173</id>
-            <datasource>./capas/combustibilidad.tif</datasource>
-            <title></title>
-            <abstract></abstract>
-            <keywordList>
-                <value></value>
-            </keywordList>
-            <layername>combustibilidad</layername>
-            <srs>
-                <spatialrefsys>
-                    <proj4>+proj=utm +zone=28 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</proj4>
-                    <srsid>3112</srsid>
-                    <srid>32628</srid>
-                    <authid>EPSG:32628</authid>
-                    <description>WGS 84 / UTM zone 28N</description>
-                    <projectionacronym>utm</projectionacronym>
-                    <ellipsoidacronym>WGS84</ellipsoidacronym>
-                    <geographicflag>false</geographicflag>
-                </spatialrefsys>
-            </srs>
-            <customproperties>
-                <property key="identify/format" value="Value"/>
-            </customproperties>
-            <provider>gdal</provider>
-            <pipe>
-                <rasterrenderer gradient="BlackToWhite" opacity="1" alphaBand="-1" type="singlebandgray" grayBand="1">
-                    <rasterTransparency/>
-                    <contrastEnhancement>
-                        <minValue>0</minValue>
-                        <maxValue>2.997</maxValue>
                         <algorithm>StretchToMinimumMaximum</algorithm>
                     </contrastEnhancement>
                 </rasterrenderer>

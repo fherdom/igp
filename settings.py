@@ -22,7 +22,7 @@ email                :
 CONFIG = {
     u'PTE': {
         u'description': u'Pendiente',
-        u'filename': u'PTE_5isl_MASK',
+        u'filename': u'Pendiente',
         u'req': 1,
         u'pos': 0,
         u'values': [
@@ -42,7 +42,7 @@ CONFIG = {
     },
     u'COM': {
         u'description': u'Combustibilidad',
-        u'filename': u'combustibilidad',
+        u'filename': u'COMBU_5isl_MK',
         u'req': 1,
         u'pos': 2,
         u'values': [
@@ -98,7 +98,7 @@ CONFIG = {
     },
     u'EVA': {
         u'description': u'Evacuación',
-        u'filename': u'Pobl_5isl_MSK',
+        u'filename': u'Población',
         u'req': 1,
         u'pos': 8,
         u'values': [
