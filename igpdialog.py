@@ -73,8 +73,11 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         self.layeridigp = None
         self.providerigp = None
 
-        self.igp = 0
-        self.igp_des = u""
+        self.igp = None
+        self.igp_des = None
+
+        #self.pto = u"458233.02, 3110465.86"
+        self.pto = None
 
     def createIGPLayer(self):
         """
@@ -161,8 +164,36 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         """
         :return:
         """
-        pto = QgsPoint(float(self.ui.txtCoord.text().split(',')[0].strip()),
+
+        def alert(msg):
+            style = "background-color: rgb(0, 0, 0);\ncolor: rgb(255, 255, 255);"
+            text = msg
+            self.ui.txtResult.setStyleSheet(style)
+            self.ui.txtResult.setText(text)
+            
+        
+        if self.ui.txtCoord.text() == "":
+            alert(u"Faltan las coordenadas")
+            self.ui.txtCoord.setFocus()
+            return False
+
+        try:
+            pto = QgsPoint(float(self.ui.txtCoord.text().split(',')[0].strip()),
                        float(self.ui.txtCoord.text().split(',')[1].strip()))
+        except:
+            alert(u"Coordenadas no válidas")
+            self.ui.txtCoord.setFocus()
+            return False
+
+        # TODO: check if pto is UTM
+        #pntGeom = QgsGeometry.fromPoint(pto)
+        #self.log("%s" % QgsGeometry.fromPoint(pto).isGeosValid())
+
+        if not pto:
+            alert(u"Coordenadas no válidas")
+            self.ui.txtCoord.setFocus()
+            return False
+
         igp = 0
         for layerid, data in CONFIG.items():
             #print layerid
@@ -186,15 +217,17 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
 
                     igp += score
                 else:
-                    style = "background-color: rgb(0, 0, 0);\ncolor: rgb(255, 255, 255);"
                     text = "Falta capa: %s" % data[u'layername']
-                    self.ui.txtResult.setStyleSheet(style)
-                    self.ui.txtResult.setText(text)
+                    alert(text)
                     return False
 
         # TODO: viento
         layerid = u'VIE'
         value = int(self.ui.tableWidget.item(4, 0).text())
+        if value == "":
+            alert(u"Falta viento")
+            self.ui.tableWidget.item(4, 0).setFocus()
+            return False
         score, description = self.checkvalue(layerid, value)
         igp += score
         RESULTS[layerid] = [value, description, score]
@@ -202,6 +235,10 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         # TODO: temperatura
         layerid = u'TEM'
         value = int(self.ui.tableWidget.item(5, 0).text())
+        if value == "":
+            alert(u"Falta temperatura")
+            self.ui.tableWidget.item(5, 0).setFocus()
+            return False
         score, description = self.checkvalue(layerid, value)
         igp += score
         RESULTS[layerid] = [value, description, score]
@@ -226,6 +263,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
 
                 self.igp = igp
                 self.igp_des = sc[0]
+                self.pto = pto
 
                 # 
                 self.log('%s' % RESULTS)
@@ -313,10 +351,18 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
 
         :return:
         """
-        # center
-        pto = QgsPoint(float(self.ui.txtCoord.text().split(',')[0].strip()),
-                       float(self.ui.txtCoord.text().split(',')[1].strip()))
+        def alert(msg):
+            style = "background-color: rgb(0, 0, 0);\ncolor: rgb(255, 255, 255);"
+            text = msg
+            self.ui.txtResult.setStyleSheet(style)
+            self.ui.txtResult.setText(text)
 
+        if not self.pto:
+            alert(u"Sin datos para generar informe")
+            return False
+
+        # center
+        pto = self.pto
         scale = 1
         extent = self.canvas.extent()
         width = extent.width() * scale
@@ -336,7 +382,15 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         # Add all layers in map canvas to render
         myMapRenderer = self.canvas.mapRenderer()
 
-        savePDFFileName = QtGui.QFileDialog.getSaveFileName(None, u'Guardar como PDF', '.', 'PDF files (*.pdf)')
+        savePDFFileName = QtGui.QFileDialog.getSaveFileName(None, 
+            u'Guardar como PDF', 
+            os.path.join(QtCore.QDir.homePath(), 'report_IGP_00x.xml'), 
+            u'PDF files (*.pdf)')
+
+        if not savePDFFileName:
+            alert(u"Informe cancelado")
+            return False
+
         #savePDFFileName = '/tmp/out.pdf'
 
         # Load template from file

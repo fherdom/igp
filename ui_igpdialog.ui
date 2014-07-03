@@ -3,7 +3,7 @@
  <class>IGPDialog</class>
  <widget class="QDialog" name="IGPDialog">
   <property name="windowModality">
-   <enum>Qt::WindowModal</enum>
+   <enum>Qt::ApplicationModal</enum>
   </property>
   <property name="geometry">
    <rect>
@@ -47,7 +47,7 @@
     </size>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab003">
     <attribute name="title">
@@ -66,7 +66,7 @@
       <item row="1" column="1" colspan="2">
        <widget class="QLineEdit" name="txtCoord">
         <property name="text">
-         <string>458233.02, 3110465.86</string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -115,7 +115,7 @@
          <string notr="true">background-color: rgb(255, 0, 0);</string>
         </property>
         <property name="text">
-         <string>29 - ALTA</string>
+         <string/>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -253,7 +253,7 @@
         </column>
         <item row="0" column="0">
          <property name="text">
-          <string>19</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -261,7 +261,7 @@
         </item>
         <item row="0" column="1">
          <property name="text">
-          <string>Pte. suave</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -269,7 +269,7 @@
         </item>
         <item row="0" column="2">
          <property name="text">
-          <string>1</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -277,7 +277,7 @@
         </item>
         <item row="1" column="0">
          <property name="text">
-          <string>MEDIA</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -285,7 +285,7 @@
         </item>
         <item row="1" column="1">
          <property name="text">
-          <string>Por viales y/o ...</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -293,7 +293,7 @@
         </item>
         <item row="1" column="2">
          <property name="text">
-          <string>3</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -301,7 +301,7 @@
         </item>
         <item row="2" column="0">
          <property name="text">
-          <string>4</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -309,7 +309,7 @@
         </item>
         <item row="2" column="1">
          <property name="text">
-          <string>Alta</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -317,7 +317,7 @@
         </item>
         <item row="2" column="2">
          <property name="text">
-          <string>5</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -325,7 +325,7 @@
         </item>
         <item row="3" column="0">
          <property name="text">
-          <string>40</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -333,7 +333,7 @@
         </item>
         <item row="3" column="1">
          <property name="text">
-          <string>Nivel 2</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -341,7 +341,7 @@
         </item>
         <item row="3" column="2">
          <property name="text">
-          <string>3</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -349,14 +349,14 @@
         </item>
         <item row="4" column="0">
          <property name="text">
-          <string>15</string>
+          <string/>
          </property>
          <property name="background">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
-            <red>85</red>
-            <green>170</green>
-            <blue>127</blue>
+            <red>255</red>
+            <green>0</green>
+            <blue>0</blue>
            </color>
           </brush>
          </property>
@@ -375,7 +375,7 @@
         </item>
         <item row="4" column="1">
          <property name="text">
-          <string>Baja</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -383,7 +383,7 @@
         </item>
         <item row="4" column="2">
          <property name="text">
-          <string>1</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -391,14 +391,14 @@
         </item>
         <item row="5" column="0">
          <property name="text">
-          <string>40</string>
+          <string/>
          </property>
          <property name="background">
           <brush brushstyle="SolidPattern">
            <color alpha="255">
-            <red>85</red>
-            <green>170</green>
-            <blue>127</blue>
+            <red>255</red>
+            <green>0</green>
+            <blue>0</blue>
            </color>
           </brush>
          </property>
@@ -408,7 +408,7 @@
         </item>
         <item row="5" column="1">
          <property name="text">
-          <string>Baja</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -416,7 +416,7 @@
         </item>
         <item row="5" column="2">
          <property name="text">
-          <string>1</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -424,7 +424,7 @@
         </item>
         <item row="6" column="0">
          <property name="text">
-          <string>NO</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -432,7 +432,7 @@
         </item>
         <item row="6" column="1">
          <property name="text">
-          <string>Ausencia</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -448,7 +448,7 @@
         </item>
         <item row="7" column="0">
          <property name="text">
-          <string>SI</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -456,7 +456,7 @@
         </item>
         <item row="7" column="1">
          <property name="text">
-          <string>Presencia i.i.e.r.</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -464,7 +464,7 @@
         </item>
         <item row="7" column="2">
          <property name="text">
-          <string>5</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -472,7 +472,7 @@
         </item>
         <item row="8" column="0">
          <property name="text">
-          <string>SI</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -480,7 +480,7 @@
         </item>
         <item row="8" column="1">
          <property name="text">
-          <string>Necesaria evac.</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -488,7 +488,7 @@
         </item>
         <item row="8" column="2">
          <property name="text">
-          <string>5</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -496,7 +496,7 @@
         </item>
         <item row="9" column="0">
          <property name="text">
-          <string>SI</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -504,7 +504,7 @@
         </item>
         <item row="9" column="1">
          <property name="text">
-          <string>Presencia patr.</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -512,7 +512,7 @@
         </item>
         <item row="9" column="2">
          <property name="text">
-          <string>5</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -520,7 +520,7 @@
         </item>
         <item row="10" column="0">
          <property name="text">
-          <string>NO</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -528,7 +528,7 @@
         </item>
         <item row="10" column="1">
          <property name="text">
-          <string>No hay afección</string>
+          <string/>
          </property>
          <property name="flags">
           <set>NoItemFlags</set>
@@ -547,7 +547,7 @@
      </layout>
     </widget>
    </widget>
-   </widget>
+  </widget>
  </widget>
  <tabstops>
   <tabstop>tabWidget</tabstop>

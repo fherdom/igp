@@ -22,7 +22,7 @@ email                :
 CONFIG = {
     u'PTE': {
         u'description': u'Pendiente',
-        u'layername': u'Pendiente',
+        u'layername': u'pendiente',
         u'req': 1,
         u'pos': 0,
         u'not_found': u'Sin presencia',
@@ -34,7 +34,7 @@ CONFIG = {
     },
     u'ACC': {
         u'description': u'Accesibilidad',
-        u'layername': u'Acces_5isl_MK',
+        u'layername': u'accesibilidad',
         u'req': 1,
         u'pos': 1,
         u'not_found': u'Sin presencia',
