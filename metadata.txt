@@ -7,7 +7,6 @@
 
 # Mandatory items:
 
-
 [general]
 name=IGP
 qgisMinimumVersion=2.0
@@ -27,7 +26,7 @@ changelog=add button in toolbar and new dialog
 # tags are comma separated with spaces allowed
 tags=search, ide, canaray islands, canary, spain
 
-homepage=http://felixjosehernandez.es/qgis/descargas.html
+homepage=http://dev.felixjosehernandez.es/qgis/
 tracker=https://github.com/fherdom/IGP/issues
 repository=https://github.com/fherdom/IGP
 icon=icon.png
