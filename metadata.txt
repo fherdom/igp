@@ -10,29 +10,28 @@
 [general]
 name=IGP
 qgisMinimumVersion=2.0
-description=The plugin allows you to generate ...
+description=Cálculo del índice de gravedad potencial de incendio forestal
 version=1.0
 author=Félix José Hernández
 email=contacto@felixjosehernandez.es
-about=The plugin allows you to generate ...
+about=Este complemento realiza el cálculo del índice de gravedad potencial de incendio forestal, generando una capa temporal de puntos y un informe en PDF
 
 # end of mandatory metadata
 
 # Optional items:
 
 # Uncomment the following line and add your changelog entries:
-changelog=add button in toolbar and new dialog
+changelog=
 
 # tags are comma separated with spaces allowed
-tags=search, ide, canaray islands, canary, spain
+tags=igp, canaray islands, spain, forest, fire, fuego, incendio
 
-homepage=http://dev.felixjosehernandez.es/qgis/
-tracker=https://github.com/fherdom/IGP/issues
-repository=https://github.com/fherdom/IGP
+homepage=http://felixjosehernandez.es
+#tracker=https://github.com/fherdom/IGP/issues
+#repository=https://github.com/fherdom/IGP
 icon=icon.png
 # experimental flag
-experimental=False
+experimental=True
 
 # deprecated flag (applies to the whole plugin, not just a single version
 deprecated=False
-

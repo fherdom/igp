@@ -22,103 +22,130 @@ email                :
 CONFIG = {
     u'PTE': {
         u'description': u'Pendiente',
-        u'filename': u'PTE_5isl_MASK',
+        u'layername': u'Pendiente',
         u'req': 1,
         u'pos': 0,
+        u'not_found': u'Sin presencia',
         u'values': [
             [1, 0, 20, u'Pte. Suave (menos del 20%) y/o terreno aledaño poco accidentado.'],
-            [3, 20, 30, u'Pte. Media (20-30 %) y/o terreno aledaño ondulado-accidentado.'],
-            [5, 30, 9999, u'Pte. Fuerte (superior al 30%) y/o terreno escarpado.']]
+            [3, 21, 30, u'Pte. Media (20-30 %) y/o terreno aledaño ondulado-accidentado.'],
+            [5, 31, 9999, u'Pte. Fuerte (superior al 30%) y/o terreno escarpado.']
+        ]
     },
     u'ACC': {
         u'description': u'Accesibilidad',
-        u'filename': u'accesibilidad',
+        u'layername': u'Acces_5isl_MK',
         u'req': 1,
         u'pos': 1,
+        u'not_found': u'Sin presencia',
         u'values': [
             [1, 1, None, u'Accesibilidad Alta por viales y/o buen tránsito de vehículos fuera de ellos.'],
             [3, 2, None, u'Accesibilidad Media por viales y/o regular tránsito de vehículos fuera de ellos.'],
-            [5, 3, None, u"Accesibilidad Baja por viales y/o nulo tránsito de vehículos fuera de ellos."]]
+            [5, 3, None, u"Accesibilidad Baja por viales y/o nulo tránsito de vehículos fuera de ellos."]
+        ]
     },
     u'COM': {
         u'description': u'Combustibilidad',
-        u'filename': u'combustibilidad',
+        u'layername': u'COMBU_5isl_MK',
         u'req': 1,
         u'pos': 2,
+        u'not_found': u'Sin presencia',
         u'values': [
-            [1, 1, None, u'Combustibilidad Baja (Mod. 8,9,10,11)'],
-            [3, 2, None, u'Combustibilidad Media (Mod. 5,7 y 2)'],
-            [5, 3, None, u'Combustibilidad Alta (Mod. 1,3,4,6,12,13)']]
+            [5, 1, 1, u'Combustibilidad Alta (Mod. 1,3,4,6,12,13)'],
+            [3, 2, 2, u'Combustibilidad Media (Mod. 5,7 y 2)'],
+            [5, 3, 4, u'Combustibilidad Alta (Mod. 1,3,4,6,12,13)'],
+            [3, 5, 5, u'Combustibilidad Media (Mod. 5,7 y 2)'],
+            [5, 6, 6, u'Combustibilidad Alta (Mod. 1,3,4,6,12,13)'],
+            [3, 7, 7, u'Combustibilidad Media (Mod. 5,7 y 2)'],
+            [1, 8, 11, u'Combustibilidad Baja (Mod. 8,9,10,11)'],
+            [5, 12, 13, u'Combustibilidad Alta (Mod. 1,3,4,6,12,13)'],
+        ]
     },
     u'CON': {
         u'description': u'Continuidad',
-        u'filename': u'FCC_5ISMASK',
+        u'layername': u'FCC_5ISMASK',
         u'req': 1,
         u'pos': 3,
+        u'not_found': u'Sin presencia',
         u'values': [
             [1, 1, 33, u'Continuidad Nivel 1. (Fcc menor del 33%, y/o 10 metros de distancia de F.S del frente de llama)'],
             [3, 34, 66, u'Continuidad Nivel 2. (Fcc 33-66% y/o 10-100 metros de distancia del F.S del Frente de llama)'],
-            [5, 67, 100, u'Continuidad Nivel 3. (Fcc mayor del 66% y/o más de 100 metros de distancia del F.S del frente de llama)']]
+            [5, 67, 100, u'Continuidad Nivel 3. (Fcc mayor del 66% y/o más de 100 metros de distancia del F.S del frente de llama)']
+        ]
     },
     u'VIE': {
         u'description': u'Viento',
-        u'filename': u'',
+        u'layername': u'',
         u'req': 0,
         u'pos': 4,
+        u'not_found': u'Sin presencia',
         u'values': [
             [1, 0, 10, u'Velocidad de Viento Baja (menor o igual a 10 km/h)'],
-            [3, 10, 30, u'Velocidad viento Media  (10-30 km/h)'],
-            [5, 30, 100, u'Velocidad de Viento Alta (más de 30 km/h)']]
+            [3, 11, 30, u'Velocidad viento Media  (10-30 km/h)'],
+            [5, 31, 100, u'Velocidad de Viento Alta (más de 30 km/h)']
+        ]
     },
     u'TEM': {
         u'description': u'Temperatura',
-        u'filename': u'',
+        u'layername': u'',
         u'req': 0,
         u'pos': 5,
+        u'not_found': u'Sin presencia',
         u'values': [
             [1, 0, 25, u'Temperatura Baja (menor igual a 25 ºC)'],
-            [3, 25, 39, u'Temperatura Media  (26-39 ºC)'],
-            [5, 39, 9999, u'Temperatura Alta (más de 40ºC)']]
+            [3, 26, 39, u'Temperatura Media  (26-39 ºC)'],
+            [5, 40, 9999, u'Temperatura Alta (más de 40ºC)']
+        ]
     },
     u'EDE': {
         u'description': u'E.D.E.',
-        u'filename': u'EDE_5isl_MASK',
+        u'layername': u'EDE_5isl_MASK',
         u'req': 1,
         u'pos': 6,
+        u'not_found': u'Sin presencia',
         u'values': [
-            [5, 1, None, u'Presencia de E.D.E. en el área de afección del incendio y/o futura progresión del mismo (Área recreativa, Campings, Hospitales, colegios etc.).']]
+            [5, 1, None, u'Presencia de E.D.E. en el área de afección del incendio y/o futura progresión del mismo (Área recreativa, Campings, Hospitales, colegios etc.).']
+        ]
     },
     u'IIE': {
         u'description': u'I.I.E.R.',
-        u'filename': u'IIER_5isl_MSK',
+        u'layername': u'IIER_5isl_MSK',
         u'req': 1,
         u'pos': 7,
+        u'not_found': u'Sin presencia',
         u'values': [
-            [5, 5, None, u'Presencia de I.I.E.R. en el área de afección del incendio y/o futura progresión del mismo (Bases aéreas, gasolineras, Centrales de producción de electricidad, vías de comunicación de primer orden etc.).']]
+            [5, 5, None, u'Presencia de I.I.E.R. en el área de afección del incendio y/o futura progresión del mismo (Bases aéreas, gasolineras, Centrales de producción de electricidad, vías de comunicación de primer orden etc.).']
+        ]
     },
     u'EVA': {
         u'description': u'Evacuación',
-        u'filename': u'evacuacion',
+        u'layername': u'Población',
         u'req': 1,
         u'pos': 8,
+        u'not_found': u'Sin presencia',
         u'values': [
-            [5, 1, None, u'Evacuación de la población de sus viviendas o municipios en el área de afección del incendio y/o futura progresión del mismo.']]
+            [5, 5, None, u'Evacuación de la población de sus viviendas o municipios en el área de afección del incendio y/o futura progresión del mismo.']
+        ]
     },
     u'PAT': {
         u'description': u'Patrimonio',
-        u'filename': u'Patri_5isl_MK',
+        u'layername': u'Patri_5isl_MK',
         u'req': 1,
         u'pos': 9,
+        u'not_found': u'Sin presencia',
         u'values': [
-            [5, 1, None, u'Afección de elementos y/o lugares de especial relevancia catalogados y protegidos de carácter histórico artístico.']]
+            [5, 1, None, u'Afección de elementos y/o lugares de especial relevancia catalogados y protegidos de carácter histórico artístico.']
+        ]
     },
     u'ECO': {
         u'description': u'Ecológico',
-        u'filename': u'Ecolo_5isl_MK',
+        u'layername': u'Ecolo_5isl_MK',
         u'req': 1,
         u'pos': 10,
+        u'not_found': u'Sin presencia',
         u'values': [
-            [5, 1, None, u'Afección de espacios de especial relevancia ecológica catalogados y protegidos, así como elementos que por su singularidad rareza o difícil perpetuidad también gocen de especial protección']]
+            [5, 1, None, u'Afección de espacios de especial relevancia ecológica catalogados y protegidos, así como elementos que por su singularidad rareza o difícil perpetuidad también gocen de especial protección']
+        ]
     }
 }
 
