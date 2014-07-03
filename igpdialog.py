@@ -168,10 +168,16 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
             #print layerid
             #print data[u'description'].encode('utf-8')
             if data[u'req'] == 1:
-                if self.isloadlayer(data[u'filename']):
-                    value = self.getinfovalue(pto, data[u'filename'])
+                if self.isloadlayer(data[u'layername']):
+                    value = self.getinfovalue(pto, data[u'layername'])
                     score, description = self.checkvalue(layerid, value)
-                    RESULTS[layerid] = [value, description, score]
+
+                    # format value
+                    self.log("%s %s" % (layerid, type(value)))
+                    if isinstance(value, float):
+                        RESULTS[layerid] = ['%.2f' % value, description, score]
+                    else:
+                        RESULTS[layerid] = [value, description, score]
                     
                     # Show table
                     self.ui.tableWidget.item(data[u'pos'], 0).setText(unicode(RESULTS[layerid][0]))
@@ -181,7 +187,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
                     igp += score
                 else:
                     style = "background-color: rgb(0, 0, 0);\ncolor: rgb(255, 255, 255);"
-                    text = "Falta capa: %s" % data[u'filename']
+                    text = "Falta capa: %s" % data[u'layername']
                     self.ui.txtResult.setStyleSheet(style)
                     self.ui.txtResult.setText(text)
                     return False
@@ -281,12 +287,12 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         """
         for e in CONFIG[layerid][u'values']:
             if e[2]:
-                if e[1] < value <= e[2]:
+                if e[1] <= value <= e[2]:
                     return e[0], e[3]
             else:
                 if e[1] == value:
                     return e[0], e[3]
-        return 0, "No encontrado"
+        return 0, CONFIG[layerid][u'not_found']
 
     def onclick_btnpastecoord(self):
         """

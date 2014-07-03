@@ -1,6 +1,39 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis projectname="" version="2.2.0-Valmiera">
+<qgis projectname="" version="2.4.0-Chugiak">
     <title></title>
+    <layer-tree-group expanded="1" checked="Qt::Checked" name="">
+        <customproperties/>
+        <layer-tree-layer expanded="1" checked="Qt::Checked" id="Municip_5isl20140627084336238" name="Municip_5isl">
+            <customproperties/>
+        </layer-tree-layer>
+        <layer-tree-layer expanded="0" checked="Qt::Checked" id="FCC_5ISMASK20140627084347246" name="FCC_5ISMASK">
+            <customproperties/>
+        </layer-tree-layer>
+        <layer-tree-layer expanded="0" checked="Qt::Checked" id="PTE_5isl_MASK20140627084309992" name="Pendiente">
+            <customproperties/>
+        </layer-tree-layer>
+        <layer-tree-layer expanded="0" checked="Qt::Checked" id="IIER_5isl_MSK20140627084402310" name="IIER_5isl_MSK">
+            <customproperties/>
+        </layer-tree-layer>
+        <layer-tree-layer expanded="0" checked="Qt::Checked" id="EDE_5isl_MASK20140627084417285" name="EDE_5isl_MASK">
+            <customproperties/>
+        </layer-tree-layer>
+        <layer-tree-layer expanded="0" checked="Qt::Checked" id="Patri_5isl_MK20140627084428868" name="Patri_5isl_MK">
+            <customproperties/>
+        </layer-tree-layer>
+        <layer-tree-layer expanded="0" checked="Qt::Checked" id="Ecolo_5isl_MK20140627084447475" name="Ecolo_5isl_MK">
+            <customproperties/>
+        </layer-tree-layer>
+        <layer-tree-layer expanded="0" checked="Qt::Checked" id="Pobl_5isl_MSK20140630085045050" name="Población">
+            <customproperties/>
+        </layer-tree-layer>
+        <layer-tree-layer expanded="0" checked="Qt::Checked" id="COMBU_5isl_MK20140702135234401" name="COMBU_5isl_MK">
+            <customproperties/>
+        </layer-tree-layer>
+        <layer-tree-layer expanded="0" checked="Qt::Checked" id="Acces_5isl_MK20140701112145797" name="Acces_5isl_MK">
+            <customproperties/>
+        </layer-tree-layer>
+    </layer-tree-group>
     <relations/>
     <mapcanvas>
         <units>meters</units>
@@ -13,7 +46,7 @@
         <projections>0</projections>
         <destinationsrs>
             <spatialrefsys>
-                <proj4>+proj=utm +zone=28 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</proj4>
+                <proj4>+proj=utm +zone=28 +datum=WGS84 +units=m +no_defs</proj4>
                 <srsid>3112</srsid>
                 <srid>32628</srid>
                 <authid>EPSG:32628</authid>
@@ -25,7 +58,21 @@
         </destinationsrs>
         <layer_coordinate_transform_info/>
     </mapcanvas>
-    <legend updateDrawingOrder="true" activeLayer="Municip_5isl20140627084336238">
+    <layer-tree-canvas>
+        <custom-order enabled="0">
+            <item>Municip_5isl20140627084336238</item>
+            <item>FCC_5ISMASK20140627084347246</item>
+            <item>PTE_5isl_MASK20140627084309992</item>
+            <item>IIER_5isl_MSK20140627084402310</item>
+            <item>EDE_5isl_MASK20140627084417285</item>
+            <item>Patri_5isl_MK20140627084428868</item>
+            <item>Ecolo_5isl_MK20140627084447475</item>
+            <item>Pobl_5isl_MSK20140630085045050</item>
+            <item>COMBU_5isl_MK20140702135234401</item>
+            <item>Acces_5isl_MK20140701112145797</item>
+        </custom-order>
+    </layer-tree-canvas>
+    <legend updateDrawingOrder="true">
         <legendlayer drawingOrder="-1" open="true" checked="Qt::Checked" name="Municip_5isl" showFeatureCount="0">
             <filegroup open="true" hidden="false">
                 <legendlayerfile isInOverview="0" layerid="Municip_5isl20140627084336238" visible="1"/>
@@ -81,18 +128,21 @@
         <Composition snapGridTolerance="2" gridVisible="1" printResolution="300" paperWidth="210" snapGridOffsetX="0" guidesVisible="1" snapGridResolution="10" snapGridOffsetY="0" alignmentSnap="1" snapping="0" numPages="1" paperHeight="297" alignmentSnapTolerance="2" smartGuides="1" printAsRaster="0" generateWorldFile="0">
             <symbol alpha="1" type="fill" name="">
                 <layer pass="0" class="SimpleFill" locked="0">
+                    <prop k="border_width_map_unit_scale" v="0,0"/>
                     <prop k="border_width_unit" v="MM"/>
                     <prop k="color" v="255,255,255,255"/>
                     <prop k="color_border" v="0,0,0,255"/>
+                    <prop k="joinstyle" v="bevel"/>
                     <prop k="offset" v="0,0"/>
+                    <prop k="offset_map_unit_scale" v="0,0"/>
                     <prop k="offset_unit" v="MM"/>
                     <prop k="style" v="solid"/>
                     <prop k="style_border" v="no"/>
                     <prop k="width_border" v="0.26"/>
                 </layer>
             </symbol>
-            <ComposerScaleBar penColor="#000000" style="Single Box" numMapUnitsPerScaleBarUnit="1000" alignment="0" brushColor="#000000" numSegments="2" segmentMillimeters="16.1665" fontColor="#000000" font="Ubuntu,12,-1,5,50,0,0,0,0,0" numUnitsPerSegment="2500" units="1" labelBarSpace="3" outlineWidth="1" numSegmentsLeft="2" height="0" mapId="0" boxContentSpace="1" unitLabel="km">
-                <ComposerItem width="63.3454" x="122.776" transparency="0" y="96.8629" height="9" positionMode="0" frame="false" outlineWidth="0.3" zValue="9" itemRotation="0" lastValidViewScaleFactor="4.83532" uuid="{2c1ae9b1-c534-4d8c-9158-3e6229d0a269}" id="" background="true" blendMode="0" positionLock="false">
+            <ComposerScaleBar penColor="#000000" lineCapStyle="square" style="Single Box" numMapUnitsPerScaleBarUnit="1000" alignment="0" brushColor="#000000" numSegments="2" segmentMillimeters="16.1665" lineJoinStyle="miter" fontColor="#000000" font="Ubuntu,12,-1,5,50,0,0,0,0,0" numUnitsPerSegment="2500" units="1" labelBarSpace="3" outlineWidth="1" numSegmentsLeft="2" height="0" mapId="0" boxContentSpace="1" unitLabel="km">
+                <ComposerItem pagey="96.8629" page="1" id="" lastValidViewScaleFactor="4.83532" positionMode="0" positionLock="false" x="122.776" y="96.8629" zValue="9" background="true" transparency="0" frameJoinStyle="miter" blendMode="0" width="63.3454" outlineWidth="0.3" uuid="{2c1ae9b1-c534-4d8c-9158-3e6229d0a269}" height="9" itemRotation="0" frame="false" pagex="122.776">
                     <FrameColor alpha="255" red="0" blue="0" green="0"/>
                     <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
                 </ComposerItem>
@@ -100,7 +150,7 @@
             <ComposerLabel valign="32" labelText="[% $now %]" htmlState="0" halign="2" margin="1">
                 <LabelFont description="Ubuntu,10,-1,5,50,0,0,0,0,0"/>
                 <FontColor red="0" blue="0" green="0"/>
-                <ComposerItem width="48.5898" x="152.531" transparency="0" y="33.8794" height="6.9" positionMode="0" frame="false" outlineWidth="0.3" zValue="8" itemRotation="0" lastValidViewScaleFactor="2.70632" uuid="{41e98492-f944-4a12-a537-25151d187387}" id="" background="true" blendMode="0" positionLock="false">
+                <ComposerItem pagey="33.8794" page="1" id="" lastValidViewScaleFactor="2.70632" positionMode="0" positionLock="false" x="152.531" y="33.8794" zValue="8" background="true" transparency="0" frameJoinStyle="miter" blendMode="0" width="48.5898" outlineWidth="0.3" uuid="{41e98492-f944-4a12-a537-25151d187387}" height="6.9" itemRotation="0" frame="false" pagex="152.531">
                     <FrameColor alpha="255" red="0" blue="0" green="0"/>
                     <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
                 </ComposerItem>
@@ -108,7 +158,7 @@
             <ComposerLabel valign="32" labelText="FOOTER" htmlState="2" halign="1" margin="1">
                 <LabelFont description="Ubuntu,10,-1,5,50,0,0,0,0,0"/>
                 <FontColor red="0" blue="0" green="0"/>
-                <ComposerItem width="189.804" x="11.1673" transparency="0" y="277.392" height="15.1741" positionMode="0" frame="false" outlineWidth="0.3" zValue="7" itemRotation="0" lastValidViewScaleFactor="1.69475" uuid="{14615a85-dc32-42ad-9722-83b0b934078d}" id="footer" background="true" blendMode="0" positionLock="false">
+                <ComposerItem pagey="277.392" page="1" id="footer" lastValidViewScaleFactor="1.69475" positionMode="0" positionLock="false" x="11.1673" y="277.392" zValue="7" background="true" transparency="0" frameJoinStyle="miter" blendMode="0" width="189.804" outlineWidth="0.3" uuid="{14615a85-dc32-42ad-9722-83b0b934078d}" height="15.1741" itemRotation="0" frame="false" pagex="11.1673">
                     <FrameColor alpha="255" red="0" blue="0" green="0"/>
                     <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
                 </ComposerItem>
@@ -116,7 +166,7 @@
             <ComposerLabel valign="32" labelText="TABLE" htmlState="2" halign="1" margin="1">
                 <LabelFont description="Ubuntu,10,-1,5,50,0,0,0,0,0"/>
                 <FontColor red="0" blue="0" green="0"/>
-                <ComposerItem width="189.804" x="11.1673" transparency="0" y="133.373" height="144.019" positionMode="0" frame="false" outlineWidth="0.3" zValue="6" itemRotation="0" lastValidViewScaleFactor="1.40062" uuid="{9b4fceac-a94c-4912-9590-532aba1f8a46}" id="table" background="true" blendMode="0" positionLock="false">
+                <ComposerItem pagey="133.373" page="1" id="table" lastValidViewScaleFactor="1.40062" positionMode="0" positionLock="false" x="11.1673" y="133.373" zValue="6" background="true" transparency="0" frameJoinStyle="miter" blendMode="0" width="189.804" outlineWidth="0.3" uuid="{9b4fceac-a94c-4912-9590-532aba1f8a46}" height="144.019" itemRotation="0" frame="false" pagex="11.1673">
                     <FrameColor alpha="255" red="0" blue="0" green="0"/>
                     <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
                 </ComposerItem>
@@ -124,19 +174,19 @@
             <ComposerLabel valign="32" labelText="HEADER" htmlState="2" halign="1" margin="1">
                 <LabelFont description="Ubuntu,10,-1,5,50,0,0,0,0,0"/>
                 <FontColor red="0" blue="0" green="0"/>
-                <ComposerItem width="192.047" x="11.1673" transparency="0" y="111.242" height="22.1312" positionMode="0" frame="false" outlineWidth="0.3" zValue="5" itemRotation="0" lastValidViewScaleFactor="1.40062" uuid="{ab9a0b36-4dbd-413a-9129-0164a0cea957}" id="header" background="true" blendMode="0" positionLock="false">
+                <ComposerItem pagey="111.242" page="1" id="header" lastValidViewScaleFactor="1.40062" positionMode="0" positionLock="false" x="11.1673" y="111.242" zValue="5" background="true" transparency="0" frameJoinStyle="miter" blendMode="0" width="192.047" outlineWidth="0.3" uuid="{ab9a0b36-4dbd-413a-9129-0164a0cea957}" height="22.1312" itemRotation="0" frame="false" pagex="11.1673">
                     <FrameColor alpha="255" red="0" blue="0" green="0"/>
                     <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
                 </ComposerItem>
             </ComposerLabel>
-            <ComposerPicture pictureRotation="0" pictureWidth="30" file="../112.jpg" pictureHeight="17.9464" mapId="-1">
-                <ComposerItem width="30" x="171.121" transparency="0" y="7.32935" height="30" positionMode="0" frame="false" outlineWidth="0.3" zValue="4" itemRotation="0" lastValidViewScaleFactor="11.5032" uuid="{8a9439ba-b42a-481b-bff4-6239eb87a47b}" id="logo_112" background="true" blendMode="0" positionLock="false">
+            <ComposerPicture useExpression="false" resizeMode="0" pictureRotation="0" pictureWidth="30" sourceExpression="" file="../112.jpg" pictureHeight="17.9464" mapId="-1" anchorPoint="4">
+                <ComposerItem pagey="7.32935" page="1" id="logo_112" lastValidViewScaleFactor="11.5032" positionMode="0" positionLock="false" x="171.121" y="7.32935" zValue="4" background="true" transparency="0" frameJoinStyle="miter" blendMode="0" width="30" outlineWidth="0.3" uuid="{8a9439ba-b42a-481b-bff4-6239eb87a47b}" height="30" itemRotation="0" frame="false" pagex="171.121">
                     <FrameColor alpha="255" red="0" blue="0" green="0"/>
                     <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
                 </ComposerItem>
             </ComposerPicture>
-            <ComposerPicture pictureRotation="0" pictureWidth="30" file="../gobcanarias.jpg" pictureHeight="21.548" mapId="-1">
-                <ComposerItem width="30" x="11.1673" transparency="0" y="7.32935" height="30" positionMode="0" frame="false" outlineWidth="0.3" zValue="3" itemRotation="0" lastValidViewScaleFactor="1.40062" uuid="{94c994e3-a403-4772-9e72-4efc44c63bdb}" id="logo_gobcan" background="true" blendMode="0" positionLock="false">
+            <ComposerPicture useExpression="false" resizeMode="0" pictureRotation="0" pictureWidth="30" sourceExpression="" file="../gobcanarias.jpg" pictureHeight="21.548" mapId="-1" anchorPoint="4">
+                <ComposerItem pagey="7.32935" page="1" id="logo_gobcan" lastValidViewScaleFactor="1.40062" positionMode="0" positionLock="false" x="11.1673" y="7.32935" zValue="3" background="true" transparency="0" frameJoinStyle="miter" blendMode="0" width="30" outlineWidth="0.3" uuid="{94c994e3-a403-4772-9e72-4efc44c63bdb}" height="30" itemRotation="0" frame="false" pagex="11.1673">
                     <FrameColor alpha="255" red="0" blue="0" green="0"/>
                     <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
                 </ComposerItem>
@@ -144,7 +194,7 @@
             <ComposerLabel valign="32" labelText="Cálculo del índice de gravedad potencial de incendio forestal" htmlState="0" halign="4" margin="1">
                 <LabelFont description="Ubuntu,16,-1,5,75,1,0,0,0,0"/>
                 <FontColor red="0" blue="0" green="0"/>
-                <ComposerItem width="134.243" x="36.8783" transparency="0" y="12.3641" height="16.6435" positionMode="0" frame="false" outlineWidth="0" zValue="2" itemRotation="0" lastValidViewScaleFactor="2.33574" uuid="{d747a33f-df19-4043-991c-37a01d224da7}" id="" background="true" blendMode="0" positionLock="false">
+                <ComposerItem pagey="12.3641" page="1" id="" lastValidViewScaleFactor="2.33574" positionMode="0" positionLock="false" x="36.8783" y="12.3641" zValue="2" background="true" transparency="0" frameJoinStyle="miter" blendMode="0" width="134.243" outlineWidth="0" uuid="{d747a33f-df19-4043-991c-37a01d224da7}" height="16.6435" itemRotation="0" frame="false" pagex="36.8783">
                     <FrameColor alpha="255" red="0" blue="0" green="0"/>
                     <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
                 </ComposerItem>
@@ -153,10 +203,13 @@
                 <overviewFrame overviewBlendMode="0" overviewFrameMap="-1" overviewCentered="false" overviewInverted="false">
                     <symbol alpha="0.3" type="fill" name="">
                         <layer pass="0" class="SimpleFill" locked="0">
+                            <prop k="border_width_map_unit_scale" v="0,0"/>
                             <prop k="border_width_unit" v="MM"/>
                             <prop k="color" v="255,0,0,255"/>
                             <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="joinstyle" v="bevel"/>
                             <prop k="offset" v="0,0"/>
+                            <prop k="offset_map_unit_scale" v="0,0"/>
                             <prop k="offset_unit" v="MM"/>
                             <prop k="style" v="solid"/>
                             <prop k="style_border" v="no"/>
@@ -175,14 +228,17 @@
                             <prop k="capstyle" v="flat"/>
                             <prop k="color" v="0,0,0,255"/>
                             <prop k="customdash" v="5;2"/>
+                            <prop k="customdash_map_unit_scale" v="0,0"/>
                             <prop k="customdash_unit" v="MM"/>
                             <prop k="draw_inside_polygon" v="0"/>
                             <prop k="joinstyle" v="bevel"/>
                             <prop k="offset" v="0"/>
+                            <prop k="offset_map_unit_scale" v="0,0"/>
                             <prop k="offset_unit" v="MM"/>
                             <prop k="penstyle" v="solid"/>
                             <prop k="use_custom_dash" v="0"/>
                             <prop k="width" v="0.3"/>
+                            <prop k="width_map_unit_scale" v="0,0"/>
                             <prop k="width_unit" v="MM"/>
                         </layer>
                     </symbol>
@@ -190,8 +246,8 @@
                         <fontColor alpha="255" red="0" blue="0" green="0"/>
                     </Annotation>
                 </Grid>
-                <AtlasMap fixedScale="1" atlasDriven="0" margin="0.10000000000000001"/>
-                <ComposerItem width="189.954" x="11.1673" transparency="0" y="42.7139" height="54.149" positionMode="0" frame="false" outlineWidth="0" zValue="1" itemRotation="0" lastValidViewScaleFactor="6.66414" uuid="{ab19b7e7-95fc-40b0-b722-db287e3572c7}" id="mapa" background="true" blendMode="0" positionLock="false">
+                <AtlasMap scalingMode="0" atlasDriven="0" margin="0.10000000000000001"/>
+                <ComposerItem pagey="42.7139" page="1" id="mapa" lastValidViewScaleFactor="6.66414" positionMode="0" positionLock="false" x="11.1673" y="42.7139" zValue="1" background="true" transparency="0" frameJoinStyle="miter" blendMode="0" width="189.954" outlineWidth="0" uuid="{ab19b7e7-95fc-40b0-b722-db287e3572c7}" height="54.149" itemRotation="0" frame="false" pagex="11.1673">
                     <FrameColor alpha="255" red="0" blue="0" green="0"/>
                     <BackgroundColor alpha="255" red="255" blue="255" green="255"/>
                 </ComposerItem>
@@ -210,7 +266,7 @@
             <layername>Acces_5isl_MK</layername>
             <srs>
                 <spatialrefsys>
-                    <proj4>+proj=utm +zone=28 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</proj4>
+                    <proj4>+proj=utm +zone=28 +datum=WGS84 +units=m +no_defs</proj4>
                     <srsid>3112</srsid>
                     <srid>32628</srid>
                     <authid>EPSG:32628</authid>
@@ -224,6 +280,9 @@
                 <property key="identify/format" value="Value"/>
             </customproperties>
             <provider>gdal</provider>
+            <noData>
+                <noDataList bandNo="1" useSrcNoData="1"/>
+            </noData>
             <pipe>
                 <rasterrenderer gradient="BlackToWhite" opacity="1" alphaBand="-1" type="singlebandgray" grayBand="1">
                     <rasterTransparency/>
@@ -250,7 +309,7 @@
             <layername>COMBU_5isl_MK</layername>
             <srs>
                 <spatialrefsys>
-                    <proj4>+proj=utm +zone=28 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</proj4>
+                    <proj4>+proj=utm +zone=28 +datum=WGS84 +units=m +no_defs</proj4>
                     <srsid>3112</srsid>
                     <srid>32628</srid>
                     <authid>EPSG:32628</authid>
@@ -264,6 +323,9 @@
                 <property key="identify/format" value="Value"/>
             </customproperties>
             <provider>gdal</provider>
+            <noData>
+                <noDataList bandNo="1" useSrcNoData="1"/>
+            </noData>
             <pipe>
                 <rasterrenderer gradient="BlackToWhite" opacity="1" alphaBand="-1" type="singlebandgray" grayBand="1">
                     <rasterTransparency/>
@@ -290,7 +352,7 @@
             <layername>EDE_5isl_MASK</layername>
             <srs>
                 <spatialrefsys>
-                    <proj4>+proj=utm +zone=28 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</proj4>
+                    <proj4>+proj=utm +zone=28 +datum=WGS84 +units=m +no_defs</proj4>
                     <srsid>3112</srsid>
                     <srid>32628</srid>
                     <authid>EPSG:32628</authid>
@@ -304,6 +366,9 @@
                 <property key="identify/format" value="Value"/>
             </customproperties>
             <provider>gdal</provider>
+            <noData>
+                <noDataList bandNo="1" useSrcNoData="1"/>
+            </noData>
             <pipe>
                 <rasterrenderer gradient="BlackToWhite" opacity="1" alphaBand="-1" type="singlebandgray" grayBand="1">
                     <rasterTransparency/>
@@ -330,7 +395,7 @@
             <layername>Ecolo_5isl_MK</layername>
             <srs>
                 <spatialrefsys>
-                    <proj4>+proj=utm +zone=28 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</proj4>
+                    <proj4>+proj=utm +zone=28 +datum=WGS84 +units=m +no_defs</proj4>
                     <srsid>3112</srsid>
                     <srid>32628</srid>
                     <authid>EPSG:32628</authid>
@@ -344,6 +409,9 @@
                 <property key="identify/format" value="Value"/>
             </customproperties>
             <provider>gdal</provider>
+            <noData>
+                <noDataList bandNo="1" useSrcNoData="1"/>
+            </noData>
             <pipe>
                 <rasterrenderer gradient="BlackToWhite" opacity="1" alphaBand="-1" type="singlebandgray" grayBand="1">
                     <rasterTransparency/>
@@ -370,7 +438,7 @@
             <layername>FCC_5ISMASK</layername>
             <srs>
                 <spatialrefsys>
-                    <proj4>+proj=utm +zone=28 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</proj4>
+                    <proj4>+proj=utm +zone=28 +datum=WGS84 +units=m +no_defs</proj4>
                     <srsid>3112</srsid>
                     <srid>32628</srid>
                     <authid>EPSG:32628</authid>
@@ -384,6 +452,9 @@
                 <property key="identify/format" value="Value"/>
             </customproperties>
             <provider>gdal</provider>
+            <noData>
+                <noDataList bandNo="1" useSrcNoData="1"/>
+            </noData>
             <pipe>
                 <rasterrenderer gradient="BlackToWhite" opacity="1" alphaBand="-1" type="singlebandgray" grayBand="1">
                     <rasterTransparency/>
@@ -410,7 +481,7 @@
             <layername>IIER_5isl_MSK</layername>
             <srs>
                 <spatialrefsys>
-                    <proj4>+proj=utm +zone=28 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</proj4>
+                    <proj4>+proj=utm +zone=28 +datum=WGS84 +units=m +no_defs</proj4>
                     <srsid>3112</srsid>
                     <srid>32628</srid>
                     <authid>EPSG:32628</authid>
@@ -424,6 +495,9 @@
                 <property key="identify/format" value="Value"/>
             </customproperties>
             <provider>gdal</provider>
+            <noData>
+                <noDataList bandNo="1" useSrcNoData="1"/>
+            </noData>
             <pipe>
                 <rasterrenderer gradient="BlackToWhite" opacity="1" alphaBand="-1" type="singlebandgray" grayBand="1">
                     <rasterTransparency/>
@@ -450,7 +524,7 @@
             <layername>Municip_5isl</layername>
             <srs>
                 <spatialrefsys>
-                    <proj4>+proj=utm +zone=28 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</proj4>
+                    <proj4>+proj=utm +zone=28 +datum=WGS84 +units=m +no_defs</proj4>
                     <srsid>3112</srsid>
                     <srid>32628</srid>
                     <authid>EPSG:32628</authid>
@@ -467,10 +541,13 @@
                 <symbols>
                     <symbol alpha="1" type="fill" name="0">
                         <layer pass="0" class="SimpleFill" locked="0">
+                            <prop k="border_width_map_unit_scale" v="0,0"/>
                             <prop k="border_width_unit" v="MM"/>
                             <prop k="color" v="197,71,111,255"/>
                             <prop k="color_border" v="0,0,0,255"/>
+                            <prop k="joinstyle" v="bevel"/>
                             <prop k="offset" v="0,0"/>
+                            <prop k="offset_map_unit_scale" v="0,0"/>
                             <prop k="offset_unit" v="MM"/>
                             <prop k="style" v="solid"/>
                             <prop k="style_border" v="solid"/>
@@ -507,6 +584,29 @@
                 <multilineenabled fieldname="" on=""/>
                 <selectedonly on=""/>
             </labelattributes>
+            <edittypes>
+                <edittype labelontop="0" editable="0" widgetv2type="TextEdit" name="ID">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype labelontop="0" editable="0" widgetv2type="TextEdit" name="NOMBRE">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype labelontop="0" editable="0" widgetv2type="TextEdit" name="CODIGOINE">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype labelontop="0" editable="0" widgetv2type="TextEdit" name="JURISDICCI">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype labelontop="0" editable="0" widgetv2type="TextEdit" name="PROVINCIA">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype labelontop="0" editable="0" widgetv2type="TextEdit" name="NOM_Provin">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+                <edittype labelontop="0" editable="0" widgetv2type="TextEdit" name="Isla">
+                    <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
+                </edittype>
+            </edittypes>
             <editform>.</editform>
             <editforminit></editforminit>
             <featformsuppress>0</featformsuppress>
@@ -527,7 +627,7 @@
             <layername>Pendiente</layername>
             <srs>
                 <spatialrefsys>
-                    <proj4>+proj=utm +zone=28 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</proj4>
+                    <proj4>+proj=utm +zone=28 +datum=WGS84 +units=m +no_defs</proj4>
                     <srsid>3112</srsid>
                     <srid>32628</srid>
                     <authid>EPSG:32628</authid>
@@ -541,6 +641,9 @@
                 <property key="identify/format" value="Value"/>
             </customproperties>
             <provider>gdal</provider>
+            <noData>
+                <noDataList bandNo="1" useSrcNoData="1"/>
+            </noData>
             <pipe>
                 <rasterrenderer gradient="BlackToWhite" opacity="1" alphaBand="-1" type="singlebandgray" grayBand="1">
                     <rasterTransparency/>
@@ -567,7 +670,7 @@
             <layername>Patri_5isl_MK</layername>
             <srs>
                 <spatialrefsys>
-                    <proj4>+proj=utm +zone=28 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</proj4>
+                    <proj4>+proj=utm +zone=28 +datum=WGS84 +units=m +no_defs</proj4>
                     <srsid>3112</srsid>
                     <srid>32628</srid>
                     <authid>EPSG:32628</authid>
@@ -581,6 +684,9 @@
                 <property key="identify/format" value="Value"/>
             </customproperties>
             <provider>gdal</provider>
+            <noData>
+                <noDataList bandNo="1" useSrcNoData="1"/>
+            </noData>
             <pipe>
                 <rasterrenderer gradient="BlackToWhite" opacity="1" alphaBand="-1" type="singlebandgray" grayBand="1">
                     <rasterTransparency/>
@@ -607,7 +713,7 @@
             <layername>Población</layername>
             <srs>
                 <spatialrefsys>
-                    <proj4>+proj=utm +zone=28 +ellps=WGS84 +datum=WGS84 +units=m +no_defs</proj4>
+                    <proj4>+proj=utm +zone=28 +datum=WGS84 +units=m +no_defs</proj4>
                     <srsid>3112</srsid>
                     <srid>32628</srid>
                     <authid>EPSG:32628</authid>
@@ -621,6 +727,9 @@
                 <property key="identify/format" value="Value"/>
             </customproperties>
             <provider>gdal</provider>
+            <noData>
+                <noDataList bandNo="1" useSrcNoData="1"/>
+            </noData>
             <pipe>
                 <rasterrenderer gradient="BlackToWhite" opacity="1" alphaBand="-1" type="singlebandgray" grayBand="1">
                     <rasterTransparency/>
@@ -655,6 +764,24 @@
             <SelectionColorGreenPart type="int">255</SelectionColorGreenPart>
             <CanvasColorBluePart type="int">255</CanvasColorBluePart>
         </Gui>
+        <Digitizing>
+            <LayerSnappingList type="QStringList">
+                <value>Municip_5isl20140627084336238</value>
+            </LayerSnappingList>
+            <LayerSnappingEnabledList type="QStringList">
+                <value>disabled</value>
+            </LayerSnappingEnabledList>
+            <AvoidIntersectionsList type="QStringList"/>
+            <LayerSnappingToleranceUnitList type="QStringList">
+                <value>0</value>
+            </LayerSnappingToleranceUnitList>
+            <LayerSnapToList type="QStringList">
+                <value>to_vertex_and_segment</value>
+            </LayerSnapToList>
+            <LayerSnappingToleranceList type="QStringList">
+                <value>0.000000</value>
+            </LayerSnappingToleranceList>
+        </Digitizing>
         <PositionPrecision>
             <DecimalPlaces type="int">2</DecimalPlaces>
             <Automatic type="bool">true</Automatic>
