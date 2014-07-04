@@ -9,7 +9,7 @@
         <layer-tree-layer expanded="0" checked="Qt::Checked" id="FCC_5ISMASK20140627084347246" name="FCC_5ISMASK">
             <customproperties/>
         </layer-tree-layer>
-        <layer-tree-layer expanded="0" checked="Qt::Checked" id="PTE_5isl_MASK20140627084309992" name="Pendiente">
+        <layer-tree-layer expanded="0" checked="Qt::Checked" id="PTE_5isl_MASK20140627084309992" name="pendiente">
             <customproperties/>
         </layer-tree-layer>
         <layer-tree-layer expanded="0" checked="Qt::Checked" id="IIER_5isl_MSK20140627084402310" name="IIER_5isl_MSK">
@@ -30,7 +30,7 @@
         <layer-tree-layer expanded="0" checked="Qt::Checked" id="COMBU_5isl_MK20140702135234401" name="COMBU_5isl_MK">
             <customproperties/>
         </layer-tree-layer>
-        <layer-tree-layer expanded="0" checked="Qt::Checked" id="Acces_5isl_MK20140701112145797" name="Acces_5isl_MK">
+        <layer-tree-layer expanded="0" checked="Qt::Checked" id="Acces_5isl_MK20140701112145797" name="accesibilidad">
             <customproperties/>
         </layer-tree-layer>
     </layer-tree-group>
@@ -38,10 +38,10 @@
     <mapcanvas>
         <units>meters</units>
         <extent>
-            <xmin>419976.23248035181313753</xmin>
-            <ymin>3094878.68632924789562821</ymin>
-            <xmax>496489.80751964822411537</xmax>
-            <ymax>3126053.03367075184360147</ymax>
+            <xmin>410107.26248035172466189</xmin>
+            <ymin>3094791.60632924782112241</ymin>
+            <xmax>486620.83751964825205505</xmax>
+            <ymax>3125965.95367075176909566</ymax>
         </extent>
         <projections>0</projections>
         <destinationsrs>
@@ -83,7 +83,7 @@
                 <legendlayerfile isInOverview="0" layerid="FCC_5ISMASK20140627084347246" visible="1"/>
             </filegroup>
         </legendlayer>
-        <legendlayer drawingOrder="-1" open="false" checked="Qt::Checked" name="Pendiente" showFeatureCount="0">
+        <legendlayer drawingOrder="-1" open="false" checked="Qt::Checked" name="pendiente" showFeatureCount="0">
             <filegroup open="false" hidden="false">
                 <legendlayerfile isInOverview="0" layerid="PTE_5isl_MASK20140627084309992" visible="1"/>
             </filegroup>
@@ -118,7 +118,7 @@
                 <legendlayerfile isInOverview="0" layerid="COMBU_5isl_MK20140702135234401" visible="1"/>
             </filegroup>
         </legendlayer>
-        <legendlayer drawingOrder="-1" open="false" checked="Qt::Checked" name="Acces_5isl_MK" showFeatureCount="0">
+        <legendlayer drawingOrder="-1" open="false" checked="Qt::Checked" name="accesibilidad" showFeatureCount="0">
             <filegroup open="false" hidden="false">
                 <legendlayerfile isInOverview="0" layerid="Acces_5isl_MK20140701112145797" visible="1"/>
             </filegroup>
@@ -263,7 +263,7 @@
             <keywordList>
                 <value></value>
             </keywordList>
-            <layername>Acces_5isl_MK</layername>
+            <layername>accesibilidad</layername>
             <srs>
                 <spatialrefsys>
                     <proj4>+proj=utm +zone=28 +datum=WGS84 +units=m +no_defs</proj4>
@@ -585,25 +585,25 @@
                 <selectedonly on=""/>
             </labelattributes>
             <edittypes>
-                <edittype labelontop="0" editable="0" widgetv2type="TextEdit" name="ID">
+                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="ID">
                     <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
                 </edittype>
-                <edittype labelontop="0" editable="0" widgetv2type="TextEdit" name="NOMBRE">
+                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="NOMBRE">
                     <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
                 </edittype>
-                <edittype labelontop="0" editable="0" widgetv2type="TextEdit" name="CODIGOINE">
+                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="CODIGOINE">
                     <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
                 </edittype>
-                <edittype labelontop="0" editable="0" widgetv2type="TextEdit" name="JURISDICCI">
+                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="JURISDICCI">
                     <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
                 </edittype>
-                <edittype labelontop="0" editable="0" widgetv2type="TextEdit" name="PROVINCIA">
+                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="PROVINCIA">
                     <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
                 </edittype>
-                <edittype labelontop="0" editable="0" widgetv2type="TextEdit" name="NOM_Provin">
+                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="NOM_Provin">
                     <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
                 </edittype>
-                <edittype labelontop="0" editable="0" widgetv2type="TextEdit" name="Isla">
+                <edittype labelontop="0" editable="1" widgetv2type="TextEdit" name="Isla">
                     <widgetv2config IsMultiline="0" fieldEditable="1" UseHtml="0" labelOnTop="0"/>
                 </edittype>
             </edittypes>
@@ -624,7 +624,7 @@
             <keywordList>
                 <value></value>
             </keywordList>
-            <layername>Pendiente</layername>
+            <layername>pendiente</layername>
             <srs>
                 <spatialrefsys>
                     <proj4>+proj=utm +zone=28 +datum=WGS84 +units=m +no_defs</proj4>

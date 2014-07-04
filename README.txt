@@ -105,7 +105,7 @@ print l.name()
 
 # TODO: 140701
 - create zip: 
-zip -r plugin.zip igp/*.py igp/*.qpt igp/*.qrc igp/*.ui igp/*.jpg igp/icon.png igp/metadata.txt igp/README.html 
+zip -r igp-1.0.zip igp/*.py igp/*.qpt igp/*.qrc igp/*.ui igp/*.jpg igp/icon.png igp/metadata.txt igp/README.html 
 
 # TODO: 140702
 

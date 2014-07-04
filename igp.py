@@ -78,7 +78,14 @@ class IGP:
         self.dlg.show()
 
         #
-        self.dlg.move(100, 100)
+        #self.dlg.move(100, 100)
+
+        # center on screen
+        size = self.dlg.size()
+        desktopSize = QtGui.QDesktopWidget().screenGeometry()
+        top = (desktopSize.height()/2)-(size.height()/2)
+        left = (desktopSize.width()/2)-(size.width()/2)
+        self.dlg.move(left, top)
 
         # Run the dialog event loop
         result = self.dlg.exec_()

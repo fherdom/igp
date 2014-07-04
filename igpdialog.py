@@ -39,6 +39,7 @@ from settings import LAYER_MUNICIPIOS
 from settings import RESULTS
 from settings import VALUES_SYM
 
+
 class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
 
     def __init__(self, iface):
@@ -54,19 +55,24 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         self.ui = Ui_IGPDialog()
         self.ui.setupUi(self)
 
+        basedirectory = os.path.dirname(__file__)
+        fillpath = lambda x: os.path.join(basedirectory, x)
+        setting, filenamelog = map(fillpath, ['metadata.txt', 'igp.log'])
+
+        # Log file
+        self.DEBUG = True
+        self.filenamelog = filenamelog
+        self.log("init appp")
+
         # TODO: 140614
         self.connect(self.ui.btnReport, SIGNAL("clicked()"), self.onclickbtnreport)
         self.connect(self.ui.btnIGP, SIGNAL("clicked()"), self.onclickbtnigp)
         self.connect(self.ui.btnPasteCoord, SIGNAL("clicked()"), self.onclick_btnpastecoord)
 
-        basedirectory = os.path.dirname(__file__)
-        fillpath = lambda x: os.path.join(basedirectory, x)
-        setting, filenamelog = map(fillpath, ['setting.txt', 'igp.log'])
+        #self.connect(self, SIGNAL("focusChanged(QWidget *, QWidget *)"), self.onload)
 
-        # Log file
-        self.DEBUG = True
-        self.filenamelog = filenamelog
-        self.log("init app")
+        self.setWindowFlags(QtCore.Qt.Tool)
+        self.setFixedSize(481, 512)
 
         # TODO: 140624, layer IGP
         self.layerigp = None
@@ -78,6 +84,38 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
 
         #self.pto = u"458233.02, 3110465.86"
         self.pto = None
+
+        self.ui.btnIGP.setEnabled(False)
+        self.ui.btnReport.setEnabled(False)
+
+    def showEvent(self, event):
+        """
+        """
+
+        def alert(msg):
+            style = "background-color: rgb(0, 0, 0);\ncolor: rgb(255, 255, 255);"
+            self.ui.txtResult.setStyleSheet(style)
+            self.ui.txtResult.setText(msg)
+
+        ret = True
+        # check layers
+        for layerid, data in CONFIG.items():
+            if data[u'req'] == 1:
+                if not self.isloadlayer(data[u'layername']):
+                    ret = False
+                    text = "Falta capa: %s" % data[u'layername']
+                    alert(text)
+                    break
+        if ret:
+            alert(u'Capas cargadas')
+        self.ui.btnIGP.setEnabled(ret)
+        QtGui.QWidget.showEvent(self, event)
+
+    def onload(self):
+        """
+        :return:
+        """
+        self.log("onload")
 
     def createIGPLayer(self):
         """
@@ -122,7 +160,6 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         self.layeridigp = QgsMapLayerRegistry.instance().mapLayers().keys()[-1]
         self.canvas.refresh()
 
-
     def addIGPLayerValue(self, pto):
         """
         """
@@ -164,12 +201,14 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         """
         :return:
         """
+        self.igp = None
+        self.igp_des = None
+        self.ui.btnReport.setEnabled(False)
 
         def alert(msg):
             style = "background-color: rgb(0, 0, 0);\ncolor: rgb(255, 255, 255);"
-            text = msg
             self.ui.txtResult.setStyleSheet(style)
-            self.ui.txtResult.setText(text)
+            self.ui.txtResult.setText(msg)
             
         
         if self.ui.txtCoord.text() == "":
@@ -211,7 +250,8 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
                         RESULTS[layerid] = [value, description, score]
                     
                     # Show table
-                    self.ui.tableWidget.item(data[u'pos'], 0).setText(unicode(RESULTS[layerid][0]))
+                    if RESULTS[layerid][0]:
+                        self.ui.tableWidget.item(data[u'pos'], 0).setText(unicode(RESULTS[layerid][0]))
                     self.ui.tableWidget.item(data[u'pos'], 1).setText(unicode(RESULTS[layerid][1]))
                     self.ui.tableWidget.item(data[u'pos'], 2).setText(unicode(RESULTS[layerid][2]))
 
@@ -223,23 +263,29 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
 
         # TODO: viento
         layerid = u'VIE'
-        value = int(self.ui.tableWidget.item(4, 0).text())
-        if value == "":
+        if self.ui.tableWidget.item(4, 0).text() == "":
             alert(u"Falta viento")
-            self.ui.tableWidget.item(4, 0).setFocus()
+            self.ui.tableWidget.setFocus()
             return False
+        value = int(self.ui.tableWidget.item(4, 0).text())
         score, description = self.checkvalue(layerid, value)
+        if score:
+            self.ui.tableWidget.item(4, 1).setText(description)
+            self.ui.tableWidget.item(4, 2).setText(unicode(score))
         igp += score
         RESULTS[layerid] = [value, description, score]
 
         # TODO: temperatura
         layerid = u'TEM'
-        value = int(self.ui.tableWidget.item(5, 0).text())
-        if value == "":
+        if self.ui.tableWidget.item(5, 0).text() == "":
             alert(u"Falta temperatura")
-            self.ui.tableWidget.item(5, 0).setFocus()
+            self.ui.tableWidget.setFocus()
             return False
+        value = int(self.ui.tableWidget.item(5, 0).text())
         score, description = self.checkvalue(layerid, value)
+        if score:
+            self.ui.tableWidget.item(5, 1).setText(description)
+            self.ui.tableWidget.item(5, 2).setText(unicode(score))
         igp += score
         RESULTS[layerid] = [value, description, score]
 
@@ -264,6 +310,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
                 self.igp = igp
                 self.igp_des = sc[0]
                 self.pto = pto
+                self.ui.btnReport.setEnabled(True)
 
                 # 
                 self.log('%s' % RESULTS)
@@ -353,9 +400,8 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         """
         def alert(msg):
             style = "background-color: rgb(0, 0, 0);\ncolor: rgb(255, 255, 255);"
-            text = msg
             self.ui.txtResult.setStyleSheet(style)
-            self.ui.txtResult.setText(text)
+            self.ui.txtResult.setText(msg)
 
         if not self.pto:
             alert(u"Sin datos para generar informe")
@@ -384,7 +430,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
 
         savePDFFileName = QtGui.QFileDialog.getSaveFileName(None, 
             u'Guardar como PDF', 
-            os.path.join(QtCore.QDir.homePath(), 'report_IGP_00x.xml'), 
+            os.path.join(QtCore.QDir.homePath(), 'report_IGP_%s_00x.pdf' % (self.igp_des)), 
             u'PDF files (*.pdf)')
 
         if not savePDFFileName:
@@ -440,7 +486,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         for layerid in RESULTS:
             if layerid in CONFIG:
                 rows += "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>" % (CONFIG[layerid][u'description'], 
-                    RESULTS[layerid][0], 
+                    RESULTS[layerid][0] if RESULTS[layerid][0] else "", 
                     RESULTS[layerid][1], 
                     RESULTS[layerid][2])
             i += 1

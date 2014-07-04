@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_igpdialog.ui'
 #
-# Created: Thu Jul  3 17:14:35 2014
+# Created: Fri Jul  4 10:16:43 2014
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -19,6 +19,11 @@ class Ui_IGPDialog(object):
         IGPDialog.setObjectName(_fromUtf8("IGPDialog"))
         IGPDialog.setWindowModality(QtCore.Qt.ApplicationModal)
         IGPDialog.resize(481, 512)
+        sizePolicy = QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(IGPDialog.sizePolicy().hasHeightForWidth())
+        IGPDialog.setSizePolicy(sizePolicy)
         self.tabWidget = QtGui.QTabWidget(IGPDialog)
         self.tabWidget.setEnabled(True)
         self.tabWidget.setGeometry(QtCore.QRect(0, 5, 476, 501))
