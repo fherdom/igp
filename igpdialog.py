@@ -18,6 +18,10 @@
  *   (at your option) any later version.                                   *
  *                                                                         *
  ***************************************************************************/
+
+
+ coors = 284198,3115488
+
 """
 
 import os
@@ -120,7 +124,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
     def createIGPLayer(self):
         """
         """
-        self.layerigp = QgsVectorLayer("Point", u'Resultados IGP', "memory")
+        self.layerigp = QgsVectorLayer("Point?crs=epsg:32628", u'Resultados IGP', "memory")
         self.providerigp = self.layerigp.dataProvider()
         crs = QgsCoordinateReferenceSystem()
         crs.createFromSrid(32628)
@@ -164,9 +168,10 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         """
         """
         # TODO: add point to layer
-        if not self.layerigp:
+        if len(QgsMapLayerRegistry().instance().mapLayersByName(u"Resultados IGP")) == 0 or not self.layerigp:
+        #if not self.layerigp:
             self.createIGPLayer()
-
+        
         fields = self.layerigp.pendingFields()
         fet = QgsFeature(fields)
         fet.setGeometry(QgsGeometry.fromPoint(pto))
@@ -210,7 +215,6 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
             self.ui.txtResult.setStyleSheet(style)
             self.ui.txtResult.setText(msg)
             
-        
         if self.ui.txtCoord.text() == "":
             alert(u"Faltan las coordenadas")
             self.ui.txtCoord.setFocus()
@@ -372,10 +376,10 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         """
         for e in CONFIG[layerid][u'values']:
             if e[2]:
-                if e[1] <= value <= e[2]:
+                if float(e[1]) <= float(value) <= float(e[2]):
                     return e[0], e[3]
             else:
-                if e[1] == value:
+                if float(e[1]) == float(value):
                     return e[0], e[3]
         return 0, CONFIG[layerid][u'not_found']
 
