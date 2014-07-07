@@ -22,7 +22,7 @@ email                :
 CONFIG = {
     u'PTE': {
         u'description': u'Pendiente',
-        u'layername': u'pendiente',
+        u'layername': u'Pendiente',
         u'req': 1,
         u'pos': 0,
         u'not_found': u'Sin presencia',
@@ -34,19 +34,19 @@ CONFIG = {
     },
     u'ACC': {
         u'description': u'Accesibilidad',
-        u'layername': u'accesibilidad',
+        u'layername': u'Accesibilidad',
         u'req': 1,
         u'pos': 1,
         u'not_found': u'Sin presencia',
         u'values': [
             [1, 1, None, u'Accesibilidad Alta por viales y/o buen tránsito de vehículos fuera de ellos.'],
-            [3, 2, None, u'Accesibilidad Media por viales y/o regular tránsito de vehículos fuera de ellos.'],
-            [5, 3, None, u"Accesibilidad Baja por viales y/o nulo tránsito de vehículos fuera de ellos."]
+            [3, 3, None, u'Accesibilidad Media por viales y/o regular tránsito de vehículos fuera de ellos.'],
+            [5, 5, None, u"Accesibilidad Baja por viales y/o nulo tránsito de vehículos fuera de ellos."]
         ]
     },
     u'COM': {
         u'description': u'Combustibilidad',
-        u'layername': u'COMBU_5isl_MK',
+        u'layername': u'Combustibilidad',
         u'req': 1,
         u'pos': 2,
         u'not_found': u'Sin presencia',
@@ -63,7 +63,7 @@ CONFIG = {
     },
     u'CON': {
         u'description': u'Continuidad',
-        u'layername': u'FCC_5ISMASK',
+        u'layername': u'Continuidad',
         u'req': 1,
         u'pos': 3,
         u'not_found': u'Sin presencia',
@@ -99,17 +99,17 @@ CONFIG = {
     },
     u'EDE': {
         u'description': u'E.D.E.',
-        u'layername': u'EDE_5isl_MASK',
+        u'layername': u'EDE',
         u'req': 1,
         u'pos': 6,
         u'not_found': u'Sin presencia',
         u'values': [
-            [5, 1, None, u'Presencia de E.D.E. en el área de afección del incendio y/o futura progresión del mismo (Área recreativa, Campings, Hospitales, colegios etc.).']
+            [5, 5, None, u'Presencia de E.D.E. en el área de afección del incendio y/o futura progresión del mismo (Área recreativa, Campings, Hospitales, colegios etc.).']
         ]
     },
     u'IIE': {
         u'description': u'I.I.E.R.',
-        u'layername': u'IIER_5isl_MSK',
+        u'layername': u'IIER',
         u'req': 1,
         u'pos': 7,
         u'not_found': u'Sin presencia',
@@ -118,7 +118,7 @@ CONFIG = {
         ]
     },
     u'EVA': {
-        u'description': u'Evacuación',
+        u'description': u'Población',
         u'layername': u'Población',
         u'req': 1,
         u'pos': 8,
@@ -129,22 +129,22 @@ CONFIG = {
     },
     u'PAT': {
         u'description': u'Patrimonio',
-        u'layername': u'Patri_5isl_MK',
+        u'layername': u'Patrimonio',
         u'req': 1,
         u'pos': 9,
         u'not_found': u'Sin presencia',
         u'values': [
-            [5, 1, None, u'Afección de elementos y/o lugares de especial relevancia catalogados y protegidos de carácter histórico artístico.']
+            [5, 5, None, u'Afección de elementos y/o lugares de especial relevancia catalogados y protegidos de carácter histórico artístico.']
         ]
     },
     u'ECO': {
         u'description': u'Ecológico',
-        u'layername': u'Ecolo_5isl_MK',
+        u'layername': u'Ecológico',
         u'req': 1,
         u'pos': 10,
         u'not_found': u'Sin presencia',
         u'values': [
-            [5, 1, None, u'Afección de espacios de especial relevancia ecológica catalogados y protegidos, así como elementos que por su singularidad rareza o difícil perpetuidad también gocen de especial protección']
+            [5, 5, None, u'Afección de espacios de especial relevancia ecológica catalogados y protegidos, así como elementos que por su singularidad rareza o difícil perpetuidad también gocen de especial protección']
         ]
     }
 }

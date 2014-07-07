@@ -124,3 +124,7 @@ zip -r igp-1.0.zip igp/*.py igp/*.qpt igp/*.qrc igp/*.ui igp/*.jpg igp/icon.png 
 + Lo del nombre de la capas es importante, me gusta más los textos del anexo 15, pero tb soy de la rama de nombrar los ficheros sin tildes ni espacios ni caracteres raros, por ejemplo, Población lo guardaría como poblacion y al cargar aparecería este nombre, pero en el PDF o en la ventana aparecerá Población... no se si me expliqué...
 
 + Tienes razón, tengo que decirte que capa es la que falta, no su ID interno
+
+
+zip -r igp-1.0.zip igp/*.py igp/*.qpt igp/*.qrc igp/*.ui igp/*.jpg igp/icon.png igp/metadata.txt igp/README.html
+scp igp-1.0.zip dev.felixjosehernandez.es:/var/www/qgis
