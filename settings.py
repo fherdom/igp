@@ -28,8 +28,8 @@ CONFIG = {
         u'not_found': u'Sin presencia',
         u'units': u'',
         u'values': [
-            [1, 0.0, 20.99, u'Pte. Suave (menos del 20%) y/o terreno aledaño poco accidentado.'],
-            [3, 21.0, 30.99, u'Pte. Media (20-30 %) y/o terreno aledaño ondulado-accidentado.'],
+            [1, 0.0, 19.99, u'Pte. Suave (menos del 20%) y/o terreno aledaño poco accidentado.'],
+            [3, 20.0, 30.99, u'Pte. Media (20-30 %) y/o terreno aledaño ondulado-accidentado.'],
             [5, 31.0, 9999.99, u'Pte. Fuerte (superior al 30%) y/o terreno escarpado.']
         ]
     },
