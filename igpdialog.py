@@ -374,6 +374,9 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         :param value:
         :return:
         """
+        if not value:
+            return 0, CONFIG[layerid][u'not_found']
+
         for e in CONFIG[layerid][u'values']:
             if e[2]:
                 if float(e[1]) <= float(value) <= float(e[2]):
