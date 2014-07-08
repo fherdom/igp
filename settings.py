@@ -20,36 +20,39 @@ email                :
 
 
 CONFIG = {
-    u'PTE': {
+    u'001_PTE': {
         u'description': u'Pendiente',
         u'layername': u'Pendiente',
         u'req': 1,
         u'pos': 0,
         u'not_found': u'Sin presencia o valor desconocido',
+        u'units': u'',
         u'values': [
             [1, 0.0, 20.0, u'Pte. Suave (menos del 20%) y/o terreno aledaño poco accidentado.'],
             [3, 21.0, 30.0, u'Pte. Media (20-30 %) y/o terreno aledaño ondulado-accidentado.'],
             [5, 31.0, 9999.0, u'Pte. Fuerte (superior al 30%) y/o terreno escarpado.']
         ]
     },
-    u'ACC': {
+    u'002_ACC': {
         u'description': u'Accesibilidad',
         u'layername': u'Accesibilidad',
         u'req': 1,
         u'pos': 1,
         u'not_found': u'Sin presencia o valor desconocido',
+        u'units': u'',
         u'values': [
             [1, 1.0, None, u'Accesibilidad Alta por viales y/o buen tránsito de vehículos fuera de ellos.'],
             [3, 3.0, None, u'Accesibilidad Media por viales y/o regular tránsito de vehículos fuera de ellos.'],
             [5, 5.0, None, u"Accesibilidad Baja por viales y/o nulo tránsito de vehículos fuera de ellos."]
         ]
     },
-    u'COM': {
+    u'003_COM': {
         u'description': u'Combustibilidad',
         u'layername': u'Combustibilidad',
         u'req': 1,
         u'pos': 2,
         u'not_found': u'Sin presencia o valor desconocido',
+        u'units': u'',
         u'values': [
             [5, 1.0, 1.0, u'Combustibilidad Alta (Mod. 1,3,4,6,12,13)'],
             [3, 2.0, 2.0, u'Combustibilidad Media (Mod. 5,7 y 2)'],
@@ -61,88 +64,96 @@ CONFIG = {
             [5, 12.0, 13.0, u'Combustibilidad Alta (Mod. 1,3,4,6,12,13)'],
         ]
     },
-    u'CON': {
+    u'004_CON': {
         u'description': u'Continuidad',
         u'layername': u'Continuidad',
         u'req': 1,
         u'pos': 3,
         u'not_found': u'Sin presencia o valor desconocido',
+        u'units': u'',
         u'values': [
             [1, 1.0, 33.0, u'Continuidad Nivel 1. (Fcc menor del 33%, y/o 10 metros de distancia de F.S del frente de llama)'],
             [3, 34.0, 66.0, u'Continuidad Nivel 2. (Fcc 33-66% y/o 10-100 metros de distancia del F.S del Frente de llama)'],
             [5, 67.0, 100.0, u'Continuidad Nivel 3. (Fcc mayor del 66% y/o más de 100 metros de distancia del F.S del frente de llama)']
         ]
     },
-    u'VIE': {
+    u'005_VIE': {
         u'description': u'Viento',
         u'layername': u'',
         u'req': 0,
         u'pos': 4,
         u'not_found': u'Sin presencia o valor desconocido',
+        u'units': u'Km/h',
         u'values': [
             [1, 0.0, 10.0, u'Velocidad de Viento Baja (menor o igual a 10 km/h)'],
             [3, 11.0, 30.0, u'Velocidad viento Media  (10-30 km/h)'],
             [5, 31.0, 100.0, u'Velocidad de Viento Alta (más de 30 km/h)']
         ]
     },
-    u'TEM': {
+    u'006_TEM': {
         u'description': u'Temperatura',
         u'layername': u'',
         u'req': 0,
         u'pos': 5,
         u'not_found': u'Sin presencia o valor desconocido',
+        u'units': u'ºC',
         u'values': [
             [1, 0.0, 25.0, u'Temperatura Baja (menor igual a 25 ºC)'],
             [3, 26.0, 39.0, u'Temperatura Media  (26-39 ºC)'],
             [5, 40.0, 9999.0, u'Temperatura Alta (más de 40ºC)']
         ]
     },
-    u'EDE': {
+    u'007_EDE': {
         u'description': u'E.D.E.',
         u'layername': u'EDE',
         u'req': 1,
         u'pos': 6,
         u'not_found': u'Sin presencia o valor desconocido',
+        u'units': u'',
         u'values': [
             [5, 5.0, None, u'Presencia de E.D.E. en el área de afección del incendio y/o futura progresión del mismo (Área recreativa, Campings, Hospitales, colegios etc.).']
         ]
     },
-    u'IIE': {
+    u'008_IIE': {
         u'description': u'I.I.E.R.',
         u'layername': u'IIER',
         u'req': 1,
         u'pos': 7,
         u'not_found': u'Sin presencia o valor desconocido',
+        u'units': u'',
         u'values': [
             [5, 5.0, None, u'Presencia de I.I.E.R. en el área de afección del incendio y/o futura progresión del mismo (Bases aéreas, gasolineras, Centrales de producción de electricidad, vías de comunicación de primer orden etc.).']
         ]
     },
-    u'EVA': {
-        u'description': u'Población',
-        u'layername': u'Población',
+    u'009_EVA': {
+        u'description': u'Evacuación',
+        u'layername': u'Evacuación',
         u'req': 1,
         u'pos': 8,
         u'not_found': u'Sin presencia o valor desconocido',
+        u'units': u'',
         u'values': [
             [5, 5.0, None, u'Evacuación de la población de sus viviendas o municipios en el área de afección del incendio y/o futura progresión del mismo.']
         ]
     },
-    u'PAT': {
+    u'010_PAT': {
         u'description': u'Patrimonio',
         u'layername': u'Patrimonio',
         u'req': 1,
         u'pos': 9,
         u'not_found': u'Sin presencia o valor desconocido',
+        u'units': u'',
         u'values': [
             [5, 5.0, None, u'Afección de elementos y/o lugares de especial relevancia catalogados y protegidos de carácter histórico artístico.']
         ]
     },
-    u'ECO': {
+    u'011_ECO': {
         u'description': u'Ecológico',
         u'layername': u'Ecológico',
         u'req': 1,
         u'pos': 10,
         u'not_found': u'Sin presencia o valor desconocido',
+        u'units': u'',
         u'values': [
             [5, 5.0, None, u'Afección de espacios de especial relevancia ecológica catalogados y protegidos, así como elementos que por su singularidad rareza o difícil perpetuidad también gocen de especial protección']
         ]
@@ -164,24 +175,28 @@ SCORE = [
 ]
 
 RESULTS = {
-    u'PTE': [1, u'', 1],
-    u'ACC': [1, u'', 1],
-    u'COM': [1, u'', 1],
-    u'CON': [1, u'', 1],
-    u'VIE': [1, u'', 1],
-    u'TEM': [1, u'', 1],
-    u'EDE': [1, u'', 1],
-    u'IIE': [1, u'', 1],
-    u'EVA': [1, u'', 1],
-    u'PAT': [1, u'', 1],
-    u'ECO': [1, u'', 1],
-    u'X':   [1, u'', 1],
-    u'Y':   [1, u'', 1],
-    u'IGP': [1, u'', 1],
-    u'IGP_DES': [1, u'', 1],
-    u'ISLA': [1, u'', 1],
-    u'MUNICIPIO': [1, u'', 1],
-    u'FECHA': [1, u'', 1],
+    u'001_PTE': [1, u'', 1],
+    u'002_ACC': [1, u'', 1],
+    u'003_COM': [1, u'', 1],
+    u'004_CON': [1, u'', 1],
+    u'005_VIE': [1, u'', 1],
+    u'006_TEM': [1, u'', 1],
+    u'007_EDE': [1, u'', 1],
+    u'008_IIE': [1, u'', 1],
+    u'009_EVA': [1, u'', 1],
+    u'010_PAT': [1, u'', 1],
+    u'011_ECO': [1, u'', 1],
+    u'012_X':   [1, u'', 1],
+    u'013_Y':   [1, u'', 1],
+    u'014_IGP': [1, u'', 1],
+    u'015_IGP_DES': [1, u'', 1],
+    u'016_ISLA': [1, u'', 1],
+    u'017_MUNICIPIO': [1, u'', 1],
+    u'018_FECHA': [1, u'', 1],
 }
 
 LAYER_MUNICIPIOS = u'Municip_5isl'
+
+
+for layerid in sorted(RESULTS.iterkeys()):
+    print layerid

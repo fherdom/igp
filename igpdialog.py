@@ -132,7 +132,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
 
         #
         attrs = []
-        for layerid in RESULTS:
+        for layerid in sorted(RESULTS.iterkeys()):
             attrs.append(QgsField(layerid, QtCore.QVariant.String))
         self.providerigp.addAttributes(attrs)
 
@@ -141,7 +141,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
 
         # label
         label = self.layerigp.label()
-        label.setLabelField(QgsLabel.Text, self.layerigp.fieldNameIndex(u'IGP_DES'))
+        label.setLabelField(QgsLabel.Text, self.layerigp.fieldNameIndex(u'015_IGP_DES'))
         self.layerigp.enableLabels(True)
 
         # symbol
@@ -153,7 +153,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
             category = QgsRendererCategoryV2(value, symbol, label)
             categories.append(category)
 
-        expression = u'IGP_DES'
+        expression = u'015_IGP_DES'
         renderer = QgsCategorizedSymbolRendererV2(expression, categories)
         self.layerigp.setRendererV2(renderer)
 
@@ -178,7 +178,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         
         # fill record
         i = 0
-        for layerid in RESULTS:
+        for layerid in sorted(RESULTS.iterkeys()):
             fet[i] = RESULTS[layerid][0]
             i += 1
         self.providerigp.addFeatures([fet])
@@ -208,6 +208,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         """
         self.igp = None
         self.igp_des = None
+
         self.ui.btnReport.setEnabled(False)
 
         def alert(msg):
@@ -256,6 +257,8 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
                     # Show table
                     if RESULTS[layerid][0]:
                         self.ui.tableWidget.item(data[u'pos'], 0).setText(unicode(RESULTS[layerid][0]))
+                    else:
+                        self.ui.tableWidget.item(data[u'pos'], 0).setText('')
                     self.ui.tableWidget.item(data[u'pos'], 1).setText(unicode(RESULTS[layerid][1]))
                     self.ui.tableWidget.item(data[u'pos'], 2).setText(unicode(RESULTS[layerid][2]))
 
@@ -266,7 +269,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
                     return False
 
         # TODO: viento
-        layerid = u'VIE'
+        layerid = u'005_VIE'
         if self.ui.tableWidget.item(4, 0).text() == "":
             alert(u"Falta viento")
             self.ui.tableWidget.setFocus()
@@ -280,7 +283,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         RESULTS[layerid] = [value, description, score]
 
         # TODO: temperatura
-        layerid = u'TEM'
+        layerid = u'006_TEM'
         if self.ui.tableWidget.item(5, 0).text() == "":
             alert(u"Falta temperatura")
             self.ui.tableWidget.setFocus()
@@ -302,14 +305,15 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
                 self.ui.txtResult.setText(text)
 
                 # 
-                RESULTS[u'X'] = [self.ui.txtCoord.text().split(',')[0].strip(), u'', 1]
-                RESULTS[u'Y'] = [self.ui.txtCoord.text().split(',')[1].strip(), u'', 1]
-                RESULTS[u'IGP'] = [igp, u'', 1]
-                RESULTS[u'IGP_DES'] = [sc[0], u'', 1]
-                i, m = self.getinfoislavalue(pto)
-                RESULTS[u'ISLA'] = [i, u'', 1]
-                RESULTS[u'MUNICIPIO'] = [m, u'', 1]
-                RESULTS[u'FECHA'] = [str(datetime.now()), u'', 1]
+                RESULTS[u'012_X'] = [self.ui.txtCoord.text().split(',')[0].strip(), u'', 1]
+                RESULTS[u'013_Y'] = [self.ui.txtCoord.text().split(',')[1].strip(), u'', 1]
+                RESULTS[u'014_IGP'] = [igp, u'', 1]
+                RESULTS[u'015_IGP_DES'] = [sc[0], u'', 1]
+                i, m, p = self.getinfoislavalue(pto)
+                RESULTS[u'016_ISLA'] = [i, u'', 1]
+                RESULTS[u'017_MUNICIPIO'] = [m, u'', 1]
+                RESULTS[u'018_FECHA'] = [str(datetime.now()), u'', 1]
+                RESULTS[u'019_PROVINCIA'] = [p, u'', 1]
 
                 self.igp = igp
                 self.igp_des = sc[0]
@@ -364,9 +368,9 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
 
             feature = vlayer.getFeatures(rq).next()
             self.log("%s" % feature)
-            return feature[6], feature[1]
+            return feature[6], feature[1], feature[5]
         except:
-            return None, None
+            return None, None, None
 
     def checkvalue(self, layerid, value):
         """
@@ -459,7 +463,6 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         myMap = myComposition.getComposerItemById('mapa')
         myMap.setNewExtent(rect)
 
-        mIsla, mMunicipio = self.getinfoislavalue(pto)
         mX = pto.x()
         mY = pto.y()
         myHeader = myComposition.getComposerItemById('header')
@@ -471,6 +474,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         </style>
         <table class="myTable">
         <tr>
+            <td>PROVINCIA</td>
             <td>ISLA</td>
             <td>MUNICIPIO</td>
             <td>X</td>
@@ -483,17 +487,23 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
             <td>%s</td>
             <td>%s</td>
             <td>%s</td>
+            <td>%s</td>
         </tr>
-        </table>""" % (RESULTS[u'ISLA'][0], RESULTS[u'MUNICIPIO'][0], RESULTS[u'X'][0], RESULTS[u'Y'][0], RESULTS[u'FECHA'][0])
+        </table>""" % (RESULTS[u'019_PROVINCIA'][0], 
+            RESULTS[u'016_ISLA'][0], 
+            RESULTS[u'017_MUNICIPIO'][0], 
+            RESULTS[u'012_X'][0], 
+            RESULTS[u'013_Y'][0], 
+            RESULTS[u'018_FECHA'][0])
         myHeader.setText(htmlHeader)
 
         myTable = myComposition.getComposerItemById('table')
         i = 0
         rows = ""
-        for layerid in RESULTS:
+        for layerid in sorted(RESULTS.iterkeys()):
             if layerid in CONFIG:
                 rows += "<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>" % (CONFIG[layerid][u'description'], 
-                    RESULTS[layerid][0] if RESULTS[layerid][0] else "", 
+                    "%s&nbsp;%s" % (RESULTS[layerid][0], CONFIG[layerid][u'units']) if RESULTS[layerid][0] else "", 
                     RESULTS[layerid][1], 
                     RESULTS[layerid][2])
             i += 1
@@ -514,7 +524,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         myTable.setText(htmlTable)
 
         myFooter = myComposition.getComposerItemById('footer')
-        htmlFooter = u"<center><h1>IGP = %s INCENDIO DE GRAVEDAD %s</h1></center>" % (RESULTS['IGP'][0], RESULTS['IGP_DES'][0].upper())
+        htmlFooter = u"<center><h1>IGP = %s INCENDIO DE GRAVEDAD %s</h1></center>" % (RESULTS['014_IGP'][0], RESULTS['015_IGP_DES'][0].upper())
         myFooter.setText(htmlFooter)
 
         # logos
