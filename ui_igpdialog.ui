@@ -209,12 +209,12 @@
         </row>
         <row>
          <property name="text">
-          <string>VEL. VIENTO</string>
+          <string>VEL. VIENTO (Km/h)</string>
          </property>
         </row>
         <row>
          <property name="text">
-          <string>TEMPERATURA</string>
+          <string>TEMPERATURA (ºC)</string>
          </property>
         </row>
         <row>

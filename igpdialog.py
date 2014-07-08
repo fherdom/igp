@@ -382,6 +382,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
             return 0, CONFIG[layerid][u'not_found']
 
         for e in CONFIG[layerid][u'values']:
+            self.log("---- %s %s" % (e, value))
             if e[2]:
                 if float(e[1]) <= float(value) <= float(e[2]):
                     return e[0], e[3]

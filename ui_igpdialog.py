@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'ui_igpdialog.ui'
 #
-# Created: Fri Jul  4 10:16:43 2014
+# Created: Tue Jul  8 19:15:55 2014
 #      by: PyQt4 UI code generator 4.9.1
 #
 # WARNING! All changes made in this file will be lost!
@@ -263,9 +263,9 @@ class Ui_IGPDialog(object):
         item = self.tableWidget.verticalHeaderItem(3)
         item.setText(QtGui.QApplication.translate("IGPDialog", "CONTINUIDAD", None, QtGui.QApplication.UnicodeUTF8))
         item = self.tableWidget.verticalHeaderItem(4)
-        item.setText(QtGui.QApplication.translate("IGPDialog", "VEL. VIENTO", None, QtGui.QApplication.UnicodeUTF8))
+        item.setText(QtGui.QApplication.translate("IGPDialog", "VEL. VIENTO (Km/h)", None, QtGui.QApplication.UnicodeUTF8))
         item = self.tableWidget.verticalHeaderItem(5)
-        item.setText(QtGui.QApplication.translate("IGPDialog", "TEMPERATURA", None, QtGui.QApplication.UnicodeUTF8))
+        item.setText(QtGui.QApplication.translate("IGPDialog", "TEMPERATURA (ºC)", None, QtGui.QApplication.UnicodeUTF8))
         item = self.tableWidget.verticalHeaderItem(6)
         item.setText(QtGui.QApplication.translate("IGPDialog", "E.D.E.", None, QtGui.QApplication.UnicodeUTF8))
         item = self.tableWidget.verticalHeaderItem(7)
