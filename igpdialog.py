@@ -27,6 +27,7 @@
 import os
 
 from datetime import datetime
+from time import strftime
 
 from PyQt4 import QtXml
 from PyQt4 import QtCore
@@ -312,7 +313,9 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
                 i, m, p = self.getinfoislavalue(pto)
                 RESULTS[u'016_ISLA'] = [i, u'', 1]
                 RESULTS[u'017_MUNICIPIO'] = [m, u'', 1]
-                RESULTS[u'018_FECHA'] = [str(datetime.now()), u'', 1]
+                #RESULTS[u'018_FECHA'] = [str(datetime.now()), u'', 1]
+                #RESULTS[u'018_FECHA'] = [datetime.now().isoformat('_'), u'', 1]
+                RESULTS[u'018_FECHA'] = [strftime("%y%m%d_%H%M%S"), u'', 1]
                 RESULTS[u'019_PROVINCIA'] = [p, u'', 1]
 
                 self.igp = igp
@@ -440,9 +443,13 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         # Add all layers in map canvas to render
         myMapRenderer = self.canvas.mapRenderer()
 
-        savePDFFileName = QtGui.QFileDialog.getSaveFileName(None, 
+        savePDFFileName = QtGui.QFileDialog.getSaveFileName(None,
             u'Guardar como PDF', 
-            os.path.join(QtCore.QDir.homePath(), 'report_IGP_%s_00x.pdf' % (self.igp_des)), 
+            #os.path.join(QtCore.QDir.homePath(), 'report_IGP_%s_00x.pdf' % (self.igp_des)),
+            #os.path.join(QtCore.QDir.homePath(),
+            #             'IGP_%s.pdf' % datetime.strftime("%y%m%d-%H%M%S",
+            #                                              datetime.strptime(RESULTS[u'018_FECHA'][0]))),
+            os.path.join(QtCore.QDir.homePath(), 'IGP_%s.pdf' % RESULTS[u'018_FECHA'][0]),
             u'PDF files (*.pdf)')
 
         if not savePDFFileName:
