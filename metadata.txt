@@ -21,7 +21,7 @@ about=Este complemento realiza el cálculo del índice de gravedad potencial de 
 # Optional items:
 
 # Uncomment the following line and add your changelog entries:
-changelog=add date time to report name
+changelog=resolve bug 2.6
 
 # tags are comma separated with spaces allowed
 tags=igp, canaray islands, spain, forest, fire, fuego, incendio
