@@ -11,7 +11,7 @@
 name=IGP
 qgisMinimumVersion=2.0
 description=Cálculo del índice de gravedad potencial de incendio forestal
-version=1.1
+version=1.2
 author=Félix José Hernández
 email=contacto@felixjosehernandez.es
 about=Este complemento realiza el cálculo del índice de gravedad potencial de incendio forestal, generando una capa temporal de puntos y un informe en PDF
