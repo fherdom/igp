@@ -169,7 +169,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         """
         """
         # TODO: add point to layer
-        if len(QgsMapLayerRegistry().instance().mapLayersByName(u"Resultados IGP")) == 0 or not self.layerigp:
+        if len(QgsMapLayerRegistry.instance().mapLayersByName(u"Resultados IGP")) == 0 or not self.layerigp:
         #if not self.layerigp:
             self.createIGPLayer()
         
@@ -334,7 +334,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         :param layerid:
         :return:
         """
-        aux = QgsMapLayerRegistry().instance().mapLayersByName(layername)
+        aux = QgsMapLayerRegistry.instance().mapLayersByName(layername)
         self.log("%s %s" % (aux, layername))
         return True if len(aux) > 0 else False
 
@@ -345,7 +345,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         :param layerid:
         :return:
         """
-        aux = QgsMapLayerRegistry().instance().mapLayersByName(layername)
+        aux = QgsMapLayerRegistry.instance().mapLayersByName(layername)
         rlayer = aux[0]
         results = rlayer.dataProvider().identify(pto, QgsRaster.IdentifyFormatValue).results()
         self.log("%s" % results)
@@ -357,7 +357,7 @@ class IGPDialog(QtGui.QDialog, Ui_IGPDialog):
         :return:
         """
         try:
-            aux = QgsMapLayerRegistry().instance().mapLayersByName(LAYER_MUNICIPIOS)
+            aux = QgsMapLayerRegistry.instance().mapLayersByName(LAYER_MUNICIPIOS)
             vlayer = aux[0]
 
             # 5 meters
